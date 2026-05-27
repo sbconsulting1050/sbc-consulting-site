@@ -18,7 +18,7 @@
 }
 html{scroll-behavior:smooth;font-size:15px}
 body{background:var(--bg);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;overflow-x:hidden;line-height:1.6}
-
+ 
 /* ── HERO ── */
 #heroScreen{min-height:100vh;background:#0a0d14;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:6rem 2rem 5rem}
 #heroScreen::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(61,127,255,.22) 0%,transparent 70%);top:-180px;left:-200px;pointer-events:none}
@@ -54,7 +54,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Segoe UI',system-ui,sans
 .hr-saving{display:inline-flex;align-items:center;gap:.3rem;background:rgba(34,192,112,.12);border:1px solid rgba(34,192,112,.25);color:#22c070;font-size:.64rem;font-weight:800;padding:.16rem .6rem;border-radius:50px}
 .hero-trust-bar{position:absolute;bottom:0;left:0;right:0;border-top:1px solid rgba(255,255,255,.06);padding:.75rem 2rem;display:flex;align-items:center;justify-content:center;gap:1.8rem;flex-wrap:wrap;z-index:2}
 .htb-item{display:flex;align-items:center;gap:.4rem;font-size:.69rem;font-weight:600;color:rgba(255,255,255,.32)}
-
+ 
 /* ── PROFILE SCREEN ── */
 #profileScreen{display:none;min-height:100vh;background:var(--bg);align-items:center;justify-content:center;padding:4rem 2rem}
 #profileScreen.show{display:flex}
@@ -68,7 +68,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Segoe UI',system-ui,sans
 .pm-btn-icon{font-size:1.6rem;flex-shrink:0}
 .pm-btn-label{font-weight:700;font-size:.9rem;color:var(--ink);margin-bottom:.1rem}
 .pm-btn-desc{font-size:.73rem;color:var(--muted)}
-
+ 
 /* ── APP SCREEN ── */
 #appScreen{display:none}
 nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(12px)}
@@ -86,7 +86,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .tva-pill{background:var(--green-bg);border:1.5px solid var(--green-border);color:var(--green);padding:.28rem .9rem;border-radius:50px;font-size:.74rem;font-weight:700;display:none;align-items:center;gap:.35rem}
 .tva-pill.on{display:flex}
 .wrap{max-width:840px;margin:0 auto;padding:2.5rem 1.3rem 5rem}
-
+ 
 /* ── STEPPER ── */
 .stepper{display:flex;align-items:flex-start;margin-bottom:2.5rem;gap:0}
 .si{flex:1;min-width:60px;display:flex;flex-direction:column;align-items:center;gap:.38rem;position:relative}
@@ -104,7 +104,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .card-sub{font-size:.73rem;color:var(--muted)}
 .divider{height:1px;background:var(--border);margin:1.2rem 0}
 .sec-label{font-size:.62rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.6rem}
-
+ 
 /* ── SEARCH WIDGET ── */
 .sw{position:relative;max-width:440px}
 .s-inp{width:100%;background:var(--bg3);border:1.5px solid var(--border2);color:var(--ink);border-radius:var(--r);padding:.72rem 1rem .72rem 2.7rem;font-family:inherit;font-size:.88rem;font-weight:500;outline:none;transition:all .2s}
@@ -125,13 +125,13 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .autre-wrap.show{display:flex}
 .autre-inp{flex:1;background:var(--bg3);border:1.5px solid var(--blue-border);color:var(--ink);border-radius:var(--r);padding:.55rem .85rem;font-family:inherit;font-size:.86rem;font-weight:500;outline:none}
 .autre-lbl{font-size:.74rem;font-weight:700;color:var(--blue2);white-space:nowrap}
-
+ 
 /* ── CHIPS ── */
 .chips{display:flex;flex-wrap:wrap;gap:.4rem}
 .chip{background:var(--bg3);border:1.5px solid var(--border2);border-radius:50px;padding:.38rem .9rem;cursor:pointer;transition:all .18s;font-size:.77rem;font-weight:600;color:var(--ink2)}
 .chip:hover{border-color:var(--blue);color:var(--blue2)}
 .chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
-
+ 
 /* ── NET GRID ── */
 .net-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:.5rem;margin-bottom:1.2rem}
 .nc{background:var(--bg3);border:1.5px solid var(--border2);border-radius:10px;padding:.7rem .6rem;cursor:pointer;transition:all .22s;text-align:center;position:relative}
@@ -147,7 +147,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .nc-warn{font-size:.6rem;background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-border);padding:.07rem .45rem;border-radius:50px;display:inline-block;margin-bottom:.1rem;font-weight:600}
 .nc-price{font-size:.82rem;font-weight:700;color:var(--ink);margin-top:.22rem;line-height:1}
 .nc-price span{font-size:.62rem;font-weight:400;color:var(--muted)}
-
+ 
 /* ── OPTIONS ── */
 .opt-list{display:flex;flex-direction:column;gap:.45rem}
 .opt{display:flex;align-items:center;justify-content:space-between;background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--r);padding:.8rem 1rem;cursor:pointer;transition:all .18s}
@@ -165,7 +165,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .tog::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:var(--ink2);transition:transform .2s;box-shadow:0 1px 4px rgba(0,0,0,.4)}
 .opt.on .tog{background:var(--green)}
 .opt.on .tog::after{transform:translateX(18px);background:#fff}
-
+ 
 /* ── PROMO CARDS ── */
 .promo-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.1rem}
 .pc{background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--r);padding:1.4rem 1.1rem;cursor:pointer;transition:all .22s;text-align:center;position:relative}
@@ -182,7 +182,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .pc-engage{display:flex;align-items:center;justify-content:center;margin:.55rem 0 .28rem;background:var(--green-bg);border:1.5px solid var(--green-border);border-radius:8px;padding:.45rem .65rem}
 .pc-engage-txt{font-size:.74rem;font-weight:700;color:var(--green)}
 .pc-renew{font-size:.6rem;color:var(--muted);line-height:1.6;font-style:italic;margin-top:.35rem}
-
+ 
 /* ── RECAP ── */
 .recap{background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--r);padding:1.5rem;margin-bottom:.9rem}
 .recap-empty{font-size:.82rem;color:var(--muted);text-align:center;padding:.4rem 0}
@@ -196,7 +196,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .tva-recap{margin-top:.85rem;background:var(--gold-bg);border:1.5px solid var(--gold-border);border-radius:10px;padding:.55rem 1rem;font-size:.77rem;color:var(--gold);display:flex;justify-content:space-between;font-weight:700}
 .promo-notice{background:var(--gold-bg);border:1.5px solid var(--gold-border);border-radius:10px;padding:.75rem 1rem;margin-bottom:1rem;font-size:.78rem;color:var(--gold);line-height:1.65;display:none}
 .promo-notice.show{display:block}
-
+ 
 /* ── SUIVI BOX ── */
 .suivi-box{background:linear-gradient(135deg,rgba(61,127,255,.12) 0%,rgba(61,127,255,.06) 100%);border:1.5px solid var(--blue-border);border-radius:var(--r);padding:1.3rem 1.5rem;margin-bottom:1rem}
 .suivi-inner{display:flex;align-items:flex-start;gap:1rem}
@@ -206,12 +206,12 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .suivi-desc strong{color:var(--ink);font-weight:700}
 .suivi-pills{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.65rem}
 .suivi-pill{display:inline-flex;align-items:center;gap:.3rem;background:rgba(61,127,255,.12);border:1px solid var(--blue-border);color:var(--blue2);padding:.2rem .65rem;border-radius:50px;font-size:.66rem;font-weight:700}
-
+ 
 /* ── ENG NOTICE ── */
 .eng-notice{background:var(--green-bg);border:1.5px solid var(--green-border);border-radius:var(--r);padding:.9rem 1.1rem;margin-top:.7rem;display:none}
 .eng-notice p{font-size:.78rem;color:var(--ink2);line-height:1.7}
 .eng-notice strong{color:var(--green);font-weight:700}
-
+ 
 /* ── MOBILE SECTIONS ── */
 .mob-section{background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--r);padding:1.1rem;margin-bottom:.85rem}
 .mob-section-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.35rem;flex-wrap:wrap}
@@ -261,7 +261,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .cm-sinp{width:100%;background:var(--bg3);border:1.5px solid var(--border2);color:var(--ink);border-radius:8px;padding:.45rem .75rem;font-family:inherit;font-size:.78rem;font-weight:500;outline:none}
 .cm-sinp:focus{border-color:var(--blue)}
 .cm-sinp::placeholder{color:var(--muted);font-weight:400}
-
+ 
 /* ── FORM ── */
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
 .field{display:flex;flex-direction:column;gap:.25rem}
@@ -275,19 +275,12 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .send-btn{width:100%;margin-top:1.2rem;background:linear-gradient(135deg,var(--blue) 0%,var(--blue3) 100%);color:#fff;border:none;border-radius:var(--r);padding:1.1rem;font-family:inherit;font-weight:800;font-size:.95rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.55rem}
 .send-btn:hover:not(:disabled){background:linear-gradient(135deg,var(--blue2) 0%,var(--blue) 100%);transform:translateY(-2px)}
 .send-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
-
+ 
 /* ── ERROR BOX ── */
 .form-error{background:var(--red-bg);border:1.5px solid var(--red-border);border-radius:var(--r);padding:.9rem 1.1rem;margin-top:.8rem;display:none}
 .form-error p{font-size:.8rem;color:#ff7070;line-height:1.65}
 .form-error strong{color:#ff4040;font-weight:700}
-
-/* ── OK BOX (legacy) ── */
-.ok-box{display:none;text-align:center;background:var(--green-bg);border:1.5px solid var(--green-border);border-radius:var(--r);padding:2.2rem 1.6rem;margin-top:1rem}
-.ok-box.show{display:block}
-.ok-icon{font-size:2.6rem;margin-bottom:.6rem}
-.ok-title{font-size:1.5rem;font-weight:800;color:var(--green);margin-bottom:.35rem}
-.ok-sub{color:var(--muted);font-size:.83rem;line-height:1.7}
-
+ 
 /* ── CONFIRM SCREEN ── */
 #confirmScreen{display:none;min-height:100vh;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem}
 .confirm-wrap{max-width:560px;width:100%}
@@ -298,7 +291,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .confirm-msg{font-size:1.05rem;color:var(--ink);line-height:1.75;font-weight:500}
 .confirm-pills{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1.5rem}
 .confirm-pill{display:inline-flex;align-items:center;gap:.35rem;background:rgba(61,127,255,.12);border:1px solid var(--blue-border);color:var(--blue2);padding:.3rem .9rem;border-radius:50px;font-size:.74rem;font-weight:700}
-
+ 
 /* ── STEP SECTIONS ── */
 .step-section{display:none}
 .step-section.visible{display:block}
@@ -307,16 +300,16 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .next-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--blue);color:#fff;padding:.72rem 1.6rem;border-radius:8px;font-family:inherit;font-weight:800;font-size:.85rem;border:none;cursor:pointer;transition:all .2s}
 .next-btn:hover{background:var(--blue2);transform:translateY(-1px)}
 .nav-row{margin-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem}
-
+ 
 /* ── BUDGET ── */
 .budget-hint{font-size:.72rem;color:var(--muted);line-height:1.55}
 .budget-wrap{display:flex;align-items:center;gap:.5rem;background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--r);padding:.6rem .9rem;margin-top:.3rem;max-width:180px;transition:border-color .18s}
 .budget-inp{background:transparent;border:none;outline:none;font-family:inherit;font-size:.95rem;font-weight:700;color:var(--ink);width:100%}
-
+ 
 /* ── FOOTER ── */
 footer{text-align:center;padding:2rem;border-top:1.5px solid var(--border);background:var(--bg2);color:var(--muted);font-size:.76rem}
 footer strong{color:var(--ink2);font-weight:800}
-
+ 
 /* ── RESPONSIVE ── */
 @media(max-width:580px){
   .net-grid{grid-template-columns:1fr 1fr}
@@ -332,7 +325,7 @@ footer strong{color:var(--ink2);font-weight:800}
 </style>
 </head>
 <body>
-
+ 
 <!-- ═══════════════════════════════════════════════
      HERO SCREEN
 ═══════════════════════════════════════════════ -->
@@ -363,7 +356,7 @@ footer strong{color:var(--ink2);font-weight:800}
     <div class="htb-item">🔒 <span id="htb4"></span></div>
   </div>
 </div>
-
+ 
 <!-- ═══════════════════════════════════════════════
      PROFILE SCREEN
 ═══════════════════════════════════════════════ -->
@@ -378,7 +371,7 @@ footer strong{color:var(--ink2);font-weight:800}
     </div>
   </div>
 </div>
-
+ 
 <!-- ═══════════════════════════════════════════════
      APP SCREEN
 ═══════════════════════════════════════════════ -->
@@ -400,7 +393,7 @@ footer strong{color:var(--ink2);font-weight:800}
   </div>
   <div class="wrap">
     <div class="stepper" id="stepper"></div>
-
+ 
     <!-- ── ÉTAPE 1 ── -->
     <div class="card" id="step1">
       <div class="card-head"><div class="card-num">1</div><div><div class="card-title" id="s1title"></div><div class="card-sub" id="s1sub"></div></div></div>
@@ -441,7 +434,7 @@ footer strong{color:var(--ink2);font-weight:800}
       </div>
       <div class="nav-row" style="justify-content:flex-end"><button class="next-btn" type="button" id="btn1next"></button></div>
     </div>
-
+ 
     <!-- ── ÉTAPE 2 ── -->
     <div class="card step-section" id="step2">
       <div class="card-head"><div class="card-num">2</div><div><div class="card-title" id="s2title"></div><div class="card-sub" id="s2sub"></div></div></div>
@@ -452,7 +445,7 @@ footer strong{color:var(--ink2);font-weight:800}
       <div class="opt-list" id="optList"></div>
       <div class="nav-row"><button class="back-btn" type="button" id="btn2back"></button><button class="next-btn" type="button" id="btn2next"></button></div>
     </div>
-
+ 
     <!-- ── ÉTAPE 3 ── -->
     <div class="card step-section" id="step3">
       <div class="card-head"><div class="card-num">3</div><div><div class="card-title" id="s3title"></div><div class="card-sub" id="s3sub"></div></div></div>
@@ -472,7 +465,7 @@ footer strong{color:var(--ink2);font-weight:800}
       </div>
       <div class="nav-row"><button class="back-btn" type="button" id="btn3back"></button><button class="next-btn" type="button" id="btn3next"></button></div>
     </div>
-
+ 
     <!-- ── ÉTAPE 4 ── -->
     <div class="card step-section" id="step4">
       <div class="card-head"><div class="card-num">4</div><div><div class="card-title" id="s4title"></div><div class="card-sub" id="s4sub"></div></div></div>
@@ -494,11 +487,11 @@ footer strong{color:var(--ink2);font-weight:800}
       <div class="recap" id="promoRecap"></div>
       <div class="nav-row"><button class="back-btn" type="button" id="btn4back"></button><button class="next-btn" type="button" id="btn4next"></button></div>
     </div>
-
+ 
     <!-- ── ÉTAPE 5 — FORMULAIRE ── -->
     <div class="card step-section" id="step5">
       <div class="card-head"><div class="card-num">5</div><div><div class="card-title" id="s5title"></div><div class="card-sub" id="s5sub"></div></div></div>
-
+ 
       <div class="form-grid" id="formFields">
         <div class="field"><label id="lPrenom"></label><input type="text" id="f_prenom" required></div>
         <div class="field"><label id="lNom"></label><input type="text" id="f_nom" required></div>
@@ -517,15 +510,15 @@ footer strong{color:var(--ink2);font-weight:800}
         </div>
       </div>
     </div>
-
+ 
   </div><!-- /.wrap -->
-
+ 
   <footer>
     <strong>SBC Consulting</strong> — <span id="footerSub"></span><br>
     <span style="margin-top:.25rem;display:block" id="footerNote"></span>
   </footer>
 </div><!-- /#appScreen -->
-
+ 
 <!-- ═══════════════════════════════════════════════
      CONFIRM SCREEN
 ═══════════════════════════════════════════════ -->
@@ -546,10 +539,10 @@ footer strong{color:var(--ink2);font-weight:800}
     </div>
   </div>
 </div>
-
+ 
 <script>
 (function(){
-
+ 
 /* ========================================================================
    TRADUCTIONS
    ======================================================================== */
@@ -559,24 +552,29 @@ nl:{kicker:"Telecommakelaar · België",h1a:"Vergelijk.",h1b:"Bespaar.",heroSub:
 en:{kicker:"Telecom Broker · Belgium",h1a:"Compare.",h1b:"Save.",heroSub:"A personal consultant. A tailored analysis. Real savings from the very first month.",heroBtn:"Start for free →",heroBtnNote:"100% free · No commitment",stat1num:"+230",stat1lbl:"Satisfied clients",stat2num:"−€47",stat2lbl:"Savings/month",stat3num:"24h",stat3lbl:"Response time",reviewsLabel:"What our clients say",r1text:'"Honestly I couldn\'t be bothered to switch, I thought it would be complicated. The consultant handled everything in 20 minutes. Result: €53 less per month, same speed, same TV. I feel stupid for not doing it sooner."',r1name:"— Nathalie D., Brussels · Proximus → SBC",r1saving:"−€53/month",r2text:'"I was convinced my operator gave me the best price because I\'d been a customer for 11 years. My consultant went through my bill in detail. I was paying for options I\'d completely forgotten about. €41 recovered, without losing a thing."',r2name:"— Yves M., Liège · 11-year Telenet customer",r2saving:"−€41/month",r3text:'"They said it was free and no commitment. I looked for the catch. There wasn\'t one. My husband and I now save €116 a month between us. We\'ve told the whole family."',r3name:"— Isabelle V., Ghent · With her husband",r3saving:"−€58/month",htb4:"No commitment",pmTitle:"What is your profile?",pmSub:"Choose your profile to receive tailored offers.",pmPart:"Individual",pmPartDesc:"Residential offers · Prices incl. VAT",pmPro:"Professional",pmProDesc:"Business offers · VAT reclaimable",navFree:"100% free",tb1:"satisfied clients",tb2:"average savings",tb3a:"Reply within",tb3b:"24h",tb4:"No commitment · Confidential",tvaText:"VAT reclaimable",pbChange:"Change profile",steps:["Situation","Internet","Mobile","Promo","Contact"],s1title:"Your current situation",s1sub:"Tell us what you have today",s1opLabel:"Current Internet / TV / Landline operator",s1mobOpLabel:"Current mobile operator",specify:"Specify:",autreOpPh:"Name of your current operator…",autreMobPh:"Name of your mobile operator…",s1servLabel:"Services in your current subscription",chipTV:"📺 Television",chipFixe:"☎️ Landline",chipMobile:"📱 Mobile(s)",s1engLabel:"Phone on monthly instalments?",engNo:"✅ No, I'm free",engYes:"📲 Yes, I'm paying off my device",engNoticeTitle:"No problem.",engNoticeText:"Our reduced rates apply immediately to all your other services.",s1budgetLabel:"What you currently pay",budgetHint:"Total amount of your current monthly bill, all services combined.",btnContinue:"Continue →",btnBack:"← Back",btnValidate:"Confirm & continue →",s2title:"Your internet offer & options",s2sub:"Choose your connection, then add your options",s2netLabel:"Internet connection",ncWarn:"If fibre unavailable",fiberLabel:"Fibre optic",s2optLabel:"Options",tvDesc:"+80 channels · 1st TV-Box free · Replay",wifiDesc:"Optimal WiFi coverage throughout your home",free1yr:"Free 1 year",fixeLabel:"Landline",fixeDesc:"Unlimited national calls · No hidden fees",s3title:"Your mobile lines",s3sub:"Describe your current lines, then choose your new offers",curMobTitle:"Your current mobile lines",today:"Today",curMobSub:"For each mobile: operator, contract type, data volume and monthly price.",curMobLbl:"current line(s) (max 6)",newMobTitle:"Desired mobile lines with us",newOffer:"New offer",simLbl:"desired SIM line(s) (max 6)",portTitle:"Keep or change your number.",portText:"Your consultant handles all portability steps.",deviceTitle:"Acquiring a new device.",deviceText:"Cash purchase or instalments, your consultant guides you.",s4title:"Your promotion & summary",s4sub:"Choose your duration — your total updates in real time",s4promoLabel:"Promotional duration",suiviTitle:"A personal consultant is assigned to you",suiviDesc:"Upon confirmation, <strong>a dedicated consultant personally takes charge of your file</strong>. They give you their direct number. <strong>Reply guaranteed within 24h.</strong>",spDirect:"📞 Direct number",spPrivate:"🔒 Private follow-up",sp24h:"⚡ Within 24h",spFree:"🎁 100% free",s4recapLabel:"Summary of your offer",recapEmpty:"Select a promotion above",promoNoticeText:"ℹ️ <strong>6-month promo:</strong> the −€10/mo discount only activates when you combine internet with at least one additional service.",s5title:"Your contact details",s5sub:"Your consultant will contact you within 24h",fPrenom:"First name *",fNom:"Last name *",fAdresse:"Address *",fCP:"Postcode *",fVille:"City *",fTel:"Phone *",fEmail:"Email *",fTVA:"VAT number",fMsg:"Message (optional)",phPrenom:"John",phNom:"Smith",phAdresse:"16 Law Street",phVille:"Brussels",phMsg:"Desired phone model, questions…",sendBtn:"Receive my personalised offer — Free & no commitment →",formErrorTitle:"An error occurred.",formErrorText:"Please check your internet connection and try again.",footerSub:"Domestic charges broker · Belgium",footerNote:"100% free service · Prices incl. VAT",searchOp:"Search your operator…",searchMob:"Search your mobile operator…",postpaid:"Monthly subscription",prepaid:"Prepaid",credit:"Device on instalments",dataVol:"Data volume",calls:"Calls & SMS",monthlyPrice:"Current monthly price",notSpec:"Not specified",lessThan5:"Less than 5 GB",from5to10:"5 to 10 GB",from10to20:"10 to 20 GB",from20to50:"20 to 50 GB",from50to100:"50 to 100 GB",unlimited:"Unlimited",limitedCalls:"Limited",unlimitedCalls:"Unlimited",packTab:"📦 In the Pack",aloneTab:"📋 Without Pack",aloneNote:"Standalone rate — no Pack discount",discLabel:"Pack",contractType:"Contract type",curCardTitle:"📱 Current line",opLabel:"Current operator",searchMobPh:"Search…",free1yrShort:"Free 1 year",mobPackSubHtml:'<strong style="color:var(--blue2)">In the Pack</strong> — 1st mobile <strong style="color:var(--green)">−€10/mo</strong>, from 2nd onwards <strong style="color:var(--green)">−€5/mo</strong>.'},
 de:{kicker:"Telecom-Makler · Belgien",h1a:"Vergleichen.",h1b:"Sparen.",heroSub:"Ein persönlicher Berater. Eine maßgeschneiderte Analyse. Echte Ersparnisse ab dem ersten Monat.",heroBtn:"Kostenlos starten →",heroBtnNote:"100% kostenlos · Ohne Verpflichtung",stat1num:"+230",stat1lbl:"Zufriedene Kunden",stat2num:"−47€",stat2lbl:"Ersparnis/Monat",stat3num:"24h",stat3lbl:"Antwortzeit",reviewsLabel:"Was unsere Kunden sagen",r1text:'"Ehrlich gesagt hatte ich keine Lust zu wechseln, ich dachte es wäre kompliziert. Der Berater hat alles in 20 Minuten geregelt. 53€ weniger pro Monat, gleiche Geschwindigkeit, gleiches TV. Ich ärgere mich, dass ich das nicht früher gemacht habe."',r1name:"— Nathalie D., Brüssel · Proximus → SBC",r1saving:"−53€/Monat",r2text:'"Ich war überzeugt, dass mein Anbieter mir den besten Preis gibt, weil ich seit 11 Jahren Kunde war. Mein Berater hat meine Rechnung durchgegangen. Ich zahlte für Optionen, an die ich mich nicht mal erinnern konnte. 41€ zurückgewonnen, ohne etwas zu verlieren."',r2name:"— Yves M., Lüttich · 11 Jahre Telenet-Kunde",r2saving:"−41€/Monat",r3text:'"Sie sagten, es sei kostenlos und ohne Verpflichtung. Ich suchte den Haken. Es gab keinen. Mein Mann und ich sparen jetzt zusammen 116€ pro Monat. Wir haben es der ganzen Familie erzählt."',r3name:"— Isabelle V., Gent · Mit ihrem Mann",r3saving:"−58€/Monat",htb4:"Ohne Verpflichtung",pmTitle:"Was ist Ihr Profil?",pmSub:"Wählen Sie Ihr Profil für maßgeschneiderte Angebote.",pmPart:"Privatperson",pmPartDesc:"Privathaushalte · Preise inkl. MwSt.",pmPro:"Unternehmen",pmProDesc:"Geschäftsangebote · MwSt. erstattbar",navFree:"100% kostenlos",tb1:"zufriedene Kunden",tb2:"durchschnittliche Ersparnis",tb3a:"Antwort innerhalb",tb3b:"24h",tb4:"Ohne Verpflichtung · Vertraulich",tvaText:"MwSt. erstattbar",pbChange:"Profil ändern",steps:["Situation","Internet","Mobil","Promo","Kontakt"],s1title:"Ihre aktuelle Situation",s1sub:"Sagen Sie uns, was Sie heute haben",s1opLabel:"Aktueller Internet / TV / Festnetz-Anbieter",s1mobOpLabel:"Aktueller Mobilanbieter",specify:"Angeben:",autreOpPh:"Name Ihres aktuellen Anbieters…",autreMobPh:"Name Ihres Mobilanbieters…",s1servLabel:"Dienste in Ihrem aktuellen Abonnement",chipTV:"📺 Fernsehen",chipFixe:"☎️ Festnetz",chipMobile:"📱 Mobil(e)",s1engLabel:"Telefon auf monatliche Raten?",engNo:"✅ Nein, ich bin frei",engYes:"📲 Ja, ich zahle mein Gerät ab",engNoticeTitle:"Kein Problem.",engNoticeText:"Unsere reduzierten Tarife gelten sofort für alle Ihre anderen Dienste.",s1budgetLabel:"Was Sie derzeit zahlen",budgetHint:"Gesamtbetrag Ihrer aktuellen Monatsrechnung.",btnContinue:"Weiter →",btnBack:"← Zurück",btnValidate:"Bestätigen & weiter →",s2title:"Ihr Internetangebot & Optionen",s2sub:"Wählen Sie Ihre Verbindung, dann fügen Sie Optionen hinzu",s2netLabel:"Internetverbindung",ncWarn:"Falls Glasfaser nicht verfügbar",fiberLabel:"Glasvezel",s2optLabel:"Optionen",tvDesc:"+80 Sender · 1. TV-Box kostenlos · Replay",wifiDesc:"Optimale WLAN-Abdeckung im ganzen Haus",free1yr:"1 Jahr kostenlos",fixeLabel:"Festnetz",fixeDesc:"Unbegrenzte Inlandsgespräche",s3title:"Ihre Mobillinien",s3sub:"Beschreiben Sie Ihre aktuellen Leitungen",curMobTitle:"Ihre aktuellen Mobillinien",today:"Heute",curMobSub:"Für jedes Gerät: Anbieter, Vertragstyp, Datenvolumen und Monatspreis.",curMobLbl:"aktuelle Linie(n) (max. 6)",newMobTitle:"Gewünschte Mobillinien bei uns",newOffer:"Neues Angebot",simLbl:"gewünschte SIM-Linie(n) (max. 6)",portTitle:"Nummer behalten oder wechseln.",portText:"Ihr Berater kümmert sich um alle Portabilitätsschritte.",deviceTitle:"Erwerb eines neuen Geräts.",deviceText:"Barkauf oder Ratenzahlung, Ihr Berater führt Sie.",s4title:"Ihre Aktion & Zusammenfassung",s4sub:"Wählen Sie Ihre Dauer — Ihr Gesamtbetrag wird in Echtzeit aktualisiert",s4promoLabel:"Aktionsdauer",suiviTitle:"Ein persönlicher Berater wird Ihnen zugewiesen",suiviDesc:"Nach der Bestätigung <strong>übernimmt ein dedizierter Berater Ihre Akte persönlich</strong>. Er teilt Ihnen seine Direktnummer mit. <strong>Garantierte Antwort innerhalb von 24h.</strong>",spDirect:"📞 Direktnummer",spPrivate:"🔒 Private Begleitung",sp24h:"⚡ Innerhalb 24h",spFree:"🎁 100% kostenlos",s4recapLabel:"Zusammenfassung Ihres Angebots",recapEmpty:"Wählen Sie eine Aktion oben",promoNoticeText:"ℹ️ <strong>6-Monats-Aktion:</strong> der −10€/Monat-Rabatt gilt nur bei Kombination mit einem weiteren Dienst.",s5title:"Ihre Kontaktdaten",s5sub:"Ihr Berater kontaktiert Sie innerhalb von 24h",fPrenom:"Vorname *",fNom:"Nachname *",fAdresse:"Adresse *",fCP:"Postleitzahl *",fVille:"Stadt *",fTel:"Telefon *",fEmail:"E-Mail *",fTVA:"MwSt.-Nummer",fMsg:"Nachricht (optional)",phPrenom:"Hans",phNom:"Müller",phAdresse:"Gesetzstraße 16",phVille:"Brüssel",phMsg:"Gewünschtes Telefonmodell, Fragen…",sendBtn:"Mein personalisiertes Angebot erhalten — Kostenlos & ohne Verpflichtung →",formErrorTitle:"Ein Fehler ist aufgetreten.",formErrorText:"Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",footerSub:"Makler für Haushaltskosten · Belgien",footerNote:"100% kostenloser Service · Preise inkl. MwSt.",searchOp:"Suchen Sie Ihren Anbieter…",searchMob:"Suchen Sie Ihren Mobilanbieter…",postpaid:"Monatsabonnement",prepaid:"Prepaid",credit:"Gerät auf Raten",dataVol:"Datenvolumen",calls:"Anrufe & SMS",monthlyPrice:"Aktueller Monatspreis",notSpec:"Nicht angegeben",lessThan5:"Weniger als 5 GB",from5to10:"5 bis 10 GB",from10to20:"10 bis 20 GB",from20to50:"20 bis 50 GB",from50to100:"50 bis 100 GB",unlimited:"Unbegrenzt",limitedCalls:"Begrenzt",unlimitedCalls:"Unbegrenzt",packTab:"📦 Im Pack",aloneTab:"📋 Ohne Pack",aloneNote:"Einzeltarif — ohne Pack-Rabatt",discLabel:"Pack",contractType:"Vertragstyp",curCardTitle:"📱 Aktuelle Linie",opLabel:"Aktueller Anbieter",searchMobPh:"Suchen…",free1yrShort:"1 Jahr kostenlos",mobPackSubHtml:'<strong style="color:var(--blue2)">Im Pack</strong> — 1. Mobil <strong style="color:var(--green)">−10€/Monat</strong>, ab dem 2. <strong style="color:var(--green)">−5€/Monat</strong>.'}
 };
-
+ 
 const LANGS=['fr','nl','en','de'];
 const OPS_FIXE=[{n:'Proximus',e:'📡'},{n:'VOO',e:'🔵'},{n:'Telenet',e:'🟠'},{n:'Orange Belgium',e:'🟡'},{n:'Scarlet',e:'🔴'},{n:'EDPnet',e:'🌐'},{n:'VOO Business',e:'💼'},{n:'Proximus Business',e:'💼'},{n:'Digi Belgium',e:'📶'},{n:'Cheapi',e:'💛'},{n:'Destiny',e:'🚀'},{n:'Autre',e:'❓'}];
 const OPS_MOB=[{n:'Proximus Mobile',e:'📡'},{n:'Orange Belgium Mobile',e:'🟡'},{n:'Base (Telenet)',e:'📶'},{n:'Telenet Mobile',e:'🟠'},{n:'VOO Mobile',e:'🔵'},{n:'Mobile Vikings',e:'⚔️'},{n:'Scarlet Mobile',e:'🔴'},{n:'Digi Mobile',e:'📶'},{n:'Lycamobile',e:'🌍'},{n:'Lebara',e:'🌐'},{n:'Cheapi Mobile',e:'💛'},{n:'Pas de mobile',e:'🚫'},{n:'Autre',e:'❓'}];
 const PACK=[{id:'easy',name:'Easy',data:'20 GB 5G',calls:'Appels illimités',europe:'🌍 Europe 20 GB',base:15},{id:'maxi',name:'Maxi',data:'85 GB 5G',calls:'Appels illimités',europe:'🌍 Europe 85 GB',base:26},{id:'unlim',name:'Unlimited',data:'Illimité 5G',calls:'Appels illimités',europe:'🌍 Europe illimité',base:33}];
 const ALONE=[{id:'easy',name:'Easy',data:'10 GB 5G',calls:'Appels illimités',final:16.99},{id:'smar',name:'Smart',data:'35 GB 5G',calls:'Appels illimités',final:19.99},{id:'maxi',name:'Maxi',data:'70 GB 5G',calls:'Appels illimités',final:21.99},{id:'unlim',name:'Unlimited',data:'Illimité 5G',calls:'Appels illimités',final:35}];
-
+ 
+/* ════════════════════════════════════════════════
+   ⚙️ CONFIG FORMSPREE
+   ════════════════════════════════════════════════ */
+const FORMSPREE_URL = 'https://formspree.io/f/mpqnkwgb';
+ 
 let lang='fr';
 function tr(k){return (T[lang]&&T[lang][k])||T.fr[k]||k;}
-
+ 
 const S={profile:'part',promo:6,operateur:'',operateurMobile:'',operateurAutre:'',operateurMobileAutre:'',engagement:'',hasServices:{},budgetActuel:0,internet:null,netPrice:0,netName:'',opts:{},curMobCount:0,curMobs:[],simCount:0,sims:[],currentStep:1};
-
+ 
 /* ── HELPERS ── */
 function set(id,v){const el=document.getElementById(id);if(el)el.innerHTML=v;}
 function ph(id,v){const el=document.getElementById(id);if(el)el.placeholder=v;}
 function setVal(id,v){const el=document.getElementById(id);if(el)el.value=v;}
-function gv(id){const el=document.getElementById(id);return el?el.value:'';}
-
+function gv(id){const el=document.getElementById(id);return el?el.value.trim():'';}
+ 
 /* ── LANGUE ── */
 function buildLangBar(){
   const bar=document.getElementById('langBar');bar.innerHTML='';
@@ -586,7 +584,7 @@ function buildLangBar(){
   });
 }
 function setLang(l){lang=l;buildLangBar();renderAll();}
-
+ 
 /* ── RENDER ALL ── */
 function renderAll(){
   set('kicker',tr('kicker'));set('h1a',tr('h1a'));set('h1b',tr('h1b'));set('heroSub',tr('heroSub'));
@@ -625,7 +623,7 @@ function renderAll(){
   if(S.simCount>0)renderSimLines();
   buildPromoCards();updateRecap();
 }
-
+ 
 /* ── STEPPER ── */
 function buildStepper(){
   const steps=tr('steps');const el=document.getElementById('stepper');el.innerHTML='';
@@ -636,7 +634,7 @@ function buildStepper(){
     el.appendChild(div);
   });
 }
-
+ 
 /* ── CHIPS SERVICES / ENGAGEMENT ── */
 function buildServChips(){
   const c=document.getElementById('servChips');
@@ -648,7 +646,7 @@ function buildServChips(){
     c.appendChild(d);
   });
 }
-
+ 
 function buildEngChips(){
   const c=document.getElementById('engChips');c.innerHTML='';
   [{v:'Non',l:tr('engNo')},{v:'Oui',l:tr('engYes')}].forEach(({v,l})=>{
@@ -661,7 +659,7 @@ function buildEngChips(){
     c.appendChild(d);
   });
 }
-
+ 
 /* ── RÉSEAU & OPTIONS ── */
 function buildNetGrid(){
   const g=document.getElementById('netGrid');
@@ -684,7 +682,7 @@ function buildNetGrid(){
     g.appendChild(d);
   });
 }
-
+ 
 function buildOptList(){
   const ol=document.getElementById('optList');
   const opts=[
@@ -704,12 +702,12 @@ function buildOptList(){
     ol.appendChild(d);
   });
 }
-
+ 
 function buildSuiviPills(){
   const p=document.getElementById('suiviPills');if(!p)return;
   p.innerHTML=[tr('spDirect'),tr('spPrivate'),tr('sp24h'),tr('spFree')].map(s=>`<span class="suivi-pill">${s}</span>`).join('');
 }
-
+ 
 /* ── DROPDOWNS OPÉRATEURS ── */
 function buildDD(ddId,list,key){
   const dd=document.getElementById(ddId);dd.innerHTML='';
@@ -719,7 +717,7 @@ function buildDD(ddId,list,key){
     d.addEventListener('mousedown',()=>selectOp(op,key));dd.appendChild(d);
   });
 }
-
+ 
 function openDD(ddId,key){const list=key==='operateur'?OPS_FIXE:OPS_MOB;buildDD(ddId,list,key);document.getElementById(ddId).classList.add('open');}
 function filterDD(inId,ddId,key){
   const q=document.getElementById(inId).value.toLowerCase();
@@ -732,7 +730,7 @@ function filterDD(inId,ddId,key){
   });
   dd.classList.add('open');
 }
-
+ 
 function selectOp(op,key){
   S[key]=op.n;
   const isFixed=key==='operateur';
@@ -745,20 +743,20 @@ function selectOp(op,key){
   document.getElementById(wrapId).classList.toggle('show',isAutre);
   if(!isAutre){document.getElementById(inpId).value='';S[key+'Autre']='';}
 }
-
+ 
 function clearOp(key){
   S[key]='';S[key+'Autre']='';
   const isFixed=key==='operateur';const boxId=isFixed?'bOp':'bMob';const wrapId=isFixed?'autreOpWrap':'autreMobWrap';const inpId=isFixed?'autreOp':'autreMob';
   document.getElementById(boxId).innerHTML='';document.getElementById(wrapId).classList.remove('show');document.getElementById(inpId).value='';
 }
-
+ 
 /* ── MOBILES ACTUELS ── */
 function changeCurMob(d){
   const n=Math.max(0,Math.min(6,S.curMobCount+d));S.curMobCount=n;
   while(S.curMobs.length<n)S.curMobs.push({type:'postpaid',data:'',calls:'',price:'',operateur:''});
   S.curMobs=S.curMobs.slice(0,n);document.getElementById('curMobVal').textContent=n;renderCurMobLines();
 }
-
+ 
 function renderCurMobLines(){
   const c=document.getElementById('curMobLines');c.innerHTML='';
   for(let i=0;i<S.curMobCount;i++){
@@ -783,7 +781,7 @@ function renderCurMobLines(){
     document.getElementById('cms_price_'+i).addEventListener('input',e=>S.curMobs[i].price=e.target.value);
   }
 }
-
+ 
 function buildCmDD(i){
   const dd=document.getElementById('cmDD_'+i);dd.innerHTML='';
   OPS_MOB.forEach(op=>{
@@ -792,7 +790,7 @@ function buildCmDD(i){
     d.addEventListener('mousedown',()=>{S.curMobs[i].operateur=op.n;document.getElementById('cmsOp_'+i).value='';renderCurMobLines();});dd.appendChild(d);
   });
 }
-
+ 
 function filterCmDD(i,q){
   const dd=document.getElementById('cmDD_'+i);if(!dd)return;dd.innerHTML='';
   OPS_MOB.filter(o=>!q||o.n.toLowerCase().includes(q.toLowerCase())).forEach(op=>{
@@ -802,14 +800,14 @@ function filterCmDD(i,q){
   });
   dd.classList.add('open');
 }
-
+ 
 /* ── NOUVELLES SIM ── */
 function changeMob(d){
   const n=Math.max(0,Math.min(6,S.simCount+d));S.simCount=n;
   while(S.sims.length<n)S.sims.push({type:S.internet?'pack':'alone',forfait:null,fname:'',price:0});
   S.sims=S.sims.slice(0,n);document.getElementById('mobSimVal').textContent=n;renderSimLines();
 }
-
+ 
 function renderSimLines(){
   const c=document.getElementById('mobSimLines');c.innerHTML='';const hasPack=S.internet!==null;
   for(let i=0;i<S.simCount;i++){
@@ -823,12 +821,12 @@ function renderSimLines(){
     renderSimForfait(i);
   }
 }
-
+ 
 function setSimType(i,type,btn){
   S.sims[i]={type,forfait:null,fname:'',price:0};
   btn.closest('.type-tabs').querySelectorAll('.ttab').forEach(b=>b.classList.remove('on'));btn.classList.add('on');renderSimForfait(i);
 }
-
+ 
 function renderSimForfait(i){
   const z=document.getElementById('sfz_'+i);if(!z)return;const m=S.sims[i];
   if(m.type==='pack'){
@@ -859,10 +857,10 @@ function renderSimForfait(i){
     });
   }
 }
-
+ 
 /* ── CALCUL & RÉCAP ── */
 function hasExtra(){return(S.simCount>0&&S.sims.some(m=>m.forfait))||!!S.opts['tv']||!!S.opts['fixe'];}
-
+ 
 function calcLines(promoMonths){
   const extra=hasExtra();const disc=(promoMonths===6&&extra&&S.internet)?-10:0;const lines=[];
   if(S.internet){const p=S.netPrice+disc;const tag=disc<0?` <span style="color:var(--green);font-size:.7rem">(promo −${Math.abs(disc)}€)</span>`:'';lines.push({l:S.netName+tag,p});}
@@ -870,7 +868,7 @@ function calcLines(promoMonths){
   for(let i=0;i<S.sims.length;i++){const m=S.sims[i];if(m.forfait)lines.push({l:`Mobile ${i+1} — ${m.fname}`,p:m.price});}
   const total=lines.reduce((s,l)=>s+(l.p||0),0);return{lines,total,disc};
 }
-
+ 
 function updateRecap(){
   const box=document.getElementById('promoRecap');if(!box)return;
   const{lines,total}=calcLines(S.promo);
@@ -883,7 +881,7 @@ function updateRecap(){
   if(S.profile==='pro')html+=`<div class="tva-recap"><span>💼 ${tr('tvaText')} (21%)</span><span>${(total*0.21).toFixed(2)}€/mois</span></div>`;
   box.innerHTML=html;
 }
-
+ 
 function buildPromoCards(){
   const extra=hasExtra();const noInternet=!S.internet;
   const notice=document.getElementById('promoNotice');const bar=document.getElementById('promoBar');
@@ -901,7 +899,7 @@ function buildPromoCards(){
   document.getElementById('pc12').addEventListener('click',()=>{S.promo=12;buildPromoCards();});
   updateRecap();
 }
-
+ 
 /* ── NAVIGATION STEPS ── */
 function showStep(n){
   S.currentStep=n;buildStepper();
@@ -909,10 +907,9 @@ function showStep(n){
   const tgt=document.getElementById('step'+n);if(tgt)setTimeout(()=>tgt.scrollIntoView({behavior:'smooth',block:'start'}),80);
   if(n===4)buildPromoCards();
 }
-
+ 
 /* ════════════════════════════════════════════════
    COLLECTE DES DONNÉES DU FORMULAIRE
-   Retourne un objet JSON propre à envoyer à Formspree
    ════════════════════════════════════════════════ */
 function collectFormData(){
   const{lines,total}=calcLines(S.promo);
@@ -923,62 +920,82 @@ function collectFormData(){
   const options=Object.values(S.opts).map(o=>o.label).join(', ')||'Aucune';
   const mobActuels=S.curMobs.slice(0,S.curMobCount).map((m,i)=>'Ligne '+(i+1)+': '+(m.operateur||'N/A')+' - '+m.type+' - '+(m.data||'N/A')+(m.price?' - '+m.price+'€/mois':'')).join(' | ')||'Aucun';
   const sims=S.sims.slice(0,S.simCount).map((m,i)=>'SIM '+(i+1)+': '+(m.fname||'N/A')+' ('+m.type+')'+(m.price?' - '+m.price+'€/mois':'')).join(' | ')||'Aucune';
-
+ 
   return {
-    _subject: '[SBC Consulting] Nouvelle demande — '+gv('f_prenom')+' '+gv('f_nom'),
-    Prenom:         gv('f_prenom'),
-    Nom:            gv('f_nom'),
-    Adresse:        gv('f_adresse'),
-    Code_postal:    gv('f_cp'),
-    Ville:          gv('f_ville'),
-    Telephone:      gv('f_tel'),
-    email:          gv('f_email'),
-    Numero_TVA:     gv('f_tva')||'N/A',
-    Message:        gv('f_msg')||'',
-    Profil:         S.profile==='pro'?'Professionnel':'Particulier',
-    Langue:         lang.toUpperCase(),
-    Operateur_fixe: S.operateur+(S.operateurAutre?' — '+S.operateurAutre:'')||'Non renseigné',
-    Operateur_mobile: S.operateurMobile+(S.operateurMobileAutre?' — '+S.operateurMobileAutre:'')||'Non renseigné',
+    _subject:      '[SBC Consulting] Nouvelle demande — '+gv('f_prenom')+' '+gv('f_nom'),
+    Prenom:        gv('f_prenom'),
+    Nom:           gv('f_nom'),
+    Adresse:       gv('f_adresse'),
+    Code_postal:   gv('f_cp'),
+    Ville:         gv('f_ville'),
+    Telephone:     gv('f_tel'),
+    email:         gv('f_email'),
+    Numero_TVA:    gv('f_tva')||'N/A',
+    Message:       gv('f_msg')||'',
+    Profil:        S.profile==='pro'?'Professionnel':'Particulier',
+    Langue:        lang.toUpperCase(),
+    Operateur_fixe:   (S.operateur||'Non renseigné')+(S.operateurAutre?' — '+S.operateurAutre:''),
+    Operateur_mobile: (S.operateurMobile||'Non renseigné')+(S.operateurMobileAutre?' — '+S.operateurMobileAutre:''),
     Services_actuels: services,
-    Engagement:     S.engagement||'Non renseigné',
-    Budget_actuel:  S.budgetActuel?S.budgetActuel+'€/mois':'Non renseigné',
+    Engagement:    S.engagement||'Non renseigné',
+    Budget_actuel: S.budgetActuel?S.budgetActuel+'€/mois':'Non renseigné',
     Internet_choisi: S.netName||'Aucun',
-    Options:        options,
+    Options:       options,
     Mobiles_actuels: mobActuels,
-    Nouvelles_SIM:  sims,
-    Promotion:      S.promo?S.promo+' mois':'Sans internet',
-    Recapitulatif:  recap
+    Nouvelles_SIM: sims,
+    Promotion:     S.promo?S.promo+' mois':'Sans internet',
+    Recapitulatif: recap
   };
 }
-
+ 
 /* ════════════════════════════════════════════════
-   VALIDATION MANUELLE DES CHAMPS REQUIS
+   VALIDATION DES CHAMPS REQUIS
    ════════════════════════════════════════════════ */
 function validateForm(){
   const required=['f_prenom','f_nom','f_adresse','f_cp','f_ville','f_tel','f_email'];
   let ok=true;
   required.forEach(id=>{
-    const el=document.getElementById(id);
-    if(!el)return;
-    const v=el.value.trim();
-    if(!v){el.style.borderColor='var(--red)';ok=false;}
+    const el=document.getElementById(id);if(!el)return;
+    if(!el.value.trim()){el.style.borderColor='var(--red)';ok=false;}
     else el.style.borderColor='';
   });
-  // Validation email basique
   const em=document.getElementById('f_email');
-  if(em&&em.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)){
+  if(em&&em.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim())){
     em.style.borderColor='var(--red)';ok=false;
   }
   return ok;
 }
-
+ 
+/* ════════════════════════════════════════════════
+   ✉️ ENVOI FORMSPREE — VERSION ROBUSTE
+   - FormData (méthode officielle Formspree)
+   - Aucun header Content-Type (le navigateur le pose)
+   - Accept: application/json (essentiel)
+   - 100% compatible GitHub Pages
+   ════════════════════════════════════════════════ */
+async function submitToFormspree(payload){
+  const formData = new FormData();
+  Object.keys(payload).forEach(k => {
+    formData.append(k, payload[k] == null ? '' : String(payload[k]));
+  });
+ 
+  const response = await fetch(FORMSPREE_URL, {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: formData,
+    mode: 'cors'
+  });
+ 
+  return response;
+}
+ 
 /* ════════════════════════════════════════════════
    INIT
    ════════════════════════════════════════════════ */
 function init(){
   buildLangBar();
   renderAll();
-
+ 
   /* Hero → Profile screen */
   document.getElementById('heroBtn').addEventListener('click',()=>{
     const h=document.getElementById('heroScreen');
@@ -989,7 +1006,7 @@ function init(){
       window.scrollTo({top:0,behavior:'smooth'});
     },320);
   });
-
+ 
   /* Choix de profil */
   function chooseProfile(p){
     S.profile=p;
@@ -1001,16 +1018,16 @@ function init(){
     showStep(1);
     window.scrollTo({top:0,behavior:'smooth'});
   }
-
+ 
   document.getElementById('btnPart').addEventListener('click',()=>chooseProfile('part'));
   document.getElementById('btnPro').addEventListener('click',()=>chooseProfile('pro'));
-
+ 
   document.getElementById('pbChange').addEventListener('click',()=>{
     document.getElementById('appScreen').style.display='none';
     document.getElementById('profileScreen').classList.add('show');
     window.scrollTo({top:0,behavior:'smooth'});
   });
-
+ 
   /* Navigation steps */
   document.getElementById('btn1next').addEventListener('click',()=>showStep(2));
   document.getElementById('btn2back').addEventListener('click',()=>showStep(1));
@@ -1019,7 +1036,7 @@ function init(){
   document.getElementById('btn3next').addEventListener('click',()=>showStep(4));
   document.getElementById('btn4back').addEventListener('click',()=>showStep(3));
   document.getElementById('btn4next').addEventListener('click',()=>showStep(5));
-
+ 
   /* Dropdowns opérateurs */
   document.getElementById('sOp').addEventListener('focus',()=>openDD('dOp','operateur'));
   document.getElementById('sOp').addEventListener('blur',()=>setTimeout(()=>document.getElementById('dOp').classList.remove('open'),180));
@@ -1031,108 +1048,106 @@ function init(){
   document.getElementById('clrMob').addEventListener('click',()=>clearOp('operateurMobile'));
   document.getElementById('autreOp').addEventListener('input',e=>S.operateurAutre=e.target.value);
   document.getElementById('autreMob').addEventListener('input',e=>S.operateurMobileAutre=e.target.value);
-
+ 
   /* Budget */
   document.getElementById('budgetActuel').addEventListener('input',e=>{S.budgetActuel=parseFloat(e.target.value)||0;});
   document.getElementById('budgetWrap').addEventListener('focusin',()=>document.getElementById('budgetWrap').style.borderColor='var(--blue)');
   document.getElementById('budgetWrap').addEventListener('focusout',()=>document.getElementById('budgetWrap').style.borderColor='var(--border2)');
-
+ 
   /* Mobiles */
   document.getElementById('curMobMinus').addEventListener('click',()=>changeCurMob(-1));
   document.getElementById('curMobPlus').addEventListener('click',()=>changeCurMob(1));
   document.getElementById('simMinus').addEventListener('click',()=>changeMob(-1));
   document.getElementById('simPlus').addEventListener('click',()=>changeMob(1));
-
+ 
   /* Réinitialiser les bordures rouges au focus */
   ['f_prenom','f_nom','f_adresse','f_cp','f_ville','f_tel','f_email'].forEach(id=>{
     const el=document.getElementById(id);
     if(el)el.addEventListener('focus',()=>el.style.borderColor='');
   });
-
+ 
   /* ════════════════════════════════════════════════
-     SOUMISSION FORMSPREE VIA FETCH (AJAX)
-     ✅ Pas de rechargement de page
-     ✅ Loader pendant l'envoi
-     ✅ Gestion d'erreur propre
-     ✅ Confirmation screen en pleine page
-     ✅ Fonctionne sur GitHub Pages
+     SOUMISSION FINALE — BOUTON ENVOYER
      ════════════════════════════════════════════════ */
-  const sendBtn=document.getElementById('sendBtn');
-  const formError=document.getElementById('formError');
-  const FORMSPREE_URL='https://formspree.io/f/mpqnkwgb';
-
-  if(sendBtn){
-    sendBtn.addEventListener('click',async function(){
-
-      /* 1 — Validation des champs requis */
-      if(!validateForm()){
-        formError.style.display='block';
-        document.getElementById('formErrorTitle').textContent='Veuillez remplir tous les champs obligatoires.';
-        document.getElementById('formErrorText').textContent='Les champs en rouge sont requis.';
-        sendBtn.closest('.wrap')||document.getElementById('step5').scrollIntoView({behavior:'smooth',block:'nearest'});
+  const sendBtn   = document.getElementById('sendBtn');
+  const formError = document.getElementById('formError');
+ 
+  function showFormError(title, text){
+    formError.style.display = 'block';
+    document.getElementById('formErrorTitle').textContent = title;
+    document.getElementById('formErrorText').textContent  = text;
+    document.getElementById('step5').scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
+ 
+  function resetSendBtn(){
+    sendBtn.disabled  = false;
+    sendBtn.innerHTML = tr('sendBtn');
+  }
+ 
+  function showSuccess(){
+    document.getElementById('appScreen').style.display     = 'none';
+    document.getElementById('confirmScreen').style.display = 'flex';
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+ 
+  sendBtn.addEventListener('click', async function(){
+ 
+    /* 1 — Validation */
+    if(!validateForm()){
+      showFormError(
+        'Veuillez remplir tous les champs obligatoires.',
+        'Les champs en rouge sont requis.'
+      );
+      return;
+    }
+ 
+    /* 2 — Loader */
+    sendBtn.disabled  = true;
+    sendBtn.innerHTML = '<span style="display:inline-block;animation:spin .8s linear infinite">⏳</span>&nbsp;&nbsp;Envoi en cours…';
+    formError.style.display = 'none';
+ 
+    /* 3 — Collecte */
+    const payload = collectFormData();
+ 
+    /* 4 — Envoi */
+    try {
+      const response = await submitToFormspree(payload);
+ 
+      if (response.ok) {
+        /* ✅ Succès */
+        showSuccess();
         return;
       }
-
-      /* 2 — Désactiver le bouton + afficher le loader */
-      sendBtn.disabled=true;
-      sendBtn.innerHTML='<span style="display:inline-block;animation:spin .8s linear infinite">⏳</span>&nbsp;&nbsp;Envoi en cours…';
-      formError.style.display='none';
-
-      /* 3 — Collecter toutes les données */
-      const payload=collectFormData();
-
-      /* 4 — Envoi à Formspree */
-      try{
-        const res=await fetch(FORMSPREE_URL,{
-          method:'POST',
-          headers:{'Content-Type':'application/json','Accept':'application/json'},
-          body:JSON.stringify(payload)
-        });
-
-        if(res.ok){
-          /* ✅ SUCCÈS — afficher l'écran de confirmation */
-          document.getElementById('appScreen').style.display='none';
-          const cs=document.getElementById('confirmScreen');
-          cs.style.display='flex';
-          window.scrollTo({top:0,behavior:'smooth'});
-        } else {
-          /* ❌ Erreur serveur Formspree */
-          let errMsg='Erreur serveur ('+res.status+'). Réessayez dans quelques instants.';
-          try{const j=await res.json();if(j&&j.errors)errMsg=j.errors.map(e=>e.message).join(' ');}catch(e){}
-          showFormError(errMsg);
-          resetSendBtn();
+ 
+      /* ❌ Erreur HTTP (4xx / 5xx) */
+      let errMsg = 'Erreur serveur (code '+response.status+'). Réessayez dans quelques instants.';
+      try {
+        const data = await response.json();
+        if (data && Array.isArray(data.errors) && data.errors.length) {
+          errMsg = data.errors.map(e => e.message || e).join(' · ');
         }
-      }catch(e){
-        /* ❌ Erreur réseau (pas de connexion internet) */
-        showFormError(null);
-        resetSendBtn();
-      }
-    });
-  }
-
-  function showFormError(msg){
-    formError.style.display='block';
-    const titleEl=document.getElementById('formErrorTitle');
-    const textEl=document.getElementById('formErrorText');
-    if(msg){
-      titleEl.textContent='Une erreur est survenue.';
-      textEl.textContent=msg;
-    } else {
-      titleEl.textContent='Connexion impossible.';
-      textEl.textContent='Vérifiez votre connexion internet et réessayez.';
+      } catch(_) { /* réponse non-JSON, on garde le message générique */ }
+ 
+      console.error('[Formspree] HTTP error', response.status, errMsg);
+      showFormError('Échec de l\'envoi.', errMsg);
+      resetSendBtn();
+ 
+    } catch (err) {
+      /* ❌ Erreur réseau réelle (offline, DNS, CORS bloqué…) */
+      console.error('[Formspree] Network error:', err);
+      showFormError(
+        'Connexion impossible.',
+        'Vérifiez votre connexion internet et réessayez. (' + (err && err.message ? err.message : 'erreur réseau') + ')'
+      );
+      resetSendBtn();
     }
-    document.getElementById('step5').scrollIntoView({behavior:'smooth',block:'nearest'});
-  }
-
-  function resetSendBtn(){
-    sendBtn.disabled=false;
-    sendBtn.innerHTML=tr('sendBtn');
-  }
-
+  });
+ 
 }
-
+ 
 init();
 })();
 </script>
 </body>
 </html>
+ 
