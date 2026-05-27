@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBC Consulting</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f1117;--bg2:#161b26;--bg3:#1c2333;--surface:#1e2535;--surface2:#252d40;--surface3:#2c3650;
+  --ink:#e8eaf0;--ink2:#c0c8d8;--muted:#7a88a8;--border:#2a3448;--border2:#344060;--border3:#3d4f72;
+  --blue:#3d7fff;--blue2:#5590ff;--blue3:#2060e0;--blue-bg:rgba(61,127,255,.10);--blue-border:rgba(61,127,255,.28);
+  --green:#22c070;--green-bg:rgba(34,192,112,.10);--green-border:rgba(34,192,112,.30);
+  --gold:#e8a020;--gold-bg:rgba(232,160,32,.10);--gold-border:rgba(232,160,32,.30);
+  --red:#e83c3c;--red-bg:rgba(232,60,60,.10);--red-border:rgba(232,60,60,.30);
+  --r:14px;
+  --shadow:0 2px 20px rgba(0,0,0,.35);--shadow-lg:0 8px 48px rgba(0,0,0,.55);--shadow-blue:0 4px 30px rgba(61,127,255,.18);
+}
+html{scroll-behavior:smooth;font-size:15px}
+body{background:var(--bg);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;overflow-x:hidden;line-height:1.6}
+
+/* ── HERO ── */
+#heroScreen{min-height:100vh;background:#0a0d14;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:6rem 2rem 5rem}
+#heroScreen::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(61,127,255,.22) 0%,transparent 70%);top:-180px;left:-200px;pointer-events:none}
+#heroScreen::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(34,192,112,.14) 0%,transparent 70%);bottom:-100px;right:-120px;pointer-events:none}
+.lang-bar{position:absolute;top:1.4rem;right:1.8rem;display:flex;gap:.3rem;z-index:10}
+.lang-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);color:rgba(255,255,255,.38);padding:.28rem .7rem;border-radius:7px;font-size:.67rem;font-weight:700;cursor:pointer;transition:all .18s;letter-spacing:.04em}
+.lang-btn.active{background:rgba(61,127,255,.2);border-color:rgba(61,127,255,.45);color:#7eb4ff}
+.hero-inner{position:relative;z-index:2;max-width:720px;width:100%;display:flex;flex-direction:column;align-items:center}
+.hero-kicker{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.45);padding:.3rem 1rem;border-radius:50px;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:2rem}
+.kicker-dot{width:5px;height:5px;background:#22c070;border-radius:50%;animation:pulse 2.5s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.7)}}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.hero-h1{font-size:clamp(3rem,9vw,5.5rem);font-weight:800;line-height:.95;letter-spacing:-.04em;margin-bottom:1.4rem;width:100%}
+.hero-h1 .line1{color:#fff;display:block;margin-bottom:.08em}
+.hero-h1 .line2{display:block;background:linear-gradient(100deg,#4d8fff 0%,#38b2ff 40%,#22c070 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:.9rem;color:rgba(255,255,255,.45);line-height:1.85;max-width:380px;margin:0 auto 2rem}
+.hero-stats-row{display:flex;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.03);margin-bottom:2rem;overflow:hidden;width:100%;max-width:520px}
+.hsr-item{padding:1rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:.2rem;flex:1}
+.hsr-item+.hsr-item{border-left:1px solid rgba(255,255,255,.07)}
+.hsr-num{font-size:1.5rem;font-weight:800;color:#fff;line-height:1}
+.accent-green{color:#22c070}.accent-blue{color:#4d8fff}
+.hsr-lbl{font-size:.6rem;font-weight:600;color:rgba(255,255,255,.38);text-transform:uppercase;letter-spacing:.1em;text-align:center}
+.hero-btn{display:inline-flex;align-items:center;gap:.65rem;background:linear-gradient(135deg,#3d7fff 0%,#2458d4 100%);color:#fff;padding:1rem 2.8rem;border-radius:12px;font-weight:700;font-size:.95rem;border:none;cursor:pointer;transition:all .22s;box-shadow:0 0 0 1px rgba(61,127,255,.4),0 8px 32px rgba(61,127,255,.28)}
+.hero-btn:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(61,127,255,.6),0 16px 48px rgba(61,127,255,.38)}
+.hero-btn-note{font-size:.66rem;color:rgba(255,255,255,.28);margin-top:.8rem;letter-spacing:.04em}
+.reviews-label{font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.22);margin:2rem 0 1rem;display:flex;align-items:center;gap:.7rem;width:100%}
+.reviews-label::before,.reviews-label::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.07)}
+.hero-reviews{display:flex;gap:.55rem;flex-wrap:wrap;justify-content:center;width:100%}
+.hr-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:1rem 1.15rem;flex:1;min-width:175px;max-width:215px;text-align:left}
+.hr-stars{color:#f0a500;font-size:.65rem;margin-bottom:.45rem}
+.hr-text{font-size:.72rem;color:rgba(255,255,255,.52);line-height:1.65;margin-bottom:.55rem;font-style:italic}
+.hr-name{font-size:.63rem;font-weight:700;color:rgba(255,255,255,.28);margin-bottom:.45rem}
+.hr-saving{display:inline-flex;align-items:center;gap:.3rem;background:rgba(34,192,112,.12);border:1px solid rgba(34,192,112,.25);color:#22c070;font-size:.64rem;font-weight:800;padding:.16rem .6rem;border-radius:50px}
+.hero-trust-bar{position:absolute;bottom:0;left:0;right:0;border-top:1px solid rgba(255,255,255,.06);padding:.75rem 2rem;display:flex;align-items:center;justify-content:center;gap:1.8rem;flex-wrap:wrap;z-index:2}
+.htb-item{display:flex;align-items:center;gap:.4rem;font-size:.69rem;font-weight:600;color:rgba(255,255,255,.32)}
+
+/* ── PROFILE SCREEN ── */
+#profileScreen{display:none;min-height:100vh;background:var(--bg);align-items:center;justify-content:center;padding:4rem 2rem}
+#profileScreen.show{display:flex}
+.profile-wrap{max-width:460px;width:100%;text-align:center}
+.pm-icon{font-size:2.2rem;margin-bottom:.8rem}
+.pm-title{font-size:1.7rem;font-weight:800;color:var(--ink);margin-bottom:.35rem}
+.pm-sub{color:var(--muted);font-size:.84rem;margin-bottom:1.8rem;line-height:1.7}
+.pm-btns{display:flex;flex-direction:column;gap:.65rem}
+.pm-btn{display:flex;align-items:center;gap:1rem;background:var(--surface);border:1.5px solid var(--border2);border-radius:14px;padding:1.1rem 1.4rem;cursor:pointer;transition:all .22s;text-align:left;font-family:inherit;color:var(--ink);width:100%}
+.pm-btn:hover{border-color:var(--blue);background:var(--blue-bg);transform:translateY(-2px)}
+.pm-btn-icon{font-size:1.6rem;flex-shrink:0}
+.pm-btn-label{font-weight:700;font-size:.9rem;color:var(--ink);margin-bottom:.1rem}
+.pm-btn-desc{font-size:.73rem;color:var(--muted)}
+
+/* ── APP SCREEN ── */
+#appScreen{display:none}
+nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(12px)}
+.logo{font-size:1.1rem;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:.45rem}
+.logo span{color:var(--blue);font-weight:400}
+.nav-badge{background:var(--green-bg);color:var(--green);border:1.5px solid var(--green-border);padding:.28rem .9rem;border-radius:50px;font-size:.7rem;font-weight:700}
+.trust-bar{background:var(--bg2);border-bottom:1.5px solid var(--border);padding:0 2rem;display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap}
+.tb-item{padding:.85rem 1.5rem;display:flex;align-items:center;gap:.5rem;font-size:.76rem;font-weight:600;color:var(--ink2);border-right:1px solid var(--border)}
+.tb-item:last-child{border-right:none}
+.tb-item strong{color:var(--blue2)}
+.profile-bar{background:var(--bg3);border-bottom:1.5px solid var(--blue-border);padding:.6rem 2rem;display:flex;align-items:center;justify-content:center;gap:.75rem;flex-wrap:wrap}
+.pb-badge{display:flex;align-items:center;gap:.4rem;background:var(--blue-bg);border:1.5px solid var(--blue-border);color:var(--blue2);padding:.28rem .9rem;border-radius:50px;font-size:.74rem;font-weight:700}
+.pb-change{background:transparent;border:1.5px solid var(--border2);color:var(--muted);padding:.26rem .8rem;border-radius:50px;font-family:inherit;font-size:.72rem;cursor:pointer;transition:all .2s}
+.pb-change:hover{border-color:var(--blue);color:var(--blue)}
+.tva-pill{background:var(--green-bg);border:1.5px solid var(--green-border);color:var(--green);padding:.28rem .9rem;border-radius:50px;font-size:.74rem;font-weight:700;display:none;align-items:center;gap:.35rem}
+.tva-pill.on{display:flex}
+.wrap{max-width:840px;margin:0 auto;padding:2.5rem 1.3rem 5rem}
+
+/* ── STEPPER ── */
+.stepper{display:flex;align-items:flex-start;margin-bottom:2.5rem;gap:0}
+.si{flex:1;min-width:60px;display:flex;flex-direction:column;align-items:center;gap:.38rem;position:relative}
+.si:not(:last-child)::after{content:'';position:absolute;top:13px;left:calc(50% + 13px);right:calc(-50% + 13px);height:2px;background:var(--border2);z-index:0}
+.si.done::after{background:var(--blue)}
+.si-dot{width:26px;height:26px;border-radius:7px;border:2px solid var(--border2);background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:var(--muted);z-index:1;position:relative;transition:all .25s}
+.si.done .si-dot{background:var(--blue);border-color:var(--blue);color:#fff}
+.si.active .si-dot{background:var(--surface3);border-color:var(--blue);color:var(--blue);box-shadow:0 0 0 4px rgba(61,127,255,.18)}
+.si-lbl{font-size:.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);text-align:center;max-width:62px;line-height:1.3}
+.si.active .si-lbl{color:var(--blue2)}.si.done .si-lbl{color:var(--blue)}
+.card{background:var(--surface);border:1.5px solid var(--border2);border-radius:var(--r);padding:1.8rem;margin-bottom:.85rem;box-shadow:var(--shadow)}
+.card-head{display:flex;align-items:flex-start;gap:.85rem;margin-bottom:1.4rem}
+.card-num{width:28px;height:28px;min-width:28px;border-radius:7px;background:var(--blue);color:#fff;font-weight:700;font-size:.75rem;display:flex;align-items:center;justify-content:center}
+.card-title{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:.08rem}
+.card-sub{font-size:.73rem;color:var(--muted)}
+.divider{height:1px;background:var(--border);margin:1.2rem 0}
+.sec-label{font-size:.62rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.6rem}
+
+/* ── SEARCH WIDGET ── */
+.sw{position:relative;max-width:440px}
+.s-inp{width:100%;background:var(--bg3);border:1.5px solid var(--border2);color:var(--ink);border-radius:var(--r);padding:.72rem 1rem .72rem 2.7rem;font-family:inherit;font-size:.88rem;font-weight:500;outline:none;transition:all .2s}
+.s-inp:focus{border-color:var(--blue);background:rgba(61,127,255,.07)}
+.s-inp::placeholder{color:var(--muted);font-weight:400}
+.s-icon{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);font-size:.9rem;pointer-events:none}
+.s-clr{position:absolute;right:.85rem;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--muted);cursor:pointer;font-size:.85rem;display:none}
+.s-clr.vis{display:block}
+.dropdown{position:absolute;top:calc(100% + 6px);left:0;right:0;background:var(--surface2);border:1.5px solid var(--border3);border-radius:var(--r);z-index:50;box-shadow:var(--shadow-lg);display:none;max-height:240px;overflow-y:auto}
+.dropdown.open{display:block}
+.di{padding:.65rem 1rem;font-size:.85rem;cursor:pointer;transition:background .12s;display:flex;align-items:center;gap:.7rem;color:var(--ink2);font-weight:500}
+.di:hover,.di.sel{background:rgba(61,127,255,.12)}
+.di .ck{color:var(--blue);display:none;margin-left:auto;font-weight:800}
+.di.sel .ck{display:block}
+.sel-badge{display:inline-flex;align-items:center;gap:.4rem;background:var(--blue-bg);border:1.5px solid var(--blue-border);color:var(--blue2);padding:.3rem .9rem;border-radius:50px;font-size:.77rem;font-weight:700;margin-top:.55rem}
+.sel-badge button{background:none;border:none;color:var(--muted);cursor:pointer;font-size:.8rem;padding:0;margin-left:.2rem}
+.autre-wrap{display:none;margin-top:.55rem;max-width:360px;align-items:center;gap:.5rem}
+.autre-wrap.show{display:flex}
+.autre-inp{flex:1;background:var(--bg3);border:1.5px solid var(--blue-border);color:var(--ink);border-radius:var(--r);padding:.55rem .85rem;font-family:inherit;font-size:.86rem;font-weight:500;outline:none}
+.autre-lbl{font-size:.74rem;font-weight:700;color:var(--blue2);white-space:nowrap}
+
+/* ── CHIPS ── */
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{background:var(--bg3);border:1.5px solid var(--border2);border-radius:50px;padding:.38rem .9rem;cursor:pointer;transition:all .18s;font-size:.77rem;font-weight:600;color:var(--ink2)}
+.chip:hover{border-color:var(--blue);color:var(--blue2)}
+.chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
+
+/* ── NET GRID ── */
+.net-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:.5rem;margin-bottom:1.2rem}
+.nc{background:var(--bg3);border:1.5px solid var(--border2);border-radius:10px;padding:.7rem .6rem;cursor:pointer;transition:all .22s;text-align:center;position:relative}
+.nc:hover{border-color:var(--blue);transform:translateY(-2px)}
+.nc.on{border-color:var(--blue);background:rgba(61,127,255,.09);box-shadow:0 0 0 3px rgba(61,127,255,.15)}
+.nc-chk{position:absolute;top:6px;right:6px;width:14px;height:14px;border-radius:50%;background:var(--green);color:#fff;font-size:.48rem;font-weight:800;display:none;align-items:center;justify-content:center}
+.nc.on .nc-chk{display:flex}
+.nc-icon{font-size:.85rem;margin-bottom:.18rem}
+.nc-name{font-size:.78rem;font-weight:700;color:var(--ink);margin-bottom:.1rem}
+.nc-speed{font-size:.62rem;color:var(--muted);margin-bottom:.07rem}
+.nc-tech{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:.1rem;color:var(--blue2)}
+.nc-badge{font-size:.6rem;background:var(--green-bg);color:var(--green);border:1px solid var(--green-border);padding:.07rem .45rem;border-radius:50px;display:inline-block;margin-bottom:.1rem;font-weight:600}
+.nc-warn{font-size:.6rem;background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-border);padding:.07rem .45rem;border-radius:50px;display:inline-block;margin-bottom:.1rem;font-weight:600}
+.nc-price{font-size:.82rem;font-weight:700;color:var(--ink);margin-top:.22rem;line-height:1}
+.nc-price span{font-size:.62rem;font-weight:400;color:var(--muted)}
+
+/* ── OPTIONS ── */
+.opt-list{display:flex;flex-direction:column;gap:.45rem}
+.opt{display:flex;align-items:center;justify-content:space-between;background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--r);padding:.8rem 1rem;cursor:pointer;transition:all .18s}
+.opt:hover{border-color:var(--blue)}
+.opt.on{border-color:var(--blue);background:rgba(61,127,255,.08)}
+.opt-l{display:flex;align-items:center;gap:.7rem}
+.opt-ico{font-size:1.1rem}
+.opt-name{font-weight:700;font-size:.86rem;color:var(--ink)}
+.opt-desc{font-size:.7rem;color:var(--muted)}
+.opt-r{display:flex;align-items:center;gap:.6rem}
+.opt-price{font-size:.72rem;font-weight:700;padding:.2rem .65rem;border-radius:50px;white-space:nowrap}
+.opt-price.paid{background:var(--surface3);color:var(--ink2);border:1.5px solid var(--border3)}
+.opt-price.free{background:var(--green-bg);color:var(--green);border:1.5px solid var(--green-border)}
+.tog{width:42px;height:24px;border-radius:50px;background:var(--border2);border:none;cursor:pointer;position:relative;transition:background .2s;flex-shrink:0}
+.tog::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:var(--ink2);transition:transform .2s;box-shadow:0 1px 4px rgba(0,0,0,.4)}
+.opt.on .tog{background:var(--green)}
+.opt.on .tog::after{transform:translateX(18px);background:#fff}
+
+/* ── PROMO CARDS ── */
+.promo-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.1rem}
+.pc{background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--r);padding:1.4rem 1.1rem;cursor:pointer;transition:all .22s;text-align:center;position:relative}
+.pc:hover{border-color:var(--blue);transform:translateY(-2px)}
+.pc.on{border-color:var(--blue);background:rgba(61,127,255,.09);box-shadow:0 0 0 3px rgba(61,127,255,.15)}
+.pc-chk{position:absolute;top:10px;right:10px;width:20px;height:20px;border-radius:50%;background:var(--green);color:#fff;font-size:.58rem;font-weight:800;display:none;align-items:center;justify-content:center}
+.pc.on .pc-chk{display:flex}
+.pc-dur{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:.28rem}
+.pc-pill{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:.16rem .65rem;border-radius:50px;display:inline-block;margin-bottom:.65rem}
+.pc-pill.green{background:var(--green-bg);color:var(--green);border:1.5px solid var(--green-border)}
+.pc-pill.gold{background:var(--gold-bg);color:var(--gold);border:1.5px solid var(--gold-border)}
+.pc-price{font-size:.83rem;font-weight:600;color:var(--ink);margin-bottom:.28rem;line-height:1.55}
+.pc-total{font-size:.8rem;color:var(--ink2);margin-bottom:.5rem;font-weight:600}
+.pc-engage{display:flex;align-items:center;justify-content:center;margin:.55rem 0 .28rem;background:var(--green-bg);border:1.5px solid var(--green-border);border-radius:8px;padding:.45rem .65rem}
+.pc-engage-txt{font-size:.74rem;font-weight:700;color:var(--green)}
+.pc-renew{font-size:.6rem;color:var(--muted);line-height:1.6;font-style:italic;margin-top:.35rem}
+
+/* ── RECAP ── */
+.recap{background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--r);padding:1.5rem;margin-bottom:.9rem}
+.recap-empty{font-size:.82rem;color:var(--muted);text-align:center;padding:.4rem 0}
+.recap-big{text-align:center;padding-bottom:1.1rem;margin-bottom:1.1rem;border-bottom:1px solid var(--border)}
+.recap-lbl{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:.4rem}
+.recap-price{font-size:3rem;font-weight:800;color:var(--ink);line-height:1}
+.recap-price span{font-size:.95rem;font-weight:400;color:var(--muted)}
+.recap-saving{display:inline-flex;align-items:center;gap:.4rem;background:var(--green-bg);border:1.5px solid var(--green-border);color:var(--green);font-size:.78rem;font-weight:700;padding:.3rem .8rem;border-radius:50px;margin-top:.5rem}
+.recap-row{display:flex;justify-content:space-between;align-items:center;padding:.3rem 0;border-bottom:1px solid var(--border);font-size:.8rem;color:var(--ink2)}
+.recap-row:last-child{border:none;font-weight:700;font-size:.88rem;color:var(--ink);padding-top:.5rem;margin-top:.3rem}
+.tva-recap{margin-top:.85rem;background:var(--gold-bg);border:1.5px solid var(--gold-border);border-radius:10px;padding:.55rem 1rem;font-size:.77rem;color:var(--gold);display:flex;justify-content:space-between;font-weight:700}
+.promo-notice{background:var(--gold-bg);border:1.5px solid var(--gold-border);border-radius:10px;padding:.75rem 1rem;margin-bottom:1rem;font-size:.78rem;color:var(--gold);line-height:1.65;display:none}
+.promo-notice.show{display:block}
+
+/* ── SUIVI BOX ── */
+.suivi-box{background:linear-gradient(135deg,rgba(61,127,255,.12) 0%,rgba(61,127,255,.06) 100%);border:1.5px solid var(--blue-border);border-radius:var(--r);padding:1.3rem 1.5rem;margin-bottom:1rem}
+.suivi-inner{display:flex;align-items:flex-start;gap:1rem}
+.suivi-avatar{width:44px;height:44px;min-width:44px;border-radius:12px;background:linear-gradient(135deg,var(--blue) 0%,var(--blue3) 100%);display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.suivi-title{font-size:.82rem;font-weight:700;color:var(--blue2);margin-bottom:.2rem}
+.suivi-desc{font-size:.78rem;color:var(--ink2);line-height:1.75}
+.suivi-desc strong{color:var(--ink);font-weight:700}
+.suivi-pills{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.65rem}
+.suivi-pill{display:inline-flex;align-items:center;gap:.3rem;background:rgba(61,127,255,.12);border:1px solid var(--blue-border);color:var(--blue2);padding:.2rem .65rem;border-radius:50px;font-size:.66rem;font-weight:700}
+
+/* ── ENG NOTICE ── */
+.eng-notice{background:var(--green-bg);border:1.5px solid var(--green-border);border-radius:var(--r);padding:.9rem 1.1rem;margin-top:.7rem;display:none}
+.eng-notice p{font-size:.78rem;color:var(--ink2);line-height:1.7}
+.eng-notice strong{color:var(--green);font-weight:700}
+
+/* ── MOBILE SECTIONS ── */
+.mob-section{background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--r);padding:1.1rem;margin-bottom:.85rem}
+.mob-section-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.35rem;flex-wrap:wrap}
+.mob-section-title{font-size:.82rem;font-weight:700;color:var(--ink)}
+.mob-badge{font-size:.58rem;font-weight:800;padding:.14rem .55rem;border-radius:50px;letter-spacing:.05em;text-transform:uppercase}
+.mob-badge.now{background:var(--gold-bg);color:var(--gold);border:1.5px solid var(--gold-border)}
+.mob-badge.new{background:var(--blue-bg);color:var(--blue2);border:1.5px solid var(--blue-border)}
+.mob-sub{font-size:.74rem;color:var(--muted);margin-bottom:.8rem;line-height:1.6}
+.counter-row{display:flex;align-items:center;gap:.7rem;margin-bottom:.75rem}
+.cnt-btn{width:30px;height:30px;border-radius:7px;border:1.5px solid var(--border2);background:var(--surface2);color:var(--ink);font-size:.95rem;font-weight:800;cursor:pointer;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.cnt-btn:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-bg)}
+.cnt-val{font-size:1.1rem;font-weight:700;min-width:22px;text-align:center;color:var(--ink)}
+.cnt-lbl{font-size:.7rem;color:var(--muted);font-weight:500}
+.mob-lines{display:flex;flex-direction:column;gap:.55rem}
+.mob-line{background:var(--surface2);border:1.5px solid var(--border2);border-radius:9px;padding:.9rem}
+.mob-line-head{font-weight:800;font-size:.78rem;margin-bottom:.65rem;display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;color:var(--ink)}
+.ptag-green{background:var(--green-bg);color:var(--green);border:1.5px solid var(--green-border);padding:.08rem .45rem;border-radius:50px;font-size:.58rem;font-weight:800}
+.type-tabs{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.6rem}
+.ttab{padding:.26rem .75rem;border-radius:50px;border:1.5px solid var(--border2);background:transparent;font-family:inherit;font-size:.7rem;font-weight:700;cursor:pointer;transition:all .18s;color:var(--muted)}
+.ttab:hover{border-color:var(--blue);color:var(--blue2)}
+.ttab.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.tel-info{border-radius:9px;padding:.75rem 1rem;margin-top:.75rem}
+.tel-info p{font-size:.76rem;color:var(--ink2);line-height:1.7}
+.tel-info strong{font-weight:800}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(88px,1fr));gap:.4rem}
+.fc{border:1.5px solid var(--border2);border-radius:9px;padding:.65rem .4rem;text-align:center;cursor:pointer;background:var(--bg3);transition:all .18s}
+.fc:hover{border-color:var(--blue);transform:translateY(-1px)}
+.fc.on{border-color:var(--blue);background:rgba(61,127,255,.1)}
+.fc-name{font-weight:700;font-size:.75rem;margin-bottom:.1rem;color:var(--ink)}
+.fc-data{font-size:.65rem;color:var(--blue2);font-weight:600;margin-bottom:.06rem}
+.fc-calls{font-size:.6rem;color:var(--green);font-weight:500;margin-bottom:.05rem}
+.fc-eu{font-size:.58rem;color:var(--muted);margin-bottom:.14rem}
+.fc-prices{margin-top:.25rem;padding-top:.25rem;border-top:1px solid var(--border);display:flex;flex-direction:column;align-items:center;gap:.05rem}
+.fc-old{font-size:.62rem;color:var(--muted);text-decoration:line-through;line-height:1}
+.fc-new{font-size:.82rem;font-weight:700;line-height:1.15;color:var(--green)}
+.fc-new.alone{color:var(--blue2)}
+.fc-free{font-size:.78rem;color:var(--green);font-weight:700}
+.fc-disc{font-size:.55rem;background:var(--green-bg);color:var(--green);border:1px solid var(--green-border);border-radius:50px;padding:.05rem .35rem;font-weight:700;margin-top:.04rem}
+.cur-mob-card{background:var(--surface2);border:1.5px solid var(--border2);border-radius:9px;padding:.85rem;margin-bottom:.45rem}
+.cur-mob-title{font-weight:800;font-size:.78rem;margin-bottom:.6rem;color:var(--ink)}
+.cmg{display:grid;grid-template-columns:1fr 1fr;gap:.45rem}
+.cmf{display:flex;flex-direction:column;gap:.18rem}
+.cmf label{font-size:.58rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.09em}
+.cmf select,.cmf input[type=number]{background:var(--bg3);border:1.5px solid var(--border2);color:var(--ink);border-radius:7px;padding:.4rem .7rem;font-family:inherit;font-size:.78rem;font-weight:600;outline:none;-webkit-appearance:none;width:100%}
+.cmf select:focus,.cmf input:focus{border-color:var(--blue)}
+.cm-sw{position:relative;margin-bottom:.25rem}
+.cm-sinp{width:100%;background:var(--bg3);border:1.5px solid var(--border2);color:var(--ink);border-radius:8px;padding:.45rem .75rem;font-family:inherit;font-size:.78rem;font-weight:500;outline:none}
+.cm-sinp:focus{border-color:var(--blue)}
+.cm-sinp::placeholder{color:var(--muted);font-weight:400}
+
+/* ── FORM ── */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.field{display:flex;flex-direction:column;gap:.25rem}
+.field.full{grid-column:1/-1}
+.field label{font-size:.62rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.field input,.field textarea{background:var(--bg3);border:1.5px solid var(--border2);color:var(--ink);border-radius:var(--r);padding:.68rem .9rem;font-family:inherit;font-size:.88rem;font-weight:500;outline:none;transition:all .18s}
+.field input:focus,.field textarea:focus{border-color:var(--blue)}
+.field input::placeholder,.field textarea::placeholder{color:var(--muted);font-weight:400}
+.field textarea{resize:vertical;min-height:68px}
+.hidden{display:none!important}
+.send-btn{width:100%;margin-top:1.2rem;background:linear-gradient(135deg,var(--blue) 0%,var(--blue3) 100%);color:#fff;border:none;border-radius:var(--r);padding:1.1rem;font-family:inherit;font-weight:800;font-size:.95rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.55rem}
+.send-btn:hover:not(:disabled){background:linear-gradient(135deg,var(--blue2) 0%,var(--blue) 100%);transform:translateY(-2px)}
+.send-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+/* ── ERROR BOX ── */
+.form-error{background:var(--red-bg);border:1.5px solid var(--red-border);border-radius:var(--r);padding:.9rem 1.1rem;margin-top:.8rem;display:none}
+.form-error p{font-size:.8rem;color:#ff7070;line-height:1.65}
+.form-error strong{color:#ff4040;font-weight:700}
+
+/* ── OK BOX (legacy) ── */
+.ok-box{display:none;text-align:center;background:var(--green-bg);border:1.5px solid var(--green-border);border-radius:var(--r);padding:2.2rem 1.6rem;margin-top:1rem}
+.ok-box.show{display:block}
+.ok-icon{font-size:2.6rem;margin-bottom:.6rem}
+.ok-title{font-size:1.5rem;font-weight:800;color:var(--green);margin-bottom:.35rem}
+.ok-sub{color:var(--muted);font-size:.83rem;line-height:1.7}
+
+/* ── CONFIRM SCREEN ── */
+#confirmScreen{display:none;min-height:100vh;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem}
+.confirm-wrap{max-width:560px;width:100%}
+.confirm-icon{font-size:5rem;margin-bottom:1.5rem;animation:confirmPop .5s ease-out both}
+@keyframes confirmPop{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}
+.confirm-title{font-size:2rem;font-weight:800;color:var(--green);margin-bottom:.6rem;line-height:1.15}
+.confirm-box{background:var(--green-bg);border:1.5px solid var(--green-border);border-radius:var(--r);padding:1.6rem 2rem;margin:1.2rem 0}
+.confirm-msg{font-size:1.05rem;color:var(--ink);line-height:1.75;font-weight:500}
+.confirm-pills{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1.5rem}
+.confirm-pill{display:inline-flex;align-items:center;gap:.35rem;background:rgba(61,127,255,.12);border:1px solid var(--blue-border);color:var(--blue2);padding:.3rem .9rem;border-radius:50px;font-size:.74rem;font-weight:700}
+
+/* ── STEP SECTIONS ── */
+.step-section{display:none}
+.step-section.visible{display:block}
+.back-btn{background:var(--surface2);border:1.5px solid var(--border2);color:var(--ink2);padding:.55rem 1.2rem;border-radius:50px;font-family:inherit;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .18s}
+.back-btn:hover{border-color:var(--blue);color:var(--blue)}
+.next-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--blue);color:#fff;padding:.72rem 1.6rem;border-radius:8px;font-family:inherit;font-weight:800;font-size:.85rem;border:none;cursor:pointer;transition:all .2s}
+.next-btn:hover{background:var(--blue2);transform:translateY(-1px)}
+.nav-row{margin-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem}
+
+/* ── BUDGET ── */
+.budget-hint{font-size:.72rem;color:var(--muted);line-height:1.55}
+.budget-wrap{display:flex;align-items:center;gap:.5rem;background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--r);padding:.6rem .9rem;margin-top:.3rem;max-width:180px;transition:border-color .18s}
+.budget-inp{background:transparent;border:none;outline:none;font-family:inherit;font-size:.95rem;font-weight:700;color:var(--ink);width:100%}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:2rem;border-top:1.5px solid var(--border);background:var(--bg2);color:var(--muted);font-size:.76rem}
+footer strong{color:var(--ink2);font-weight:800}
+
+/* ── RESPONSIVE ── */
+@media(max-width:580px){
+  .net-grid{grid-template-columns:1fr 1fr}
+  .promo-grid{grid-template-columns:1fr}
+  .wrap{padding:1.5rem .75rem 3rem}
+  .card{padding:1.2rem}
+  .form-grid{grid-template-columns:1fr}
+  .hero-h1{font-size:clamp(2.2rem,9vw,3rem)}
+  .cmg{grid-template-columns:1fr}
+  .confirm-title{font-size:1.5rem}
+  .confirm-msg{font-size:.92rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     HERO SCREEN
+═══════════════════════════════════════════════ -->
+<div id="heroScreen">
+  <div class="lang-bar" id="langBar"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker"><span class="kicker-dot"></span><span id="kicker"></span></div>
+    <h1 class="hero-h1"><span class="line1" id="h1a"></span><span class="line2" id="h1b"></span></h1>
+    <p class="hero-sub" id="heroSub"></p>
+    <div class="hero-stats-row">
+      <div class="hsr-item"><div class="hsr-num"><span class="accent-green" id="stat1num"></span></div><div class="hsr-lbl" id="stat1lbl"></div></div>
+      <div class="hsr-item"><div class="hsr-num"><span class="accent-blue" id="stat2num"></span></div><div class="hsr-lbl" id="stat2lbl"></div></div>
+      <div class="hsr-item"><div class="hsr-num"><span class="accent-blue" id="stat3num"></span></div><div class="hsr-lbl" id="stat3lbl"></div></div>
+    </div>
+    <button class="hero-btn" id="heroBtn"></button>
+    <div class="hero-btn-note" id="heroBtnNote"></div>
+    <div class="reviews-label"><span id="reviewsLabel"></span></div>
+    <div class="hero-reviews">
+      <div class="hr-card"><div class="hr-stars">⭐⭐⭐⭐⭐</div><div class="hr-text" id="r1text"></div><div class="hr-name" id="r1name"></div><div class="hr-saving" id="r1saving"></div></div>
+      <div class="hr-card"><div class="hr-stars">⭐⭐⭐⭐⭐</div><div class="hr-text" id="r2text"></div><div class="hr-name" id="r2name"></div><div class="hr-saving" id="r2saving"></div></div>
+      <div class="hr-card"><div class="hr-stars">⭐⭐⭐⭐⭐</div><div class="hr-text" id="r3text"></div><div class="hr-name" id="r3name"></div><div class="hr-saving" id="r3saving"></div></div>
+    </div>
+  </div>
+  <div class="hero-trust-bar">
+    <div class="htb-item">👥 +230 <span id="htb1"></span></div>
+    <div class="htb-item">⏱️ <span id="htb3a"></span> <strong id="htb3b"></strong></div>
+    <div class="htb-item">🎁 <span id="htbFree"></span></div>
+    <div class="htb-item">🔒 <span id="htb4"></span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PROFILE SCREEN
+═══════════════════════════════════════════════ -->
+<div id="profileScreen">
+  <div class="profile-wrap">
+    <div class="pm-icon">👋</div>
+    <div class="pm-title" id="pmTitle"></div>
+    <div class="pm-sub" id="pmSub"></div>
+    <div class="pm-btns">
+      <button class="pm-btn" id="btnPart"><span class="pm-btn-icon">👤</span><div><div class="pm-btn-label" id="pmPartLbl"></div><div class="pm-btn-desc" id="pmPartDesc"></div></div></button>
+      <button class="pm-btn" id="btnPro"><span class="pm-btn-icon">🏢</span><div><div class="pm-btn-label" id="pmProLbl"></div><div class="pm-btn-desc" id="pmProDesc"></div></div></button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     APP SCREEN
+═══════════════════════════════════════════════ -->
+<div id="appScreen">
+  <nav>
+    <div class="logo">SBC<span style="width:1px;height:14px;background:var(--border3);display:inline-block;margin:0 .35rem"></span><span>Consulting</span></div>
+    <div class="nav-badge">✅ <span id="navFree"></span></div>
+  </nav>
+  <div class="trust-bar">
+    <div class="tb-item">👥 <strong>+230</strong>&nbsp;<span id="tb1"></span></div>
+    <div class="tb-item">💰 −<strong>47€/mois</strong>&nbsp;<span id="tb2"></span></div>
+    <div class="tb-item">⏱️ <span id="tb3a"></span>&nbsp;<strong id="tb3b"></strong></div>
+    <div class="tb-item">🔒 <span id="tb4"></span></div>
+  </div>
+  <div class="profile-bar">
+    <div class="pb-badge" id="pbBadge"></div>
+    <button class="pb-change" id="pbChange"></button>
+    <div class="tva-pill" id="tvaPill">💼 <span id="tvaText"></span></div>
+  </div>
+  <div class="wrap">
+    <div class="stepper" id="stepper"></div>
+
+    <!-- ── ÉTAPE 1 ── -->
+    <div class="card" id="step1">
+      <div class="card-head"><div class="card-num">1</div><div><div class="card-title" id="s1title"></div><div class="card-sub" id="s1sub"></div></div></div>
+      <div class="sec-label" id="s1opLabel"></div>
+      <div class="sw" style="margin-bottom:.3rem">
+        <span class="s-icon">🔍</span>
+        <input class="s-inp" id="sOp" type="text" autocomplete="off">
+        <button class="s-clr" id="clrOp" type="button">✕</button>
+        <div class="dropdown" id="dOp"></div>
+      </div>
+      <div id="bOp"></div>
+      <div class="autre-wrap" id="autreOpWrap"><span class="autre-lbl" id="autreOpLbl"></span><input class="autre-inp" id="autreOp" type="text"></div>
+      <div style="margin-bottom:.9rem"></div>
+      <div class="divider"></div>
+      <div class="sec-label" id="s1mobOpLabel"></div>
+      <div class="sw" style="margin-bottom:.3rem">
+        <span class="s-icon">🔍</span>
+        <input class="s-inp" id="sMob" type="text" autocomplete="off">
+        <button class="s-clr" id="clrMob" type="button">✕</button>
+        <div class="dropdown" id="dMob"></div>
+      </div>
+      <div id="bMob"></div>
+      <div class="autre-wrap" id="autreMobWrap"><span class="autre-lbl" id="autreMobLbl"></span><input class="autre-inp" id="autreMob" type="text"></div>
+      <div style="margin-bottom:.9rem"></div>
+      <div class="divider"></div>
+      <div class="sec-label" id="s1servLabel"></div>
+      <div class="chips" id="servChips" style="margin-bottom:1.1rem"></div>
+      <div class="divider"></div>
+      <div class="sec-label" id="s1engLabel"></div>
+      <div class="chips" id="engChips" style="margin-bottom:.7rem"></div>
+      <div class="eng-notice" id="engNotice"><p>✅ <strong id="engNoticeTitle"></strong> <span id="engNoticeText"></span></p></div>
+      <div class="divider"></div>
+      <div class="sec-label" id="s1budgetLabel"></div>
+      <div class="budget-hint" id="budgetHint"></div>
+      <div class="budget-wrap" id="budgetWrap">
+        <input type="number" id="budgetActuel" class="budget-inp" placeholder="ex: 90" min="0">
+        <span style="color:var(--muted);font-size:.8rem;white-space:nowrap;font-weight:600">€/mois</span>
+      </div>
+      <div class="nav-row" style="justify-content:flex-end"><button class="next-btn" type="button" id="btn1next"></button></div>
+    </div>
+
+    <!-- ── ÉTAPE 2 ── -->
+    <div class="card step-section" id="step2">
+      <div class="card-head"><div class="card-num">2</div><div><div class="card-title" id="s2title"></div><div class="card-sub" id="s2sub"></div></div></div>
+      <div class="sec-label" id="s2netLabel"></div>
+      <div class="net-grid" id="netGrid"></div>
+      <div class="divider"></div>
+      <div class="sec-label" id="s2optLabel"></div>
+      <div class="opt-list" id="optList"></div>
+      <div class="nav-row"><button class="back-btn" type="button" id="btn2back"></button><button class="next-btn" type="button" id="btn2next"></button></div>
+    </div>
+
+    <!-- ── ÉTAPE 3 ── -->
+    <div class="card step-section" id="step3">
+      <div class="card-head"><div class="card-num">3</div><div><div class="card-title" id="s3title"></div><div class="card-sub" id="s3sub"></div></div></div>
+      <div class="mob-section">
+        <div class="mob-section-head"><span class="mob-section-title">📋 <span id="curMobTitle"></span></span><span class="mob-badge now" id="todayBadge"></span></div>
+        <div class="mob-sub" id="curMobSub"></div>
+        <div class="counter-row"><button class="cnt-btn" type="button" id="curMobMinus">−</button><div class="cnt-val" id="curMobVal">0</div><button class="cnt-btn" type="button" id="curMobPlus">+</button><span class="cnt-lbl" id="curMobLbl"></span></div>
+        <div class="mob-lines" id="curMobLines"></div>
+      </div>
+      <div class="mob-section">
+        <div class="mob-section-head"><span class="mob-section-title">🆕 <span id="newMobTitle"></span></span><span class="mob-badge new" id="newOfferBadge"></span></div>
+        <div class="mob-sub" id="mobPackSub"></div>
+        <div class="counter-row"><button class="cnt-btn" type="button" id="simMinus">−</button><div class="cnt-val" id="mobSimVal">0</div><button class="cnt-btn" type="button" id="simPlus">+</button><span class="cnt-lbl" id="simLbl"></span></div>
+        <div class="mob-lines" id="mobSimLines"></div>
+        <div class="tel-info" style="background:var(--green-bg);border:1.5px solid var(--green-border);margin-top:.85rem"><p>✅ <strong id="portTitle"></strong> <span id="portText"></span></p></div>
+        <div class="tel-info" style="background:var(--gold-bg);border:1.5px solid var(--gold-border);margin-top:.5rem"><p>📱 <strong id="deviceTitle"></strong> <span id="deviceText"></span></p></div>
+      </div>
+      <div class="nav-row"><button class="back-btn" type="button" id="btn3back"></button><button class="next-btn" type="button" id="btn3next"></button></div>
+    </div>
+
+    <!-- ── ÉTAPE 4 ── -->
+    <div class="card step-section" id="step4">
+      <div class="card-head"><div class="card-num">4</div><div><div class="card-title" id="s4title"></div><div class="card-sub" id="s4sub"></div></div></div>
+      <div class="sec-label" id="s4promoLabel"></div>
+      <div class="promo-notice" id="promoNotice"></div>
+      <div class="promo-grid" id="promoBar"></div>
+      <div class="suivi-box">
+        <div class="suivi-inner">
+          <div class="suivi-avatar">🙋</div>
+          <div>
+            <div class="suivi-title" id="suiviTitle"></div>
+            <div class="suivi-desc" id="suiviDesc"></div>
+            <div class="suivi-pills" id="suiviPills"></div>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="sec-label" id="s4recapLabel"></div>
+      <div class="recap" id="promoRecap"></div>
+      <div class="nav-row"><button class="back-btn" type="button" id="btn4back"></button><button class="next-btn" type="button" id="btn4next"></button></div>
+    </div>
+
+    <!-- ── ÉTAPE 5 — FORMULAIRE ── -->
+    <div class="card step-section" id="step5">
+      <div class="card-head"><div class="card-num">5</div><div><div class="card-title" id="s5title"></div><div class="card-sub" id="s5sub"></div></div></div>
+
+      <div class="form-grid" id="formFields">
+        <div class="field"><label id="lPrenom"></label><input type="text" id="f_prenom" required></div>
+        <div class="field"><label id="lNom"></label><input type="text" id="f_nom" required></div>
+        <div class="field full"><label id="lAdresse"></label><input type="text" id="f_adresse" required></div>
+        <div class="field"><label id="lCP"></label><input type="text" id="f_cp" placeholder="1000" required></div>
+        <div class="field"><label id="lVille"></label><input type="text" id="f_ville" required></div>
+        <div class="field"><label id="lTel"></label><input type="tel" id="f_tel" placeholder="+32 4xx xx xx xx" required></div>
+        <div class="field"><label id="lEmail"></label><input type="email" id="f_email" placeholder="jean@email.com" required></div>
+        <div class="field hidden" id="f_tvaField"><label id="lTVA"></label><input type="text" id="f_tva" placeholder="BE 0xxx.xxx.xxx"></div>
+        <div class="field full"><label id="lMsg"></label><textarea id="f_msg"></textarea></div>
+        <div class="field full">
+          <button type="button" class="send-btn" id="sendBtn"></button>
+          <div class="form-error" id="formError">
+            <p>⚠️ <strong id="formErrorTitle">Une erreur est survenue.</strong> <span id="formErrorText">Veuillez vérifier votre connexion et réessayer.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /.wrap -->
+
+  <footer>
+    <strong>SBC Consulting</strong> — <span id="footerSub"></span><br>
+    <span style="margin-top:.25rem;display:block" id="footerNote"></span>
+  </footer>
+</div><!-- /#appScreen -->
+
+<!-- ═══════════════════════════════════════════════
+     CONFIRM SCREEN
+═══════════════════════════════════════════════ -->
+<div id="confirmScreen">
+  <div class="confirm-wrap">
+    <div class="confirm-icon">✅</div>
+    <div class="confirm-title">Parfait, tout est en ordre.</div>
+    <div class="confirm-box">
+      <div class="confirm-msg">
+        Vous recevrez une réponse sous peu via WhatsApp ou par appel sous moins de 24 heures.
+      </div>
+    </div>
+    <div class="confirm-pills">
+      <span class="confirm-pill">📞 Numéro direct</span>
+      <span class="confirm-pill">🔒 Suivi privé</span>
+      <span class="confirm-pill">⚡ Sous 24h</span>
+      <span class="confirm-pill">🎁 100% gratuit</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+
+/* ========================================================================
+   TRADUCTIONS
+   ======================================================================== */
+const T={
+fr:{kicker:"Courtier en charges domestiques · Belgique",h1a:"Comparez.",h1b:"Économisez.",heroSub:"Un consultant personnel. Une analyse sur-mesure. Des économies réelles dès le premier mois.",heroBtn:"Commencer gratuitement →",heroBtnNote:"100% gratuit · Sans engagement",stat1num:"+230",stat1lbl:"Clients satisfaits",stat2num:"−47€",stat2lbl:"Économies/mois",stat3num:"24h",stat3lbl:"Délai de réponse",reviewsLabel:"Ce que disent nos clients",r1text:'"Franchement j\'avais la flemme de changer, je pensais que c\'était compliqué. Le consultant a tout géré en 20 minutes. Résultat : 53€ de moins par mois, même vitesse, même TV. Je me sens bête de ne pas l\'avoir fait avant."',r1name:"— Nathalie D., Bruxelles · Proximus → SBC",r1saving:"−53€/mois",r2text:'"J\'étais convaincu que mon opérateur me donnait le meilleur prix parce que j\'étais client depuis 11 ans. Mon consultant m\'a montré ma facture en détail. J\'avais des options dont je ne savais même plus pourquoi je payais. 41€ récupérés, sans rien perdre."',r2name:"— Yves M., Liège · Client 11 ans chez Telenet",r2saving:"−41€/mois",r3text:'"On nous a dit que c\'était gratuit et sans engagement. J\'ai cherché le piège. Il n\'y en avait pas. Mon mari et moi économisons maintenant 116€ par mois à nous deux. On l\'a dit à toute la famille."',r3name:"— Isabelle V., Gand · Avec son mari",r3saving:"−58€/mois",htb4:"Sans engagement",pmTitle:"Quel est votre profil ?",pmSub:"Choisissez votre profil pour recevoir les offres et conditions adaptées.",pmPart:"Particulier",pmPartDesc:"Offres résidentielles · Prix TVAC",pmPro:"Professionnel",pmProDesc:"Offres business · TVA récupérable · Facturation",navFree:"100% gratuit",tb1:"clients satisfaits",tb2:"d'économies moyennes",tb3a:"Réponse sous",tb3b:"24h",tb4:"Sans engagement · Confidentiel",tvaText:"TVA récupérable",pbChange:"Changer de profil",steps:["Situation","Internet","Mobiles","Promo","Contact"],s1title:"Votre situation actuelle",s1sub:"Dites-nous ce que vous avez aujourd'hui",s1opLabel:"Opérateur Internet / TV / Fixe actuel",s1mobOpLabel:"Opérateur mobile actuel",specify:"Précisez :",autreOpPh:"Nom de votre opérateur actuel…",autreMobPh:"Nom de votre opérateur mobile…",s1servLabel:"Services dans votre abonnement actuel",chipTV:"📺 Télévision",chipFixe:"☎️ Ligne fixe",chipMobile:"📱 Mobile(s)",s1engLabel:"Téléphone en remboursement mensuel ?",engNo:"✅ Non, je suis libre",engYes:"📲 Oui, je rembourse mon téléphone",engNoticeTitle:"Aucun problème.",engNoticeText:"Nos tarifs réduits s'appliquent immédiatement sur tous vos autres services.",s1budgetLabel:"Ce que vous payez actuellement",budgetHint:"Montant total de votre facture mensuelle actuelle, tous services confondus.",btnContinue:"Continuer →",btnBack:"← Retour",btnValidate:"Valider & continuer →",s2title:"Votre offre internet & options",s2sub:"Choisissez votre connexion, puis ajoutez vos options",s2netLabel:"Connexion internet",ncWarn:"Si fibre indisponible",fiberLabel:"Fibre optique",s2optLabel:"Options",tvDesc:"+80 chaînes · 1ère TV-Box offerte · Replay",wifiDesc:"Couverture WiFi optimale dans toute la maison",free1yr:"Gratuit 1 an",fixeLabel:"Ligne fixe",fixeDesc:"Appels nationaux illimités · sans frais cachés",s3title:"Vos mobiles",s3sub:"Décrivez vos lignes actuelles, puis choisissez vos nouvelles offres",curMobTitle:"Vos mobiles actuels",today:"Aujourd'hui",curMobSub:"Pour chaque mobile : opérateur, type de contrat, volume de données et prix mensuel.",curMobLbl:"ligne(s) actuellement (max 6)",newMobTitle:"Mobiles souhaités avec nous",newOffer:"Nouvelle offre",simLbl:"ligne(s) SIM souhaitée(s) (max 6)",portTitle:"Conservation ou changement de numéro.",portText:"Votre consultant gère l'ensemble des démarches de portabilité.",deviceTitle:"Acquisition d'un nouveau terminal.",deviceText:"Achat comptant ou en mensualités, votre consultant vous guide.",s4title:"Votre promotion & récapitulatif",s4sub:"Choisissez votre durée — votre total se met à jour en temps réel",s4promoLabel:"Durée promotionnelle",suiviTitle:"Un consultant personnel vous est attribué",suiviDesc:"Dès validation, <strong>un consultant dédié prend en charge votre dossier personnellement</strong>. Il vous communique son numéro direct et vous accompagne de A à Z. <strong>Réponse garantie sous 24h.</strong>",spDirect:"📞 Numéro direct",spPrivate:"🔒 Suivi privé",sp24h:"⚡ Sous 24h",spFree:"🎁 100% gratuit",s4recapLabel:"Récapitulatif de votre offre",recapEmpty:"Sélectionnez une promotion ci-dessus",promoNoticeText:"ℹ️ <strong>Promo 6 mois :</strong> la réduction de −10€/mois s'active si vous combinez internet avec au moins un service supplémentaire.",s5title:"Vos coordonnées",s5sub:"Votre consultant vous contacte avec son numéro direct sous 24h",fPrenom:"Prénom *",fNom:"Nom *",fAdresse:"Adresse *",fCP:"Code postal *",fVille:"Ville *",fTel:"Téléphone *",fEmail:"Email *",fTVA:"Numéro TVA",fMsg:"Message (optionnel)",phPrenom:"Jean",phNom:"Dupont",phAdresse:"Rue de la Loi 16",phVille:"Bruxelles",phMsg:"Modèle de téléphone souhaité, questions…",sendBtn:"Recevoir mon offre personnalisée — Gratuit & sans engagement →",formErrorTitle:"Une erreur est survenue.",formErrorText:"Vérifiez votre connexion internet et réessayez.",footerSub:"Courtier en charges domestiques · Belgique",footerNote:"Service 100% gratuit pour le client · Prix TVAC",searchOp:"Cherchez votre opérateur…",searchMob:"Cherchez votre opérateur mobile…",postpaid:"Abonnement mensuel",prepaid:"Prépayé",credit:"Tél. en remboursement",dataVol:"Volume données",calls:"Appels & SMS",monthlyPrice:"Prix mensuel actuel",notSpec:"Non précisé",lessThan5:"Moins de 5 GB",from5to10:"5 à 10 GB",from10to20:"10 à 20 GB",from20to50:"20 à 50 GB",from50to100:"50 à 100 GB",unlimited:"Illimité",limitedCalls:"Limités",unlimitedCalls:"Illimités",packTab:"📦 Dans le Pack",aloneTab:"📋 Hors Pack",aloneNote:"Tarif autonome — sans réduction Pack",discLabel:"Pack",contractType:"Type de contrat",curCardTitle:"📱 Ligne actuelle",opLabel:"Opérateur actuel",searchMobPh:"Cherchez…",free1yrShort:"Gratuit 1 an",mobPackSubHtml:'<strong style="color:var(--blue2)">Dans le Pack</strong> — 1er mobile <strong style="color:var(--green)">−10€/mois</strong>, à partir du 2ème <strong style="color:var(--green)">−5€/mois</strong>.'},
+nl:{kicker:"Telecommakelaar · België",h1a:"Vergelijk.",h1b:"Bespaar.",heroSub:"Een persoonlijke consultant. Een analyse op maat. Echte besparingen vanaf de eerste maand.",heroBtn:"Gratis starten →",heroBtnNote:"100% gratis · Zonder verbintenis",stat1num:"+230",stat1lbl:"Tevreden klanten",stat2num:"−47€",stat2lbl:"Besparing/maand",stat3num:"24u",stat3lbl:"Reactietijd",reviewsLabel:"Wat onze klanten zeggen",r1text:'"Eerlijk gezegd had ik geen zin om te wisselen, ik dacht dat het ingewikkeld was. De consultant heeft alles in 20 minuten geregeld. Resultaat: 53€ minder per maand, zelfde snelheid, zelfde tv. Ik schaam me dat ik dit niet eerder heb gedaan."',r1name:"— Nathalie D., Brussel · Proximus → SBC",r1saving:"−53€/maand",r2text:'"Ik was ervan overtuigd dat mijn operator me de beste prijs gaf omdat ik al 11 jaar klant was. Mijn consultant toonde me mijn factuur in detail. Ik betaalde voor opties waarvan ik niet eens meer wist waarom. 41€ teruggewonnen, zonder iets te verliezen."',r2name:"— Yves M., Luik · 11 jaar klant bij Telenet",r2saving:"−41€/maand",r3text:'"Ze zeiden dat het gratis was en zonder verbintenis. Ik zocht de addertje onder het gras. Er was geen. Mijn man en ik besparen nu samen 116€ per maand. We hebben het aan de hele familie verteld."',r3name:"— Isabelle V., Gent · Met haar man",r3saving:"−58€/maand",htb4:"Zonder verbintenis",pmTitle:"Wat is uw profiel?",pmSub:"Kies uw profiel voor aangepaste aanbiedingen.",pmPart:"Particulier",pmPartDesc:"Residentiële aanbiedingen · Prijs incl. btw",pmPro:"Professioneel",pmProDesc:"Zakelijke aanbiedingen · Btw terugvorderbaar",navFree:"100% gratis",tb1:"tevreden klanten",tb2:"gemiddelde besparing",tb3a:"Antwoord binnen",tb3b:"24u",tb4:"Zonder verbintenis · Vertrouwelijk",tvaText:"Btw terugvorderbaar",pbChange:"Profiel wijzigen",steps:["Situatie","Internet","Mobiel","Promo","Contact"],s1title:"Uw huidige situatie",s1sub:"Vertel ons wat u vandaag heeft",s1opLabel:"Huidige internet / tv / vaste lijn operator",s1mobOpLabel:"Huidige mobiele operator",specify:"Preciseer:",autreOpPh:"Naam van uw huidige operator…",autreMobPh:"Naam van uw mobiele operator…",s1servLabel:"Diensten in uw huidige abonnement",chipTV:"📺 Televisie",chipFixe:"☎️ Vaste lijn",chipMobile:"📱 Mobiel(e)",s1engLabel:"Telefoon op maandelijkse afbetaling?",engNo:"✅ Nee, ik ben vrij",engYes:"📲 Ja, ik betaal mijn toestel af",engNoticeTitle:"Geen probleem.",engNoticeText:"Onze verlaagde tarieven gelden onmiddellijk voor al uw andere diensten.",s1budgetLabel:"Wat u momenteel betaalt",budgetHint:"Totaalbedrag van uw huidige maandfactuur, alle diensten samen.",btnContinue:"Verder →",btnBack:"← Terug",btnValidate:"Bevestigen & verder →",s2title:"Uw internet & opties",s2sub:"Kies uw verbinding en voeg opties toe",s2netLabel:"Internetverbindung",ncWarn:"Als glasvezel niet beschikbaar",fiberLabel:"Glasvezel",s2optLabel:"Opties",tvDesc:"+80 zenders · 1e TV-Box gratis · Replay",wifiDesc:"Optimale wifi-dekking door het hele huis",free1yr:"1 jaar gratis",fixeLabel:"Vaste lijn",fixeDesc:"Onbeperkt nationale oproepen",s3title:"Uw mobiele lijnen",s3sub:"Beschrijf uw huidige lijnen en kies uw nieuwe aanbiedingen",curMobTitle:"Uw huidige mobiele lijnen",today:"Vandaag",curMobSub:"Per mobiel: operator, contracttype, datavolume en maandprijs.",curMobLbl:"huidige lijn(en) (max 6)",newMobTitle:"Gewenste mobiele lijnen bij ons",newOffer:"Nieuw aanbod",simLbl:"gewenste SIM-lijn(en) (max 6)",portTitle:"Nummeroverdracht of nieuw nummer.",portText:"Uw consultant regelt alle portabiliteitsstappen.",deviceTitle:"Aankoop van een nieuw toestel.",deviceText:"Contante aankoop of op afbetaling, uw consultant begeleidt u.",s4title:"Uw promotie & samenvatting",s4sub:"Kies uw duur — uw totaal wordt real-time bijgewerkt",s4promoLabel:"Promotieduur",suiviTitle:"Er wordt een persoonlijke consultant aan u toegewezen",suiviDesc:"Na bevestiging <strong>neemt een toegewijde consultant uw dossier persoonlijk op</strong>. Hij geeft u zijn direct nummer. <strong>Gegarandeerd antwoord binnen 24u.</strong>",spDirect:"📞 Direct nummer",spPrivate:"🔒 Privébegeleiding",sp24h:"⚡ Binnen 24u",spFree:"🎁 100% gratis",s4recapLabel:"Samenvatting van uw aanbieding",recapEmpty:"Selecteer een promotie hierboven",promoNoticeText:"ℹ️ <strong>Promo 6 maanden:</strong> de −10€/mnd korting geldt alleen als u internet combineert met minstens één extra dienst.",s5title:"Uw contactgegevens",s5sub:"Uw consultant neemt contact op binnen 24u",fPrenom:"Voornaam *",fNom:"Achternaam *",fAdresse:"Adres *",fCP:"Postcode *",fVille:"Stad *",fTel:"Telefoon *",fEmail:"E-mail *",fTVA:"BTW-nummer",fMsg:"Bericht (optioneel)",phPrenom:"Jan",phNom:"Janssen",phAdresse:"Wetstraat 16",phVille:"Brussel",phMsg:"Gewenst toestelmodel, vragen…",sendBtn:"Mijn gepersonaliseerd aanbod ontvangen — Gratis & zonder verbintenis →",formErrorTitle:"Er is een fout opgetreden.",formErrorText:"Controleer uw internetverbinding en probeer opnieuw.",footerSub:"Makelaar in huishoudelijke lasten · België",footerNote:"100% gratis service voor de klant · Prijzen incl. btw",searchOp:"Zoek uw operator…",searchMob:"Zoek uw mobiele operator…",postpaid:"Maandabonnement",prepaid:"Prepaid",credit:"Toestel op afbetaling",dataVol:"Datavolume",calls:"Bellen & sms",monthlyPrice:"Huidige maandprijs",notSpec:"Niet opgegeven",lessThan5:"Minder dan 5 GB",from5to10:"5 tot 10 GB",from10to20:"10 tot 20 GB",from20to50:"20 tot 50 GB",from50to100:"50 tot 100 GB",unlimited:"Onbeperkt",limitedCalls:"Beperkt",unlimitedCalls:"Onbeperkt",packTab:"📦 In het Pack",aloneTab:"📋 Buiten Pack",aloneNote:"Zelfstandig tarief — zonder Pack-korting",discLabel:"Pack",contractType:"Contracttype",curCardTitle:"📱 Huidige lijn",opLabel:"Huidige operator",searchMobPh:"Zoeken…",free1yrShort:"1 jaar gratis",mobPackSubHtml:'<strong style="color:var(--blue2)">In het Pack</strong> — 1e mobiel <strong style="color:var(--green)">−10€/mnd</strong>, vanaf het 2e <strong style="color:var(--green)">−5€/mnd</strong>.'},
+en:{kicker:"Telecom Broker · Belgium",h1a:"Compare.",h1b:"Save.",heroSub:"A personal consultant. A tailored analysis. Real savings from the very first month.",heroBtn:"Start for free →",heroBtnNote:"100% free · No commitment",stat1num:"+230",stat1lbl:"Satisfied clients",stat2num:"−€47",stat2lbl:"Savings/month",stat3num:"24h",stat3lbl:"Response time",reviewsLabel:"What our clients say",r1text:'"Honestly I couldn\'t be bothered to switch, I thought it would be complicated. The consultant handled everything in 20 minutes. Result: €53 less per month, same speed, same TV. I feel stupid for not doing it sooner."',r1name:"— Nathalie D., Brussels · Proximus → SBC",r1saving:"−€53/month",r2text:'"I was convinced my operator gave me the best price because I\'d been a customer for 11 years. My consultant went through my bill in detail. I was paying for options I\'d completely forgotten about. €41 recovered, without losing a thing."',r2name:"— Yves M., Liège · 11-year Telenet customer",r2saving:"−€41/month",r3text:'"They said it was free and no commitment. I looked for the catch. There wasn\'t one. My husband and I now save €116 a month between us. We\'ve told the whole family."',r3name:"— Isabelle V., Ghent · With her husband",r3saving:"−€58/month",htb4:"No commitment",pmTitle:"What is your profile?",pmSub:"Choose your profile to receive tailored offers.",pmPart:"Individual",pmPartDesc:"Residential offers · Prices incl. VAT",pmPro:"Professional",pmProDesc:"Business offers · VAT reclaimable",navFree:"100% free",tb1:"satisfied clients",tb2:"average savings",tb3a:"Reply within",tb3b:"24h",tb4:"No commitment · Confidential",tvaText:"VAT reclaimable",pbChange:"Change profile",steps:["Situation","Internet","Mobile","Promo","Contact"],s1title:"Your current situation",s1sub:"Tell us what you have today",s1opLabel:"Current Internet / TV / Landline operator",s1mobOpLabel:"Current mobile operator",specify:"Specify:",autreOpPh:"Name of your current operator…",autreMobPh:"Name of your mobile operator…",s1servLabel:"Services in your current subscription",chipTV:"📺 Television",chipFixe:"☎️ Landline",chipMobile:"📱 Mobile(s)",s1engLabel:"Phone on monthly instalments?",engNo:"✅ No, I'm free",engYes:"📲 Yes, I'm paying off my device",engNoticeTitle:"No problem.",engNoticeText:"Our reduced rates apply immediately to all your other services.",s1budgetLabel:"What you currently pay",budgetHint:"Total amount of your current monthly bill, all services combined.",btnContinue:"Continue →",btnBack:"← Back",btnValidate:"Confirm & continue →",s2title:"Your internet offer & options",s2sub:"Choose your connection, then add your options",s2netLabel:"Internet connection",ncWarn:"If fibre unavailable",fiberLabel:"Fibre optic",s2optLabel:"Options",tvDesc:"+80 channels · 1st TV-Box free · Replay",wifiDesc:"Optimal WiFi coverage throughout your home",free1yr:"Free 1 year",fixeLabel:"Landline",fixeDesc:"Unlimited national calls · No hidden fees",s3title:"Your mobile lines",s3sub:"Describe your current lines, then choose your new offers",curMobTitle:"Your current mobile lines",today:"Today",curMobSub:"For each mobile: operator, contract type, data volume and monthly price.",curMobLbl:"current line(s) (max 6)",newMobTitle:"Desired mobile lines with us",newOffer:"New offer",simLbl:"desired SIM line(s) (max 6)",portTitle:"Keep or change your number.",portText:"Your consultant handles all portability steps.",deviceTitle:"Acquiring a new device.",deviceText:"Cash purchase or instalments, your consultant guides you.",s4title:"Your promotion & summary",s4sub:"Choose your duration — your total updates in real time",s4promoLabel:"Promotional duration",suiviTitle:"A personal consultant is assigned to you",suiviDesc:"Upon confirmation, <strong>a dedicated consultant personally takes charge of your file</strong>. They give you their direct number. <strong>Reply guaranteed within 24h.</strong>",spDirect:"📞 Direct number",spPrivate:"🔒 Private follow-up",sp24h:"⚡ Within 24h",spFree:"🎁 100% free",s4recapLabel:"Summary of your offer",recapEmpty:"Select a promotion above",promoNoticeText:"ℹ️ <strong>6-month promo:</strong> the −€10/mo discount only activates when you combine internet with at least one additional service.",s5title:"Your contact details",s5sub:"Your consultant will contact you within 24h",fPrenom:"First name *",fNom:"Last name *",fAdresse:"Address *",fCP:"Postcode *",fVille:"City *",fTel:"Phone *",fEmail:"Email *",fTVA:"VAT number",fMsg:"Message (optional)",phPrenom:"John",phNom:"Smith",phAdresse:"16 Law Street",phVille:"Brussels",phMsg:"Desired phone model, questions…",sendBtn:"Receive my personalised offer — Free & no commitment →",formErrorTitle:"An error occurred.",formErrorText:"Please check your internet connection and try again.",footerSub:"Domestic charges broker · Belgium",footerNote:"100% free service · Prices incl. VAT",searchOp:"Search your operator…",searchMob:"Search your mobile operator…",postpaid:"Monthly subscription",prepaid:"Prepaid",credit:"Device on instalments",dataVol:"Data volume",calls:"Calls & SMS",monthlyPrice:"Current monthly price",notSpec:"Not specified",lessThan5:"Less than 5 GB",from5to10:"5 to 10 GB",from10to20:"10 to 20 GB",from20to50:"20 to 50 GB",from50to100:"50 to 100 GB",unlimited:"Unlimited",limitedCalls:"Limited",unlimitedCalls:"Unlimited",packTab:"📦 In the Pack",aloneTab:"📋 Without Pack",aloneNote:"Standalone rate — no Pack discount",discLabel:"Pack",contractType:"Contract type",curCardTitle:"📱 Current line",opLabel:"Current operator",searchMobPh:"Search…",free1yrShort:"Free 1 year",mobPackSubHtml:'<strong style="color:var(--blue2)">In the Pack</strong> — 1st mobile <strong style="color:var(--green)">−€10/mo</strong>, from 2nd onwards <strong style="color:var(--green)">−€5/mo</strong>.'},
+de:{kicker:"Telecom-Makler · Belgien",h1a:"Vergleichen.",h1b:"Sparen.",heroSub:"Ein persönlicher Berater. Eine maßgeschneiderte Analyse. Echte Ersparnisse ab dem ersten Monat.",heroBtn:"Kostenlos starten →",heroBtnNote:"100% kostenlos · Ohne Verpflichtung",stat1num:"+230",stat1lbl:"Zufriedene Kunden",stat2num:"−47€",stat2lbl:"Ersparnis/Monat",stat3num:"24h",stat3lbl:"Antwortzeit",reviewsLabel:"Was unsere Kunden sagen",r1text:'"Ehrlich gesagt hatte ich keine Lust zu wechseln, ich dachte es wäre kompliziert. Der Berater hat alles in 20 Minuten geregelt. 53€ weniger pro Monat, gleiche Geschwindigkeit, gleiches TV. Ich ärgere mich, dass ich das nicht früher gemacht habe."',r1name:"— Nathalie D., Brüssel · Proximus → SBC",r1saving:"−53€/Monat",r2text:'"Ich war überzeugt, dass mein Anbieter mir den besten Preis gibt, weil ich seit 11 Jahren Kunde war. Mein Berater hat meine Rechnung durchgegangen. Ich zahlte für Optionen, an die ich mich nicht mal erinnern konnte. 41€ zurückgewonnen, ohne etwas zu verlieren."',r2name:"— Yves M., Lüttich · 11 Jahre Telenet-Kunde",r2saving:"−41€/Monat",r3text:'"Sie sagten, es sei kostenlos und ohne Verpflichtung. Ich suchte den Haken. Es gab keinen. Mein Mann und ich sparen jetzt zusammen 116€ pro Monat. Wir haben es der ganzen Familie erzählt."',r3name:"— Isabelle V., Gent · Mit ihrem Mann",r3saving:"−58€/Monat",htb4:"Ohne Verpflichtung",pmTitle:"Was ist Ihr Profil?",pmSub:"Wählen Sie Ihr Profil für maßgeschneiderte Angebote.",pmPart:"Privatperson",pmPartDesc:"Privathaushalte · Preise inkl. MwSt.",pmPro:"Unternehmen",pmProDesc:"Geschäftsangebote · MwSt. erstattbar",navFree:"100% kostenlos",tb1:"zufriedene Kunden",tb2:"durchschnittliche Ersparnis",tb3a:"Antwort innerhalb",tb3b:"24h",tb4:"Ohne Verpflichtung · Vertraulich",tvaText:"MwSt. erstattbar",pbChange:"Profil ändern",steps:["Situation","Internet","Mobil","Promo","Kontakt"],s1title:"Ihre aktuelle Situation",s1sub:"Sagen Sie uns, was Sie heute haben",s1opLabel:"Aktueller Internet / TV / Festnetz-Anbieter",s1mobOpLabel:"Aktueller Mobilanbieter",specify:"Angeben:",autreOpPh:"Name Ihres aktuellen Anbieters…",autreMobPh:"Name Ihres Mobilanbieters…",s1servLabel:"Dienste in Ihrem aktuellen Abonnement",chipTV:"📺 Fernsehen",chipFixe:"☎️ Festnetz",chipMobile:"📱 Mobil(e)",s1engLabel:"Telefon auf monatliche Raten?",engNo:"✅ Nein, ich bin frei",engYes:"📲 Ja, ich zahle mein Gerät ab",engNoticeTitle:"Kein Problem.",engNoticeText:"Unsere reduzierten Tarife gelten sofort für alle Ihre anderen Dienste.",s1budgetLabel:"Was Sie derzeit zahlen",budgetHint:"Gesamtbetrag Ihrer aktuellen Monatsrechnung.",btnContinue:"Weiter →",btnBack:"← Zurück",btnValidate:"Bestätigen & weiter →",s2title:"Ihr Internetangebot & Optionen",s2sub:"Wählen Sie Ihre Verbindung, dann fügen Sie Optionen hinzu",s2netLabel:"Internetverbindung",ncWarn:"Falls Glasfaser nicht verfügbar",fiberLabel:"Glasvezel",s2optLabel:"Optionen",tvDesc:"+80 Sender · 1. TV-Box kostenlos · Replay",wifiDesc:"Optimale WLAN-Abdeckung im ganzen Haus",free1yr:"1 Jahr kostenlos",fixeLabel:"Festnetz",fixeDesc:"Unbegrenzte Inlandsgespräche",s3title:"Ihre Mobillinien",s3sub:"Beschreiben Sie Ihre aktuellen Leitungen",curMobTitle:"Ihre aktuellen Mobillinien",today:"Heute",curMobSub:"Für jedes Gerät: Anbieter, Vertragstyp, Datenvolumen und Monatspreis.",curMobLbl:"aktuelle Linie(n) (max. 6)",newMobTitle:"Gewünschte Mobillinien bei uns",newOffer:"Neues Angebot",simLbl:"gewünschte SIM-Linie(n) (max. 6)",portTitle:"Nummer behalten oder wechseln.",portText:"Ihr Berater kümmert sich um alle Portabilitätsschritte.",deviceTitle:"Erwerb eines neuen Geräts.",deviceText:"Barkauf oder Ratenzahlung, Ihr Berater führt Sie.",s4title:"Ihre Aktion & Zusammenfassung",s4sub:"Wählen Sie Ihre Dauer — Ihr Gesamtbetrag wird in Echtzeit aktualisiert",s4promoLabel:"Aktionsdauer",suiviTitle:"Ein persönlicher Berater wird Ihnen zugewiesen",suiviDesc:"Nach der Bestätigung <strong>übernimmt ein dedizierter Berater Ihre Akte persönlich</strong>. Er teilt Ihnen seine Direktnummer mit. <strong>Garantierte Antwort innerhalb von 24h.</strong>",spDirect:"📞 Direktnummer",spPrivate:"🔒 Private Begleitung",sp24h:"⚡ Innerhalb 24h",spFree:"🎁 100% kostenlos",s4recapLabel:"Zusammenfassung Ihres Angebots",recapEmpty:"Wählen Sie eine Aktion oben",promoNoticeText:"ℹ️ <strong>6-Monats-Aktion:</strong> der −10€/Monat-Rabatt gilt nur bei Kombination mit einem weiteren Dienst.",s5title:"Ihre Kontaktdaten",s5sub:"Ihr Berater kontaktiert Sie innerhalb von 24h",fPrenom:"Vorname *",fNom:"Nachname *",fAdresse:"Adresse *",fCP:"Postleitzahl *",fVille:"Stadt *",fTel:"Telefon *",fEmail:"E-Mail *",fTVA:"MwSt.-Nummer",fMsg:"Nachricht (optional)",phPrenom:"Hans",phNom:"Müller",phAdresse:"Gesetzstraße 16",phVille:"Brüssel",phMsg:"Gewünschtes Telefonmodell, Fragen…",sendBtn:"Mein personalisiertes Angebot erhalten — Kostenlos & ohne Verpflichtung →",formErrorTitle:"Ein Fehler ist aufgetreten.",formErrorText:"Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",footerSub:"Makler für Haushaltskosten · Belgien",footerNote:"100% kostenloser Service · Preise inkl. MwSt.",searchOp:"Suchen Sie Ihren Anbieter…",searchMob:"Suchen Sie Ihren Mobilanbieter…",postpaid:"Monatsabonnement",prepaid:"Prepaid",credit:"Gerät auf Raten",dataVol:"Datenvolumen",calls:"Anrufe & SMS",monthlyPrice:"Aktueller Monatspreis",notSpec:"Nicht angegeben",lessThan5:"Weniger als 5 GB",from5to10:"5 bis 10 GB",from10to20:"10 bis 20 GB",from20to50:"20 bis 50 GB",from50to100:"50 bis 100 GB",unlimited:"Unbegrenzt",limitedCalls:"Begrenzt",unlimitedCalls:"Unbegrenzt",packTab:"📦 Im Pack",aloneTab:"📋 Ohne Pack",aloneNote:"Einzeltarif — ohne Pack-Rabatt",discLabel:"Pack",contractType:"Vertragstyp",curCardTitle:"📱 Aktuelle Linie",opLabel:"Aktueller Anbieter",searchMobPh:"Suchen…",free1yrShort:"1 Jahr kostenlos",mobPackSubHtml:'<strong style="color:var(--blue2)">Im Pack</strong> — 1. Mobil <strong style="color:var(--green)">−10€/Monat</strong>, ab dem 2. <strong style="color:var(--green)">−5€/Monat</strong>.'}
+};
+
+const LANGS=['fr','nl','en','de'];
+const OPS_FIXE=[{n:'Proximus',e:'📡'},{n:'VOO',e:'🔵'},{n:'Telenet',e:'🟠'},{n:'Orange Belgium',e:'🟡'},{n:'Scarlet',e:'🔴'},{n:'EDPnet',e:'🌐'},{n:'VOO Business',e:'💼'},{n:'Proximus Business',e:'💼'},{n:'Digi Belgium',e:'📶'},{n:'Cheapi',e:'💛'},{n:'Destiny',e:'🚀'},{n:'Autre',e:'❓'}];
+const OPS_MOB=[{n:'Proximus Mobile',e:'📡'},{n:'Orange Belgium Mobile',e:'🟡'},{n:'Base (Telenet)',e:'📶'},{n:'Telenet Mobile',e:'🟠'},{n:'VOO Mobile',e:'🔵'},{n:'Mobile Vikings',e:'⚔️'},{n:'Scarlet Mobile',e:'🔴'},{n:'Digi Mobile',e:'📶'},{n:'Lycamobile',e:'🌍'},{n:'Lebara',e:'🌐'},{n:'Cheapi Mobile',e:'💛'},{n:'Pas de mobile',e:'🚫'},{n:'Autre',e:'❓'}];
+const PACK=[{id:'easy',name:'Easy',data:'20 GB 5G',calls:'Appels illimités',europe:'🌍 Europe 20 GB',base:15},{id:'maxi',name:'Maxi',data:'85 GB 5G',calls:'Appels illimités',europe:'🌍 Europe 85 GB',base:26},{id:'unlim',name:'Unlimited',data:'Illimité 5G',calls:'Appels illimités',europe:'🌍 Europe illimité',base:33}];
+const ALONE=[{id:'easy',name:'Easy',data:'10 GB 5G',calls:'Appels illimités',final:16.99},{id:'smar',name:'Smart',data:'35 GB 5G',calls:'Appels illimités',final:19.99},{id:'maxi',name:'Maxi',data:'70 GB 5G',calls:'Appels illimités',final:21.99},{id:'unlim',name:'Unlimited',data:'Illimité 5G',calls:'Appels illimités',final:35}];
+
+let lang='fr';
+function tr(k){return (T[lang]&&T[lang][k])||T.fr[k]||k;}
+
+const S={profile:'part',promo:6,operateur:'',operateurMobile:'',operateurAutre:'',operateurMobileAutre:'',engagement:'',hasServices:{},budgetActuel:0,internet:null,netPrice:0,netName:'',opts:{},curMobCount:0,curMobs:[],simCount:0,sims:[],currentStep:1};
+
+/* ── HELPERS ── */
+function set(id,v){const el=document.getElementById(id);if(el)el.innerHTML=v;}
+function ph(id,v){const el=document.getElementById(id);if(el)el.placeholder=v;}
+function setVal(id,v){const el=document.getElementById(id);if(el)el.value=v;}
+function gv(id){const el=document.getElementById(id);return el?el.value:'';}
+
+/* ── LANGUE ── */
+function buildLangBar(){
+  const bar=document.getElementById('langBar');bar.innerHTML='';
+  LANGS.forEach(l=>{
+    const b=document.createElement('button');b.className='lang-btn'+(l===lang?' active':'');b.textContent=l.toUpperCase();b.type='button';
+    b.addEventListener('click',()=>setLang(l));bar.appendChild(b);
+  });
+}
+function setLang(l){lang=l;buildLangBar();renderAll();}
+
+/* ── RENDER ALL ── */
+function renderAll(){
+  set('kicker',tr('kicker'));set('h1a',tr('h1a'));set('h1b',tr('h1b'));set('heroSub',tr('heroSub'));
+  set('stat1num',tr('stat1num'));set('stat1lbl',tr('stat1lbl'));set('stat2num',tr('stat2num'));set('stat2lbl',tr('stat2lbl'));set('stat3num',tr('stat3num'));set('stat3lbl',tr('stat3lbl'));
+  set('heroBtn',tr('heroBtn'));set('heroBtnNote',tr('heroBtnNote'));set('reviewsLabel',tr('reviewsLabel'));
+  set('r1text',tr('r1text'));set('r1name',tr('r1name'));set('r1saving',tr('r1saving'));
+  set('r2text',tr('r2text'));set('r2name',tr('r2name'));set('r2saving',tr('r2saving'));
+  set('r3text',tr('r3text'));set('r3name',tr('r3name'));set('r3saving',tr('r3saving'));
+  set('htb1',tr('tb1'));set('htb3a',tr('tb3a'));set('htb3b',tr('tb3b'));set('htbFree',tr('navFree'));set('htb4',tr('htb4'));
+  set('pmTitle',tr('pmTitle'));set('pmSub',tr('pmSub'));set('pmPartLbl',tr('pmPart'));set('pmPartDesc',tr('pmPartDesc'));set('pmProLbl',tr('pmPro'));set('pmProDesc',tr('pmProDesc'));
+  set('navFree',tr('navFree'));set('tb1',tr('tb1'));set('tb2',tr('tb2'));set('tb3a',tr('tb3a'));set('tb3b',tr('tb3b'));set('tb4',tr('tb4'));set('tvaText',tr('tvaText'));set('pbChange',tr('pbChange'));
+  set('s1title',tr('s1title'));set('s1sub',tr('s1sub'));set('s1opLabel',tr('s1opLabel'));set('s1mobOpLabel',tr('s1mobOpLabel'));
+  set('autreOpLbl',tr('specify'));set('autreMobLbl',tr('specify'));
+  ph('sOp',tr('searchOp'));ph('sMob',tr('searchMob'));ph('autreOp',tr('autreOpPh'));ph('autreMob',tr('autreMobPh'));
+  set('s1servLabel',tr('s1servLabel'));buildServChips();
+  set('s1engLabel',tr('s1engLabel'));buildEngChips();
+  set('engNoticeTitle',tr('engNoticeTitle'));set('engNoticeText',tr('engNoticeText'));
+  set('s1budgetLabel',tr('s1budgetLabel'));set('budgetHint',tr('budgetHint'));set('btn1next',tr('btnContinue'));
+  set('s2title',tr('s2title'));set('s2sub',tr('s2sub'));set('s2netLabel',tr('s2netLabel'));buildNetGrid();set('s2optLabel',tr('s2optLabel'));buildOptList();
+  set('btn2back',tr('btnBack'));set('btn2next',tr('btnContinue'));
+  set('s3title',tr('s3title'));set('s3sub',tr('s3sub'));set('curMobTitle',tr('curMobTitle'));set('todayBadge',tr('today'));set('curMobSub',tr('curMobSub'));set('curMobLbl',tr('curMobLbl'));
+  set('newMobTitle',tr('newMobTitle'));set('newOfferBadge',tr('newOffer'));
+  document.getElementById('mobPackSub').innerHTML=tr('mobPackSubHtml');
+  set('simLbl',tr('simLbl'));set('portTitle',tr('portTitle'));set('portText',tr('portText'));set('deviceTitle',tr('deviceTitle'));set('deviceText',tr('deviceText'));
+  set('btn3back',tr('btnBack'));set('btn3next',tr('btnContinue'));
+  set('s4title',tr('s4title'));set('s4sub',tr('s4sub'));set('s4promoLabel',tr('s4promoLabel'));
+  set('suiviTitle',tr('suiviTitle'));document.getElementById('suiviDesc').innerHTML=tr('suiviDesc');buildSuiviPills();
+  set('s4recapLabel',tr('s4recapLabel'));set('btn4back',tr('btnBack'));set('btn4next',tr('btnValidate'));
+  set('s5title',tr('s5title'));set('s5sub',tr('s5sub'));
+  set('lPrenom',tr('fPrenom'));set('lNom',tr('fNom'));set('lAdresse',tr('fAdresse'));set('lCP',tr('fCP'));set('lVille',tr('fVille'));set('lTel',tr('fTel'));set('lEmail',tr('fEmail'));set('lTVA',tr('fTVA'));set('lMsg',tr('fMsg'));
+  ph('f_prenom',tr('phPrenom'));ph('f_nom',tr('phNom'));ph('f_adresse',tr('phAdresse'));ph('f_ville',tr('phVille'));ph('f_msg',tr('phMsg'));
+  set('sendBtn',tr('sendBtn'));set('formErrorTitle',tr('formErrorTitle'));set('formErrorText',tr('formErrorText'));
+  set('footerSub',tr('footerSub'));set('footerNote',tr('footerNote'));
+  buildStepper();
+  if(S.curMobCount>0)renderCurMobLines();
+  if(S.simCount>0)renderSimLines();
+  buildPromoCards();updateRecap();
+}
+
+/* ── STEPPER ── */
+function buildStepper(){
+  const steps=tr('steps');const el=document.getElementById('stepper');el.innerHTML='';
+  steps.forEach((s,i)=>{
+    const n=i+1;const div=document.createElement('div');
+    div.className='si'+(n<S.currentStep?' done':n===S.currentStep?' active':'');div.id='si'+n;
+    div.innerHTML=`<div class="si-dot">${n}</div><div class="si-lbl">${s}</div>`;
+    el.appendChild(div);
+  });
+}
+
+/* ── CHIPS SERVICES / ENGAGEMENT ── */
+function buildServChips(){
+  const c=document.getElementById('servChips');
+  const defs=[['a_internet','📡 Internet'],['a_tv',tr('chipTV')],['a_fixe',tr('chipFixe')],['a_mobile',tr('chipMobile')]];
+  c.innerHTML='';
+  defs.forEach(([key,label])=>{
+    const d=document.createElement('div');d.className='chip'+(S.hasServices[key]?' on':'');d.textContent=label;
+    d.addEventListener('click',()=>{d.classList.toggle('on');S.hasServices[key]=d.classList.contains('on');});
+    c.appendChild(d);
+  });
+}
+
+function buildEngChips(){
+  const c=document.getElementById('engChips');c.innerHTML='';
+  [{v:'Non',l:tr('engNo')},{v:'Oui',l:tr('engYes')}].forEach(({v,l})=>{
+    const d=document.createElement('div');d.className='chip'+(S.engagement===v?' on':'');d.textContent=l;
+    d.addEventListener('click',()=>{
+      document.querySelectorAll('#engChips .chip').forEach(c=>c.classList.remove('on'));
+      d.classList.add('on');S.engagement=v;
+      document.getElementById('engNotice').style.display=v==='Oui'?'block':'none';
+    });
+    c.appendChild(d);
+  });
+}
+
+/* ── RÉSEAU & OPTIONS ── */
+function buildNetGrid(){
+  const g=document.getElementById('netGrid');
+  const nets=[
+    {id:'go',price:52.99,name:'Go Cuivre',speed:'100/130 Mbps',tech:'Cuivre · BBox 3V+',icon:'🌐',warn:true},
+    {id:'mega',price:59.99,name:'Mega Fiber',speed:'500/500 Mbps',tech:'Fibre · WiFi 6',icon:'🚀',warn:false},
+    {id:'giga',price:64.99,name:'Giga Fiber',speed:'2/2 Gbps',tech:'Fibre · WiFi 6E',icon:'⚡',warn:false},
+    {id:'ultra',price:94.99,name:'Ultra Fiber',speed:'8,5/8,5 Gbps',tech:'Fibre · WiFi 6E',icon:'🏆',warn:false}
+  ];
+  g.innerHTML='';
+  nets.forEach(n=>{
+    const d=document.createElement('div');d.className='nc'+(S.internet===n.id?' on':'');d.id='nc_'+n.id;
+    d.innerHTML=`<div class="nc-chk">✓</div><div class="nc-icon">${n.icon}</div><div class="nc-name">${n.name}</div>${n.warn?`<div class="nc-warn">${tr('ncWarn')}</div>`:`<div class="nc-badge">✅ ${tr('fiberLabel')}</div>`}<div class="nc-speed">⬇️ ${n.speed}</div><div class="nc-tech">${n.tech}</div><div class="nc-price">${n.price.toFixed(2).replace('.',',')}€<span>/mois</span></div>`;
+    d.addEventListener('click',()=>{
+      const on=d.classList.contains('on');
+      document.querySelectorAll('.nc').forEach(c=>c.classList.remove('on'));
+      if(on){S.internet=null;S.netPrice=0;S.netName='';}
+      else{d.classList.add('on');S.internet=n.id;S.netPrice=n.price;S.netName=n.name+' — '+n.speed;}
+    });
+    g.appendChild(d);
+  });
+}
+
+function buildOptList(){
+  const ol=document.getElementById('optList');
+  const opts=[
+    {key:'tv',ico:'📺',name:'Télévision Pickx',desc:tr('tvDesc'),price:8,priceClass:'paid',priceLabel:'+ 8€/mois'},
+    {key:'wifi',ico:'📶',name:'WiFi Booster',desc:tr('wifiDesc'),price:0,priceClass:'free',priceLabel:'🎁 '+tr('free1yr')},
+    {key:'fixe',ico:'☎️',name:tr('fixeLabel'),desc:tr('fixeDesc'),price:4,priceClass:'paid',priceLabel:'+ 4€/mois'}
+  ];
+  ol.innerHTML='';
+  opts.forEach(o=>{
+    const d=document.createElement('div');d.className='opt'+(S.opts[o.key]?' on':'');
+    d.innerHTML=`<div class="opt-l"><div class="opt-ico">${o.ico}</div><div><div class="opt-name">${o.name}</div><div class="opt-desc">${o.desc}</div></div></div><div class="opt-r"><span class="opt-price ${o.priceClass}">${o.priceLabel}</span><button class="tog" type="button"></button></div>`;
+    d.addEventListener('click',()=>{
+      d.classList.toggle('on');
+      if(d.classList.contains('on'))S.opts[o.key]={price:o.price,label:o.name};
+      else delete S.opts[o.key];
+    });
+    ol.appendChild(d);
+  });
+}
+
+function buildSuiviPills(){
+  const p=document.getElementById('suiviPills');if(!p)return;
+  p.innerHTML=[tr('spDirect'),tr('spPrivate'),tr('sp24h'),tr('spFree')].map(s=>`<span class="suivi-pill">${s}</span>`).join('');
+}
+
+/* ── DROPDOWNS OPÉRATEURS ── */
+function buildDD(ddId,list,key){
+  const dd=document.getElementById(ddId);dd.innerHTML='';
+  list.forEach(op=>{
+    const d=document.createElement('div');d.className='di'+(S[key]===op.n?' sel':'');
+    d.innerHTML=`<span>${op.e}</span><span>${op.n}</span><span class="ck">✓</span>`;
+    d.addEventListener('mousedown',()=>selectOp(op,key));dd.appendChild(d);
+  });
+}
+
+function openDD(ddId,key){const list=key==='operateur'?OPS_FIXE:OPS_MOB;buildDD(ddId,list,key);document.getElementById(ddId).classList.add('open');}
+function filterDD(inId,ddId,key){
+  const q=document.getElementById(inId).value.toLowerCase();
+  const list=(key==='operateur'?OPS_FIXE:OPS_MOB).filter(o=>!q||o.n.toLowerCase().includes(q));
+  const dd=document.getElementById(ddId);dd.innerHTML='';
+  list.forEach(op=>{
+    const d=document.createElement('div');d.className='di'+(S[key]===op.n?' sel':'');
+    d.innerHTML=`<span>${op.e}</span><span>${op.n}</span><span class="ck">✓</span>`;
+    d.addEventListener('mousedown',()=>selectOp(op,key));dd.appendChild(d);
+  });
+  dd.classList.add('open');
+}
+
+function selectOp(op,key){
+  S[key]=op.n;
+  const isFixed=key==='operateur';
+  const inId=isFixed?'sOp':'sMob';const ddId=isFixed?'dOp':'dMob';const boxId=isFixed?'bOp':'bMob';const clrId=isFixed?'clrOp':'clrMob';const wrapId=isFixed?'autreOpWrap':'autreMobWrap';const inpId=isFixed?'autreOp':'autreMob';
+  document.getElementById(inId).value='';document.getElementById(clrId).classList.remove('vis');document.getElementById(ddId).classList.remove('open');
+  const badge=document.getElementById(boxId);
+  badge.innerHTML=`<div class="sel-badge">${op.e} ${op.n}<button type="button" id="clrBadge_${key}">✕</button></div>`;
+  document.getElementById('clrBadge_'+key).addEventListener('click',()=>clearOp(key));
+  const isAutre=op.n==='Autre';
+  document.getElementById(wrapId).classList.toggle('show',isAutre);
+  if(!isAutre){document.getElementById(inpId).value='';S[key+'Autre']='';}
+}
+
+function clearOp(key){
+  S[key]='';S[key+'Autre']='';
+  const isFixed=key==='operateur';const boxId=isFixed?'bOp':'bMob';const wrapId=isFixed?'autreOpWrap':'autreMobWrap';const inpId=isFixed?'autreOp':'autreMob';
+  document.getElementById(boxId).innerHTML='';document.getElementById(wrapId).classList.remove('show');document.getElementById(inpId).value='';
+}
+
+/* ── MOBILES ACTUELS ── */
+function changeCurMob(d){
+  const n=Math.max(0,Math.min(6,S.curMobCount+d));S.curMobCount=n;
+  while(S.curMobs.length<n)S.curMobs.push({type:'postpaid',data:'',calls:'',price:'',operateur:''});
+  S.curMobs=S.curMobs.slice(0,n);document.getElementById('curMobVal').textContent=n;renderCurMobLines();
+}
+
+function renderCurMobLines(){
+  const c=document.getElementById('curMobLines');c.innerHTML='';
+  for(let i=0;i<S.curMobCount;i++){
+    const m=S.curMobs[i];const div=document.createElement('div');div.className='cur-mob-card';
+    div.innerHTML=`<div class="cur-mob-title">${tr('curCardTitle')} ${i+1}</div>
+    <div class="cmf" style="margin-bottom:.55rem"><label>${tr('opLabel')}</label>
+    <div class="cm-sw"><input class="cm-sinp" id="cmsOp_${i}" type="text" placeholder="${tr('searchMobPh')}"><div class="dropdown" id="cmDD_${i}"></div></div>
+    <div id="cmBadge_${i}">${m.operateur?`<div class="sel-badge">📱 ${m.operateur}<button type="button" id="clrCm_${i}">✕</button></div>`:''}</div></div>
+    <div class="cmg">
+    <div class="cmf"><label>${tr('contractType')}</label><select id="cms_type_${i}"><option value="postpaid"${m.type==='postpaid'?' selected':''}>${tr('postpaid')}</option><option value="prepaid"${m.type==='prepaid'?' selected':''}>${tr('prepaid')}</option><option value="credit"${m.type==='credit'?' selected':''}>${tr('credit')}</option></select></div>
+    <div class="cmf"><label>${tr('dataVol')}</label><select id="cms_data_${i}"><option value="">${tr('notSpec')}</option><option value="<5">${tr('lessThan5')}</option><option value="5-10">${tr('from5to10')}</option><option value="10-20">${tr('from10to20')}</option><option value="20-50">${tr('from20to50')}</option><option value="50-100">${tr('from50to100')}</option><option value="unlim">${tr('unlimited')}</option></select></div>
+    <div class="cmf"><label>${tr('monthlyPrice')}</label><input type="number" id="cms_price_${i}" min="0" placeholder="ex: 18" value="${m.price||''}"></div>
+    </div>`;
+    c.appendChild(div);
+    const sinp=document.getElementById('cmsOp_'+i);const dd=document.getElementById('cmDD_'+i);
+    sinp.addEventListener('focus',()=>{buildCmDD(i);dd.classList.add('open');});
+    sinp.addEventListener('blur',()=>setTimeout(()=>dd.classList.remove('open'),180));
+    sinp.addEventListener('input',()=>filterCmDD(i,sinp.value));
+    if(m.operateur){document.getElementById('clrCm_'+i).addEventListener('click',()=>{S.curMobs[i].operateur='';renderCurMobLines();});}
+    document.getElementById('cms_type_'+i).addEventListener('change',e=>S.curMobs[i].type=e.target.value);
+    document.getElementById('cms_data_'+i).addEventListener('change',e=>S.curMobs[i].data=e.target.value);
+    document.getElementById('cms_price_'+i).addEventListener('input',e=>S.curMobs[i].price=e.target.value);
+  }
+}
+
+function buildCmDD(i){
+  const dd=document.getElementById('cmDD_'+i);dd.innerHTML='';
+  OPS_MOB.forEach(op=>{
+    const d=document.createElement('div');d.className='di'+(S.curMobs[i]?.operateur===op.n?' sel':'');
+    d.innerHTML=`<span>${op.e}</span><span>${op.n}</span><span class="ck">✓</span>`;
+    d.addEventListener('mousedown',()=>{S.curMobs[i].operateur=op.n;document.getElementById('cmsOp_'+i).value='';renderCurMobLines();});dd.appendChild(d);
+  });
+}
+
+function filterCmDD(i,q){
+  const dd=document.getElementById('cmDD_'+i);if(!dd)return;dd.innerHTML='';
+  OPS_MOB.filter(o=>!q||o.n.toLowerCase().includes(q.toLowerCase())).forEach(op=>{
+    const d=document.createElement('div');d.className='di'+(S.curMobs[i]?.operateur===op.n?' sel':'');
+    d.innerHTML=`<span>${op.e}</span><span>${op.n}</span><span class="ck">✓</span>`;
+    d.addEventListener('mousedown',()=>{S.curMobs[i].operateur=op.n;document.getElementById('cmsOp_'+i).value='';renderCurMobLines();});dd.appendChild(d);
+  });
+  dd.classList.add('open');
+}
+
+/* ── NOUVELLES SIM ── */
+function changeMob(d){
+  const n=Math.max(0,Math.min(6,S.simCount+d));S.simCount=n;
+  while(S.sims.length<n)S.sims.push({type:S.internet?'pack':'alone',forfait:null,fname:'',price:0});
+  S.sims=S.sims.slice(0,n);document.getElementById('mobSimVal').textContent=n;renderSimLines();
+}
+
+function renderSimLines(){
+  const c=document.getElementById('mobSimLines');c.innerHTML='';const hasPack=S.internet!==null;
+  for(let i=0;i<S.simCount;i++){
+    const m=S.sims[i];if(!hasPack&&m.type==='pack'){m.type='alone';m.forfait=null;m.fname='';m.price=0;}
+    const div=document.createElement('div');div.className='mob-line';
+    const disc=i===0?10:5;const badge=hasPack?`<span class="ptag-green">−${disc}€/mois Pack</span>`:'';
+    div.innerHTML=`<div class="mob-line-head">📱 Mobile ${i+1} ${badge}</div><div class="type-tabs" id="ttabs_${i}">${hasPack?`<button type="button" class="ttab${m.type==='pack'?' on':''}" id="ttab_pack_${i}">${tr('packTab')}</button>`:''}<button type="button" class="ttab${m.type==='alone'?' on':''}" id="ttab_alone_${i}">${tr('aloneTab')}</button></div><div id="sfz_${i}"></div>`;
+    c.appendChild(div);
+    if(hasPack){document.getElementById('ttab_pack_'+i)?.addEventListener('click',function(){setSimType(i,'pack',this);});}
+    document.getElementById('ttab_alone_'+i)?.addEventListener('click',function(){setSimType(i,'alone',this);});
+    renderSimForfait(i);
+  }
+}
+
+function setSimType(i,type,btn){
+  S.sims[i]={type,forfait:null,fname:'',price:0};
+  btn.closest('.type-tabs').querySelectorAll('.ttab').forEach(b=>b.classList.remove('on'));btn.classList.add('on');renderSimForfait(i);
+}
+
+function renderSimForfait(i){
+  const z=document.getElementById('sfz_'+i);if(!z)return;const m=S.sims[i];
+  if(m.type==='pack'){
+    const disc=i===0?10:5;let html='<div class="fg">';
+    PACK.forEach(f=>{
+      const fp=Math.max(0,f.base-disc);const isFree=fp===0;
+      html+=`<div class="fc${m.forfait===f.id?' on':''}" id="fc_${i}_${f.id}"><div class="fc-name">${f.name}</div><div class="fc-data">${f.data}</div><div class="fc-calls">${f.calls}</div><div class="fc-eu">${f.europe}</div><div class="fc-prices"><div class="fc-old">${f.base.toFixed(2)}€</div>${isFree?`<div class="fc-free">🎁 ${tr('free1yrShort')}</div>`:`<div class="fc-new">${fp.toFixed(2)}€<span style="font-size:.52rem">/mois</span></div>`}<div class="fc-disc">−${disc}€ ${tr('discLabel')}</div></div></div>`;
+    });
+    z.innerHTML=html+'</div>';
+    PACK.forEach(f=>{
+      const fp=Math.max(0,f.base-(i===0?10:5));
+      document.getElementById('fc_'+i+'_'+f.id)?.addEventListener('click',function(){
+        S.sims[i].forfait=f.id;S.sims[i].fname=f.name;S.sims[i].price=fp;
+        this.closest('.fg').querySelectorAll('.fc').forEach(c=>c.classList.remove('on'));this.classList.add('on');
+      });
+    });
+  } else {
+    let html=`<div style="font-size:.68rem;color:var(--muted);margin-bottom:.5rem">${tr('aloneNote')}</div><div class="fg">`;
+    ALONE.forEach(f=>{
+      html+=`<div class="fc${m.forfait===f.id?' on':''}" id="fca_${i}_${f.id}"><div class="fc-name">${f.name}</div><div class="fc-data">${f.data}</div><div class="fc-calls">${f.calls}</div><div class="fc-prices"><div class="fc-new alone">${f.final.toFixed(2)}€<span style="font-size:.52rem">/mois</span></div></div></div>`;
+    });
+    z.innerHTML=html+'</div>';
+    ALONE.forEach(f=>{
+      document.getElementById('fca_'+i+'_'+f.id)?.addEventListener('click',function(){
+        S.sims[i].forfait=f.id;S.sims[i].fname=f.name;S.sims[i].price=f.final;
+        this.closest('.fg').querySelectorAll('.fc').forEach(c=>c.classList.remove('on'));this.classList.add('on');
+      });
+    });
+  }
+}
+
+/* ── CALCUL & RÉCAP ── */
+function hasExtra(){return(S.simCount>0&&S.sims.some(m=>m.forfait))||!!S.opts['tv']||!!S.opts['fixe'];}
+
+function calcLines(promoMonths){
+  const extra=hasExtra();const disc=(promoMonths===6&&extra&&S.internet)?-10:0;const lines=[];
+  if(S.internet){const p=S.netPrice+disc;const tag=disc<0?` <span style="color:var(--green);font-size:.7rem">(promo −${Math.abs(disc)}€)</span>`:'';lines.push({l:S.netName+tag,p});}
+  for(const k in S.opts)lines.push({l:S.opts[k].label,p:S.opts[k].price});
+  for(let i=0;i<S.sims.length;i++){const m=S.sims[i];if(m.forfait)lines.push({l:`Mobile ${i+1} — ${m.fname}`,p:m.price});}
+  const total=lines.reduce((s,l)=>s+(l.p||0),0);return{lines,total,disc};
+}
+
+function updateRecap(){
+  const box=document.getElementById('promoRecap');if(!box)return;
+  const{lines,total}=calcLines(S.promo);
+  if(lines.length===0){box.innerHTML=`<div class="recap-empty">${tr('recapEmpty')}</div>`;return;}
+  const dp=S.profile==='pro'?total/1.21:total;const bud=S.budgetActuel;
+  const saving=bud>0&&total<bud?`<div style="margin-top:.5rem"><span class="recap-saving">🎉 Économie : ${(bud-total).toFixed(2)}€/mois !</span></div>`:'';
+  let html=`<div class="recap-big"><div class="recap-lbl">${tr('s4recapLabel')}${S.profile==='pro'?' (HTVA)':''}</div><div class="recap-price">${dp.toFixed(2)}<span>€/mois</span></div>${saving}</div><div>`;
+  lines.forEach(l=>{const pt=l.p===0?`<span style="color:var(--green);font-weight:700">${tr('free1yr')}</span>`:l.p.toFixed(2)+'€';html+=`<div class="recap-row"><span>${l.l}</span><span>${pt}</span></div>`;});
+  html+=`<div class="recap-row"><span>Total TVAC</span><span>${total.toFixed(2)}€/mois</span></div></div>`;
+  if(S.profile==='pro')html+=`<div class="tva-recap"><span>💼 ${tr('tvaText')} (21%)</span><span>${(total*0.21).toFixed(2)}€/mois</span></div>`;
+  box.innerHTML=html;
+}
+
+function buildPromoCards(){
+  const extra=hasExtra();const noInternet=!S.internet;
+  const notice=document.getElementById('promoNotice');const bar=document.getElementById('promoBar');
+  if(noInternet){
+    notice.classList.remove('show');S.promo=0;const tot=calcLines(0).total;
+    bar.innerHTML=`<div class="pc on" style="grid-column:1/-1;cursor:default"><div class="pc-chk" style="display:flex">✓</div><div class="pc-dur">📱 ${tr('newMobTitle')}</div><span class="pc-pill green">✅ Sans engagement</span><div class="pc-total">Total : <strong>${tot.toFixed(2)}€/mois</strong></div><div class="pc-engage"><span class="pc-engage-txt">✅ ${tr('tb4')}</span></div></div>`;
+    updateRecap();return;
+  }
+  notice.innerHTML=tr('promoNoticeText');notice.classList.toggle('show',!extra);
+  if(S.promo===0)S.promo=6;
+  const t6=calcLines(6).total,t12=calcLines(12).total;const iNet=S.netPrice.toFixed(2);const iNet6=extra?(S.netPrice-10).toFixed(2):iNet;
+  const promo6Desc=extra?`Internet <strong>${iNet}€</strong> → <strong style="color:var(--green)">${iNet6}€/mois</strong><br><span style="font-size:.7rem;color:var(--muted)">−10€/mois pendant 6 mois</span>`:`Internet à <strong style="color:var(--blue2)">${iNet}€/mois</strong>`;
+  bar.innerHTML=`<div class="pc${S.promo===6?' on':''}" id="pc6"><div class="pc-chk">✓</div><div class="pc-dur">Promo 6 mois</div><span class="pc-pill green">🎁 Meilleur prix immédiat</span><div class="pc-price">${promo6Desc}</div><div class="pc-total">Total estimé : <strong>${t6.toFixed(2)}€/mois</strong></div><div class="pc-engage"><span class="pc-engage-txt">✅ ${tr('tb4')}</span></div><div class="pc-renew">Renouvelable à la fin de la période.</div></div><div class="pc${S.promo===12?' on':''}" id="pc12"><div class="pc-chk">✓</div><div class="pc-dur">Promo 12 mois</div><span class="pc-pill gold">📅 Stabilité sur 1 an</span><div class="pc-price">Internet à <strong style="color:var(--blue2)">${iNet}€/mois</strong><br><span style="font-size:.7rem;color:var(--muted)">Tarif garanti 12 mois</span></div><div class="pc-total">Total estimé : <strong>${t12.toFixed(2)}€/mois</strong></div><div class="pc-engage"><span class="pc-engage-txt">✅ ${tr('tb4')}</span></div><div class="pc-renew">Renouvelable à la fin de la période.</div></div>`;
+  document.getElementById('pc6').addEventListener('click',()=>{S.promo=6;buildPromoCards();});
+  document.getElementById('pc12').addEventListener('click',()=>{S.promo=12;buildPromoCards();});
+  updateRecap();
+}
+
+/* ── NAVIGATION STEPS ── */
+function showStep(n){
+  S.currentStep=n;buildStepper();
+  for(let i=1;i<=5;i++){const el=document.getElementById('step'+i);if(!el)continue;if(i<=n)el.classList.add('visible');else el.classList.remove('visible');}
+  const tgt=document.getElementById('step'+n);if(tgt)setTimeout(()=>tgt.scrollIntoView({behavior:'smooth',block:'start'}),80);
+  if(n===4)buildPromoCards();
+}
+
+/* ════════════════════════════════════════════════
+   COLLECTE DES DONNÉES DU FORMULAIRE
+   Retourne un objet JSON propre à envoyer à Formspree
+   ════════════════════════════════════════════════ */
+function collectFormData(){
+  const{lines,total}=calcLines(S.promo);
+  const recap=lines.length>0
+    ?lines.map(l=>l.l.replace(/<[^>]+>/g,'')+' : '+(l.p===0?'Gratuit 1 an':l.p.toFixed(2)+'€/mois')).join(' | ')+' | TOTAL: '+total.toFixed(2)+'€/mois'
+    :'Aucune offre sélectionnée';
+  const services=Object.keys(S.hasServices).filter(k=>S.hasServices[k]).join(', ')||'Aucun';
+  const options=Object.values(S.opts).map(o=>o.label).join(', ')||'Aucune';
+  const mobActuels=S.curMobs.slice(0,S.curMobCount).map((m,i)=>'Ligne '+(i+1)+': '+(m.operateur||'N/A')+' - '+m.type+' - '+(m.data||'N/A')+(m.price?' - '+m.price+'€/mois':'')).join(' | ')||'Aucun';
+  const sims=S.sims.slice(0,S.simCount).map((m,i)=>'SIM '+(i+1)+': '+(m.fname||'N/A')+' ('+m.type+')'+(m.price?' - '+m.price+'€/mois':'')).join(' | ')||'Aucune';
+
+  return {
+    _subject: '[SBC Consulting] Nouvelle demande — '+gv('f_prenom')+' '+gv('f_nom'),
+    Prenom:         gv('f_prenom'),
+    Nom:            gv('f_nom'),
+    Adresse:        gv('f_adresse'),
+    Code_postal:    gv('f_cp'),
+    Ville:          gv('f_ville'),
+    Telephone:      gv('f_tel'),
+    email:          gv('f_email'),
+    Numero_TVA:     gv('f_tva')||'N/A',
+    Message:        gv('f_msg')||'',
+    Profil:         S.profile==='pro'?'Professionnel':'Particulier',
+    Langue:         lang.toUpperCase(),
+    Operateur_fixe: S.operateur+(S.operateurAutre?' — '+S.operateurAutre:'')||'Non renseigné',
+    Operateur_mobile: S.operateurMobile+(S.operateurMobileAutre?' — '+S.operateurMobileAutre:'')||'Non renseigné',
+    Services_actuels: services,
+    Engagement:     S.engagement||'Non renseigné',
+    Budget_actuel:  S.budgetActuel?S.budgetActuel+'€/mois':'Non renseigné',
+    Internet_choisi: S.netName||'Aucun',
+    Options:        options,
+    Mobiles_actuels: mobActuels,
+    Nouvelles_SIM:  sims,
+    Promotion:      S.promo?S.promo+' mois':'Sans internet',
+    Recapitulatif:  recap
+  };
+}
+
+/* ════════════════════════════════════════════════
+   VALIDATION MANUELLE DES CHAMPS REQUIS
+   ════════════════════════════════════════════════ */
+function validateForm(){
+  const required=['f_prenom','f_nom','f_adresse','f_cp','f_ville','f_tel','f_email'];
+  let ok=true;
+  required.forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    const v=el.value.trim();
+    if(!v){el.style.borderColor='var(--red)';ok=false;}
+    else el.style.borderColor='';
+  });
+  // Validation email basique
+  const em=document.getElementById('f_email');
+  if(em&&em.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)){
+    em.style.borderColor='var(--red)';ok=false;
+  }
+  return ok;
+}
+
+/* ════════════════════════════════════════════════
+   INIT
+   ════════════════════════════════════════════════ */
+function init(){
+  buildLangBar();
+  renderAll();
+
+  /* Hero → Profile screen */
+  document.getElementById('heroBtn').addEventListener('click',()=>{
+    const h=document.getElementById('heroScreen');
+    h.style.transition='opacity .3s';h.style.opacity='0';
+    setTimeout(()=>{
+      h.style.display='none';
+      document.getElementById('profileScreen').classList.add('show');
+      window.scrollTo({top:0,behavior:'smooth'});
+    },320);
+  });
+
+  /* Choix de profil */
+  function chooseProfile(p){
+    S.profile=p;
+    document.getElementById('profileScreen').classList.remove('show');
+    document.getElementById('appScreen').style.display='block';
+    document.getElementById('pbBadge').textContent=p==='pro'?'🏢 '+tr('pmPro'):'👤 '+tr('pmPart');
+    document.getElementById('tvaPill').classList.toggle('on',p==='pro');
+    document.getElementById('f_tvaField').classList.toggle('hidden',p!=='pro');
+    showStep(1);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  document.getElementById('btnPart').addEventListener('click',()=>chooseProfile('part'));
+  document.getElementById('btnPro').addEventListener('click',()=>chooseProfile('pro'));
+
+  document.getElementById('pbChange').addEventListener('click',()=>{
+    document.getElementById('appScreen').style.display='none';
+    document.getElementById('profileScreen').classList.add('show');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  /* Navigation steps */
+  document.getElementById('btn1next').addEventListener('click',()=>showStep(2));
+  document.getElementById('btn2back').addEventListener('click',()=>showStep(1));
+  document.getElementById('btn2next').addEventListener('click',()=>showStep(3));
+  document.getElementById('btn3back').addEventListener('click',()=>showStep(2));
+  document.getElementById('btn3next').addEventListener('click',()=>showStep(4));
+  document.getElementById('btn4back').addEventListener('click',()=>showStep(3));
+  document.getElementById('btn4next').addEventListener('click',()=>showStep(5));
+
+  /* Dropdowns opérateurs */
+  document.getElementById('sOp').addEventListener('focus',()=>openDD('dOp','operateur'));
+  document.getElementById('sOp').addEventListener('blur',()=>setTimeout(()=>document.getElementById('dOp').classList.remove('open'),180));
+  document.getElementById('sOp').addEventListener('input',()=>filterDD('sOp','dOp','operateur'));
+  document.getElementById('clrOp').addEventListener('click',()=>clearOp('operateur'));
+  document.getElementById('sMob').addEventListener('focus',()=>openDD('dMob','operateurMobile'));
+  document.getElementById('sMob').addEventListener('blur',()=>setTimeout(()=>document.getElementById('dMob').classList.remove('open'),180));
+  document.getElementById('sMob').addEventListener('input',()=>filterDD('sMob','dMob','operateurMobile'));
+  document.getElementById('clrMob').addEventListener('click',()=>clearOp('operateurMobile'));
+  document.getElementById('autreOp').addEventListener('input',e=>S.operateurAutre=e.target.value);
+  document.getElementById('autreMob').addEventListener('input',e=>S.operateurMobileAutre=e.target.value);
+
+  /* Budget */
+  document.getElementById('budgetActuel').addEventListener('input',e=>{S.budgetActuel=parseFloat(e.target.value)||0;});
+  document.getElementById('budgetWrap').addEventListener('focusin',()=>document.getElementById('budgetWrap').style.borderColor='var(--blue)');
+  document.getElementById('budgetWrap').addEventListener('focusout',()=>document.getElementById('budgetWrap').style.borderColor='var(--border2)');
+
+  /* Mobiles */
+  document.getElementById('curMobMinus').addEventListener('click',()=>changeCurMob(-1));
+  document.getElementById('curMobPlus').addEventListener('click',()=>changeCurMob(1));
+  document.getElementById('simMinus').addEventListener('click',()=>changeMob(-1));
+  document.getElementById('simPlus').addEventListener('click',()=>changeMob(1));
+
+  /* Réinitialiser les bordures rouges au focus */
+  ['f_prenom','f_nom','f_adresse','f_cp','f_ville','f_tel','f_email'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.addEventListener('focus',()=>el.style.borderColor='');
+  });
+
+  /* ════════════════════════════════════════════════
+     SOUMISSION FORMSPREE VIA FETCH (AJAX)
+     ✅ Pas de rechargement de page
+     ✅ Loader pendant l'envoi
+     ✅ Gestion d'erreur propre
+     ✅ Confirmation screen en pleine page
+     ✅ Fonctionne sur GitHub Pages
+     ════════════════════════════════════════════════ */
+  const sendBtn=document.getElementById('sendBtn');
+  const formError=document.getElementById('formError');
+  const FORMSPREE_URL='https://formspree.io/f/mpqnkwgb';
+
+  if(sendBtn){
+    sendBtn.addEventListener('click',async function(){
+
+      /* 1 — Validation des champs requis */
+      if(!validateForm()){
+        formError.style.display='block';
+        document.getElementById('formErrorTitle').textContent='Veuillez remplir tous les champs obligatoires.';
+        document.getElementById('formErrorText').textContent='Les champs en rouge sont requis.';
+        sendBtn.closest('.wrap')||document.getElementById('step5').scrollIntoView({behavior:'smooth',block:'nearest'});
+        return;
+      }
+
+      /* 2 — Désactiver le bouton + afficher le loader */
+      sendBtn.disabled=true;
+      sendBtn.innerHTML='<span style="display:inline-block;animation:spin .8s linear infinite">⏳</span>&nbsp;&nbsp;Envoi en cours…';
+      formError.style.display='none';
+
+      /* 3 — Collecter toutes les données */
+      const payload=collectFormData();
+
+      /* 4 — Envoi à Formspree */
+      try{
+        const res=await fetch(FORMSPREE_URL,{
+          method:'POST',
+          headers:{'Content-Type':'application/json','Accept':'application/json'},
+          body:JSON.stringify(payload)
+        });
+
+        if(res.ok){
+          /* ✅ SUCCÈS — afficher l'écran de confirmation */
+          document.getElementById('appScreen').style.display='none';
+          const cs=document.getElementById('confirmScreen');
+          cs.style.display='flex';
+          window.scrollTo({top:0,behavior:'smooth'});
+        } else {
+          /* ❌ Erreur serveur Formspree */
+          let errMsg='Erreur serveur ('+res.status+'). Réessayez dans quelques instants.';
+          try{const j=await res.json();if(j&&j.errors)errMsg=j.errors.map(e=>e.message).join(' ');}catch(e){}
+          showFormError(errMsg);
+          resetSendBtn();
+        }
+      }catch(e){
+        /* ❌ Erreur réseau (pas de connexion internet) */
+        showFormError(null);
+        resetSendBtn();
+      }
+    });
+  }
+
+  function showFormError(msg){
+    formError.style.display='block';
+    const titleEl=document.getElementById('formErrorTitle');
+    const textEl=document.getElementById('formErrorText');
+    if(msg){
+      titleEl.textContent='Une erreur est survenue.';
+      textEl.textContent=msg;
+    } else {
+      titleEl.textContent='Connexion impossible.';
+      textEl.textContent='Vérifiez votre connexion internet et réessayez.';
+    }
+    document.getElementById('step5').scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+
+  function resetSendBtn(){
+    sendBtn.disabled=false;
+    sendBtn.innerHTML=tr('sendBtn');
+  }
+
+}
+
+init();
+})();
+</script>
+</body>
+</html>
