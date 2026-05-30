@@ -1311,7 +1311,15 @@ function init(){
   const fastPanel=document.getElementById('fastPanel');
   const fastSend=document.getElementById('fastSend');
   const fastErr=document.getElementById('fastErr');
-  fastLink?.addEventListener('click',()=>{fastPanel.classList.toggle('open');if(fastPanel.classList.contains('open'))document.getElementById('fast_prenom').focus();});
+  fastLink?.addEventListener('click',()=>{
+    const willOpen=!fastPanel.classList.contains('open');
+    fastPanel.classList.toggle('open');
+    if(willOpen){
+      const pr=document.getElementById('fast_prenom');
+      pr.focus({preventScroll:true});
+      setTimeout(()=>{fastPanel.scrollIntoView({behavior:'smooth',block:'start'});},120);
+    }
+  });
   const fmCall=document.getElementById('fastModeCall'),fmMsg=document.getElementById('fastModeMsg');
   document.getElementById('fastBack')?.addEventListener('click',()=>{fastPanel.classList.remove('open');window.scrollTo({top:0,behavior:'smooth'});});
   fmCall?.addEventListener('click',()=>{fastMode='call';fmCall.classList.add('on');fmMsg.classList.remove('on');});
