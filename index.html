@@ -53,11 +53,24 @@ body{background:var(--bg);color:var(--ink);font-family:'Segoe UI',system-ui,sans
 .fast-panel{display:none;max-width:440px;margin:.4rem auto 0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:1.1rem;animation:fastIn .3s ease}
 .fast-panel.open{display:block}
 @keyframes fastIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.fast-back{background:none;border:none;color:rgba(255,255,255,.5);font-family:inherit;font-size:.76rem;font-weight:700;cursor:pointer;padding:0 0 .6rem;transition:color .18s}
+.fast-back:hover{color:#7eb4ff}
 .fast-title{font-size:.82rem;font-weight:700;color:#fff;margin-bottom:.7rem;text-align:center}
 .fast-row{display:flex;gap:.5rem;margin-bottom:.6rem}
 .fast-inp{flex:1;min-width:0;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.14);color:#fff;border-radius:10px;padding:.7rem .85rem;font-family:inherit;font-size:.85rem;outline:none;transition:border-color .18s}
 .fast-inp:focus{border-color:#3d7fff}
 .fast-inp::placeholder{color:rgba(255,255,255,.4)}
+.fast-pref-label,.fast-slot-label{font-size:.68rem;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em;margin:.2rem 0 .45rem;text-align:left}
+.fast-toggle{display:flex;gap:.4rem;margin-bottom:.7rem}
+.fast-tog-btn{flex:1;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.14);color:rgba(255,255,255,.6);border-radius:10px;padding:.6rem;font-family:inherit;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .18s}
+.fast-tog-btn.on{background:rgba(34,192,112,.18);border-color:#22c070;color:#3ddc8a}
+.fast-slots{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-bottom:.8rem}
+.fast-slot{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.14);color:rgba(255,255,255,.6);border-radius:9px;padding:.55rem;font-family:inherit;font-size:.76rem;font-weight:700;cursor:pointer;transition:all .18s}
+.fast-slot.on{background:rgba(61,127,255,.18);border-color:#3d7fff;color:#7eb4ff}
+.fast-time-row{display:flex;align-items:center;gap:.6rem;margin-bottom:.85rem;background:rgba(255,255,255,.04);border:1px dashed rgba(255,255,255,.16);border-radius:10px;padding:.55rem .8rem}
+.fast-time-lbl{font-size:.74rem;font-weight:700;color:rgba(255,255,255,.55);white-space:nowrap}
+.fast-time-inp{flex:1;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.14);color:#fff;border-radius:8px;padding:.5rem .7rem;font-family:inherit;font-size:.85rem;font-weight:700;outline:none;color-scheme:dark}
+.fast-time-inp:focus{border-color:#3d7fff}
 .fast-send{width:100%;background:linear-gradient(135deg,#22c070,#138a4c);color:#fff;border:none;border-radius:10px;padding:.85rem;font-family:inherit;font-weight:800;font-size:.88rem;cursor:pointer;transition:transform .18s,box-shadow .18s;box-shadow:0 4px 18px rgba(34,192,112,.35)}
 .fast-send:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 26px rgba(34,192,112,.5)}
 .fast-send:disabled{opacity:.5;cursor:not-allowed}
@@ -456,11 +469,20 @@ footer strong{color:var(--ink2);font-weight:800}
       <button class="fast-link" id="fastLink" type="button"></button>
     </div>
     <div class="fast-panel" id="fastPanel">
+      <button class="fast-back" id="fastBack" type="button"></button>
       <div class="fast-title" id="fastTitle"></div>
       <div class="fast-row">
         <input class="fast-inp" id="fast_prenom" type="text" autocomplete="given-name">
         <input class="fast-inp" id="fast_tel" type="tel" autocomplete="tel">
       </div>
+      <div class="fast-pref-label" id="fastPrefLabel"></div>
+      <div class="fast-toggle">
+        <button class="fast-tog-btn on" id="fastModeCall" type="button"></button>
+        <button class="fast-tog-btn" id="fastModeMsg" type="button"></button>
+      </div>
+      <div class="fast-slot-label" id="fastSlotLabel"></div>
+      <div class="fast-slots" id="fastSlots"></div>
+      <div class="fast-time-row"><span class="fast-time-lbl" id="fastTimeLabel"></span><input class="fast-time-inp" id="fast_time" type="time"></div>
       <button class="fast-send" id="fastSend" type="button"></button>
       <div class="fast-err" id="fastErr"></div>
     </div>
@@ -655,7 +677,7 @@ const T={
 fr:{
   kicker:"Courtier en charges domestiques · Belgique",h1a:"Comparez.",h1b:"Économisez.",
   heroSub:"On analyse votre facture télécom et on la réduit. Un consultant dédié, des économies concrètes dès le 1er mois. 100% gratuit.",
-  heroBtn:"Commencer gratuitement →",heroBtnNote:"100% gratuit · Économisez dès le 1er mois",fastLink:"⚡ Pas le temps ? Laissez juste votre numéro",fastTitle:"On vous rappelle gratuitement sous 24h 📞",fastPhPrenom:"Votre prénom",fastPhTel:"Votre numéro",fastSend:"Être rappelé(e) →",fastErrMsg:"Indiquez votre prénom et un numéro valide.",fastOkTitle:"C'est noté ! 🎉",fastOkMsg:"On vous rappelle très vite sur le numéro indiqué.",freeExplainQ:"Comment c'est possible ?",freeExplainA:"Les opérateurs nous rémunèrent quand on leur amène un client. Vous ne payez jamais rien — ni avant, ni après.",
+  heroBtn:"Commencer gratuitement →",heroBtnNote:"100% gratuit · Économisez dès le 1er mois",fastLink:"⚡ Pas le temps ? Laissez juste votre numéro",fastBack:"← Retour",fastTitle:"On vous rappelle gratuitement sous 24h 📞",fastPhPrenom:"Votre prénom",fastPhTel:"Votre numéro",fastSend:"Être rappelé(e) →",fastErrMsg:"Indiquez votre prénom et un numéro valide.",fastOkTitle:"C'est noté ! 🎉",fastOkMsg:"On vous recontacte au moment choisi sur le numéro indiqué.",fastPrefLabel:"Vous préférez :",fastModeCall:"📞 Un appel",fastModeMsg:"💬 WhatsApp / SMS",fastSlotLabel:"Quand ?",fastSlotASAP:"Dès que possible",fastSlotMorning:"En matinée",fastSlotMidday:"À midi",fastSlotAfternoon:"L'après-midi",fastSlotEvening:"En soirée",fastSlotWeekend:"Le week-end",fastTimeLabel:"⏰ Ou une heure précise :",freeExplainQ:"Comment c'est possible ?",freeExplainA:"Les opérateurs nous rémunèrent quand on leur amène un client. Vous ne payez jamais rien — ni avant, ni après.",
   heroShareLbl:"Partager à mes proches",
   stat1num:"+230",stat1lbl:"Clients satisfaits",stat2num:"30–130€",stat2lbl:"Économisés/mois",stat3num:"24h",stat3lbl:"Délai de réponse",
   reviewsLabel:"Ce que nos clients racontent vraiment",
@@ -714,7 +736,7 @@ fr:{
 nl:{
   kicker:"Telecommakelaar · België",h1a:"Vergelijk.",h1b:"Bespaar.",
   heroSub:"We analyseren uw telecomfactuur en verlagen ze. Een persoonlijke consultant, echte besparingen vanaf de 1e maand. 100% gratis.",
-  heroBtn:"Gratis starten →",heroBtnNote:"100% gratis · Bespaar vanaf de 1e maand",fastLink:"⚡ Geen tijd? Laat gewoon uw nummer achter",fastTitle:"We bellen u gratis terug binnen 24u 📞",fastPhPrenom:"Uw voornaam",fastPhTel:"Uw nummer",fastSend:"Word teruggebeld →",fastErrMsg:"Geef uw voornaam en een geldig nummer op.",fastOkTitle:"Genoteerd! 🎉",fastOkMsg:"We bellen u snel terug op het opgegeven nummer.",freeExplainQ:"Hoe is dat mogelijk?",freeExplainA:"De operatoren betalen ons wanneer we hen een klant bezorgen. U betaalt nooit iets — niet vooraf, niet achteraf.",
+  heroBtn:"Gratis starten →",heroBtnNote:"100% gratis · Bespaar vanaf de 1e maand",fastLink:"⚡ Geen tijd? Laat gewoon uw nummer achter",fastBack:"← Terug",fastTitle:"We bellen u gratis terug binnen 24u 📞",fastPhPrenom:"Uw voornaam",fastPhTel:"Uw nummer",fastSend:"Word teruggebeld →",fastErrMsg:"Geef uw voornaam en een geldig nummer op.",fastOkTitle:"Genoteerd! 🎉",fastOkMsg:"We contacteren u op het gekozen moment op het opgegeven nummer.",fastPrefLabel:"U verkiest:",fastModeCall:"📞 Een telefoontje",fastModeMsg:"💬 WhatsApp / SMS",fastSlotLabel:"Wanneer?",fastSlotASAP:"Zo snel mogelijk",fastSlotMorning:"In de ochtend",fastSlotMidday:"Rond de middag",fastSlotAfternoon:"In de namiddag",fastSlotEvening:"'s Avonds",fastSlotWeekend:"In het weekend",fastTimeLabel:"⏰ Of een precies uur:",freeExplainQ:"Hoe is dat mogelijk?",freeExplainA:"De operatoren betalen ons wanneer we hen een klant bezorgen. U betaalt nooit iets — niet vooraf, niet achteraf.",
   heroShareLbl:"Delen met vrienden",
   stat1num:"+230",stat1lbl:"Tevreden klanten",stat2num:"30–130€",stat2lbl:"Bespaard/maand",stat3num:"24u",stat3lbl:"Reactietijd",
   reviewsLabel:"Wat onze klanten écht zeggen",
@@ -773,7 +795,7 @@ nl:{
 en:{
   kicker:"Telecom Broker · Belgium",h1a:"Compare.",h1b:"Save.",
   heroSub:"We analyse your telecom bill and cut it down. A dedicated consultant, real savings from month one. 100% free.",
-  heroBtn:"Start for free →",heroBtnNote:"100% free · Save from month one",fastLink:"⚡ No time? Just leave your number",fastTitle:"We'll call you back free within 24h 📞",fastPhPrenom:"Your first name",fastPhTel:"Your number",fastSend:"Call me back →",fastErrMsg:"Enter your first name and a valid number.",fastOkTitle:"Got it! 🎉",fastOkMsg:"We'll call you back very soon on the number provided.",freeExplainQ:"How is this possible?",freeExplainA:"Operators pay us when we bring them a client. You never pay anything — neither before nor after.",
+  heroBtn:"Start for free →",heroBtnNote:"100% free · Save from month one",fastLink:"⚡ No time? Just leave your number",fastBack:"← Back",fastTitle:"We'll call you back free within 24h 📞",fastPhPrenom:"Your first name",fastPhTel:"Your number",fastSend:"Call me back →",fastErrMsg:"Enter your first name and a valid number.",fastOkTitle:"Got it! 🎉",fastOkMsg:"We'll get back to you at your chosen time on the number provided.",fastPrefLabel:"You prefer:",fastModeCall:"📞 A call",fastModeMsg:"💬 WhatsApp / SMS",fastSlotLabel:"When?",fastSlotASAP:"As soon as possible",fastSlotMorning:"In the morning",fastSlotMidday:"Around midday",fastSlotAfternoon:"In the afternoon",fastSlotEvening:"In the evening",fastSlotWeekend:"On the weekend",fastTimeLabel:"⏰ Or a specific time:",freeExplainQ:"How is this possible?",freeExplainA:"Operators pay us when we bring them a client. You never pay anything — neither before nor after.",
   heroShareLbl:"Share with friends",
   stat1num:"+230",stat1lbl:"Satisfied clients",stat2num:"€30–130",stat2lbl:"Saved/month",stat3num:"24h",stat3lbl:"Response time",
   reviewsLabel:"What our clients truly say",
@@ -832,7 +854,7 @@ en:{
 de:{
   kicker:"Telecom-Makler · Belgien",h1a:"Vergleichen.",h1b:"Sparen.",
   heroSub:"Wir analysieren Ihre Telecomrechnung und senken sie. Ein persönlicher Berater, echte Ersparnisse ab dem 1. Monat. 100% kostenlos.",
-  heroBtn:"Kostenlos starten →",heroBtnNote:"100% kostenlos · Sparen ab dem 1. Monat",fastLink:"⚡ Keine Zeit? Hinterlassen Sie einfach Ihre Nummer",fastTitle:"Wir rufen Sie kostenlos innerhalb 24h zurück 📞",fastPhPrenom:"Ihr Vorname",fastPhTel:"Ihre Nummer",fastSend:"Zurückrufen lassen →",fastErrMsg:"Geben Sie Ihren Vornamen und eine gültige Nummer an.",fastOkTitle:"Notiert! 🎉",fastOkMsg:"Wir rufen Sie bald unter der angegebenen Nummer zurück.",freeExplainQ:"Wie ist das möglich?",freeExplainA:"Die Anbieter bezahlen uns, wenn wir ihnen einen Kunden bringen. Sie zahlen nie etwas — weder vorher noch nachher.",
+  heroBtn:"Kostenlos starten →",heroBtnNote:"100% kostenlos · Sparen ab dem 1. Monat",fastLink:"⚡ Keine Zeit? Hinterlassen Sie einfach Ihre Nummer",fastBack:"← Zurück",fastTitle:"Wir rufen Sie kostenlos innerhalb 24h zurück 📞",fastPhPrenom:"Ihr Vorname",fastPhTel:"Ihre Nummer",fastSend:"Zurückrufen lassen →",fastErrMsg:"Geben Sie Ihren Vornamen und eine gültige Nummer an.",fastOkTitle:"Notiert! 🎉",fastOkMsg:"Wir melden uns zum gewählten Zeitpunkt unter der angegebenen Nummer.",fastPrefLabel:"Sie bevorzugen:",fastModeCall:"📞 Einen Anruf",fastModeMsg:"💬 WhatsApp / SMS",fastSlotLabel:"Wann?",fastSlotASAP:"So schnell wie möglich",fastSlotMorning:"Am Morgen",fastSlotMidday:"Mittags",fastSlotAfternoon:"Am Nachmittag",fastSlotEvening:"Am Abend",fastSlotWeekend:"Am Wochenende",fastTimeLabel:"⏰ Oder eine genaue Uhrzeit:",freeExplainQ:"Wie ist das möglich?",freeExplainA:"Die Anbieter bezahlen uns, wenn wir ihnen einen Kunden bringen. Sie zahlen nie etwas — weder vorher noch nachher.",
   heroShareLbl:"Mit Freunden teilen",
   stat1num:"+230",stat1lbl:"Zufriedene Kunden",stat2num:"30–130€",stat2lbl:"Gespart/Monat",stat3num:"24h",stat3lbl:"Antwortzeit",
   reviewsLabel:"Was unsere Kunden wirklich sagen",
@@ -907,7 +929,7 @@ function setLang(l){lang=l;buildLangBar();renderAll();}
 function renderAll(){
   set('kicker',tr('kicker'));set('h1a',tr('h1a'));set('h1b',tr('h1b'));set('heroSub',tr('heroSub'));
   set('stat1num',tr('stat1num'));set('stat1lbl',tr('stat1lbl'));set('stat2num',tr('stat2num'));set('stat2lbl',tr('stat2lbl'));set('stat3num',tr('stat3num'));set('stat3lbl',tr('stat3lbl'));
-  set('heroBtn',tr('heroBtn'));set('heroBtnNote',tr('heroBtnNote'));set('fastLink',tr('fastLink'));set('fastTitle',tr('fastTitle'));set('fastSend',tr('fastSend'));ph('fast_prenom',tr('fastPhPrenom'));ph('fast_tel',tr('fastPhTel'));set('reviewsLabel',tr('reviewsLabel'));
+  set('heroBtn',tr('heroBtn'));set('heroBtnNote',tr('heroBtnNote'));set('fastLink',tr('fastLink'));set('fastBack',tr('fastBack'));set('fastTitle',tr('fastTitle'));set('fastSend',tr('fastSend'));ph('fast_prenom',tr('fastPhPrenom'));ph('fast_tel',tr('fastPhTel'));set('fastPrefLabel',tr('fastPrefLabel'));set('fastModeCall',tr('fastModeCall'));set('fastModeMsg',tr('fastModeMsg'));set('fastSlotLabel',tr('fastSlotLabel'));set('fastTimeLabel',tr('fastTimeLabel'));buildFastSlots();set('reviewsLabel',tr('reviewsLabel'));
   set('r1text',tr('r1text'));set('r1name',tr('r1name'));set('r1saving',tr('r1saving'));
   set('r2text',tr('r2text'));set('r2name',tr('r2name'));set('r2saving',tr('r2saving'));
   set('r3text',tr('r3text'));set('r3name',tr('r3name'));set('r3saving',tr('r3saving'));
@@ -1259,6 +1281,18 @@ function restoreState(){try{const raw=localStorage.getItem(SAVE_KEY);if(!raw)ret
 function applySavedFields(){try{const f=window.__savedFields||{};FIELD_IDS.forEach(id=>{const el=document.getElementById(id);if(el&&f[id])el.value=f[id];});const b=document.getElementById('budgetActuel');if(b&&S.budgetActuel)b.value=S.budgetActuel;const cv=document.getElementById('curMobVal');if(cv)cv.textContent=S.curMobCount||0;const mv=document.getElementById('mobSimVal');if(mv)mv.textContent=S.simCount||0;}catch(e){}}
 function clearSave(){try{localStorage.removeItem(SAVE_KEY);}catch(e){}}
 
+/* ── CRÉNEAUX VOIE RAPIDE ── */
+const FAST_SLOTS=[['asap','fastSlotASAP'],['morning','fastSlotMorning'],['midday','fastSlotMidday'],['afternoon','fastSlotAfternoon'],['evening','fastSlotEvening'],['weekend','fastSlotWeekend']];
+let fastMode='call',fastSlot='asap';
+function buildFastSlots(){
+  const box=document.getElementById('fastSlots');if(!box)return;box.innerHTML='';
+  FAST_SLOTS.forEach(([key,tk])=>{
+    const b=document.createElement('button');b.type='button';b.className='fast-slot'+(fastSlot===key?' on':'');b.textContent=tr(tk);
+    b.addEventListener('click',()=>{fastSlot=key;const ft=document.getElementById('fast_time');if(ft)ft.value='';box.querySelectorAll('.fast-slot').forEach(x=>x.classList.remove('on'));b.classList.add('on');});
+    box.appendChild(b);
+  });
+}
+
 function init(){
   restoreState();buildLangBar();renderAll();initShare();applySavedFields();setTimeout(animateHeroStats,250);
   document.addEventListener('input',saveState);
@@ -1270,6 +1304,11 @@ function init(){
   const fastSend=document.getElementById('fastSend');
   const fastErr=document.getElementById('fastErr');
   fastLink?.addEventListener('click',()=>{fastPanel.classList.toggle('open');if(fastPanel.classList.contains('open'))document.getElementById('fast_prenom').focus();});
+  const fmCall=document.getElementById('fastModeCall'),fmMsg=document.getElementById('fastModeMsg');
+  document.getElementById('fastBack')?.addEventListener('click',()=>{fastPanel.classList.remove('open');window.scrollTo({top:0,behavior:'smooth'});});
+  fmCall?.addEventListener('click',()=>{fastMode='call';fmCall.classList.add('on');fmMsg.classList.remove('on');});
+  fmMsg?.addEventListener('click',()=>{fastMode='msg';fmMsg.classList.add('on');fmCall.classList.remove('on');});
+  document.getElementById('fast_time')?.addEventListener('input',function(){if(this.value){fastSlot='';document.querySelectorAll('#fastSlots .fast-slot').forEach(x=>x.classList.remove('on'));}});
   fastSend?.addEventListener('click',async function(){
     const prenom=document.getElementById('fast_prenom').value.trim();
     const tel=document.getElementById('fast_tel').value.trim();
@@ -1277,7 +1316,8 @@ function init(){
     if(!prenom||!telOk){fastErr.textContent=tr('fastErrMsg');fastErr.classList.add('show');return;}
     fastErr.classList.remove('show');fastSend.disabled=true;fastSend.innerHTML='<span style="display:inline-block;animation:spin .8s linear infinite">⏳</span>';
     try{
-      await submitToFormspree({_subject:'[SBC] RAPPEL EXPRESS — '+prenom,Prenom:prenom,Telephone:tel,Type_demande:'⚡ Voie rapide (rappel express)',Langue:lang.toUpperCase()});
+      const modeTxt=fastMode==='call'?tr('fastModeCall'):tr('fastModeMsg');const ftv=document.getElementById('fast_time').value;const slotTxt=ftv?('à '+ftv):(fastSlot?tr(FAST_SLOTS.find(s=>s[0]===fastSlot)[1]):tr('fastSlotASAP'));
+      await submitToFormspree({_subject:'[SBC] RAPPEL EXPRESS — '+prenom,Prenom:prenom,Telephone:tel,Type_demande:'⚡ Voie rapide (rappel express)',Contact_souhaite:modeTxt,Creneau_souhaite:slotTxt,Langue:lang.toUpperCase()});
       clearSave();
       document.getElementById('heroScreen').style.display='none';
       const cs=document.getElementById('confirmScreen');
