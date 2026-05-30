@@ -17,7 +17,7 @@
 }
 html{scroll-behavior:smooth;font-size:15px}
 body{background:var(--bg);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;overflow-x:hidden;line-height:1.6}
- 
+
 /* ── HERO ── */
 #heroScreen{min-height:100vh;background:#0a0d14;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:6rem 2rem 5rem}
 #heroScreen::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(61,127,255,.22) 0%,transparent 70%);top:-180px;left:-200px;pointer-events:none}
@@ -51,13 +51,15 @@ body{background:var(--bg);color:var(--ink);font-family:'Segoe UI',system-ui,sans
 .reviews-label::before,.reviews-label::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.07)}
 .hero-reviews{display:flex;gap:.55rem;flex-wrap:wrap;justify-content:center;width:100%}
 .hr-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:1.1rem 1.15rem;flex:1;min-width:185px;max-width:230px;text-align:left}
-.hr-stars{color:#f0a500;font-size:.65rem;margin-bottom:.45rem}
+.hr-stars{color:#f5b526;font-size:.8rem;letter-spacing:.12em;margin-bottom:.55rem}
+.hr-foot{display:flex;align-items:center;gap:.55rem;margin-bottom:.55rem}
+.hr-avatar{width:30px;height:30px;min-width:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.3)}
 .hr-text{font-size:.72rem;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:.55rem;font-style:italic}
-.hr-name{font-size:.63rem;font-weight:700;color:rgba(255,255,255,.3);margin-bottom:.45rem}
+.hr-name{font-size:.63rem;font-weight:700;color:rgba(255,255,255,.42);margin-bottom:0;line-height:1.4}
 .hr-saving{display:inline-flex;align-items:center;gap:.3rem;background:rgba(34,192,112,.12);border:1px solid rgba(34,192,112,.25);color:#22c070;font-size:.64rem;font-weight:800;padding:.16rem .6rem;border-radius:50px}
 .hero-trust-bar{position:absolute;bottom:0;left:0;right:0;border-top:1px solid rgba(255,255,255,.06);padding:.75rem 2rem;display:flex;align-items:center;justify-content:center;gap:1.8rem;flex-wrap:wrap;z-index:2}
 .htb-item{display:flex;align-items:center;gap:.4rem;font-size:.69rem;font-weight:600;color:rgba(255,255,255,.32)}
- 
+
 /* ── PROFILE SCREEN ── */
 #profileScreen{display:none;min-height:100vh;background:var(--bg);align-items:center;justify-content:center;padding:4rem 2rem}
 #profileScreen.show{display:flex}
@@ -71,12 +73,17 @@ body{background:var(--bg);color:var(--ink);font-family:'Segoe UI',system-ui,sans
 .pm-btn-icon{font-size:1.6rem;flex-shrink:0}
 .pm-btn-label{font-weight:700;font-size:.9rem;color:var(--ink);margin-bottom:.1rem}
 .pm-btn-desc{font-size:.73rem;color:var(--muted)}
- 
+
 /* ── APP SCREEN ── */
 #appScreen{display:none}
 nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(12px)}
-.logo{font-size:1.1rem;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:.45rem}
-.logo span{color:var(--blue);font-weight:400}
+.logo{display:flex;align-items:center;gap:.6rem}
+.logo-mark{flex-shrink:0;border-radius:8px}
+.logo-text{display:flex;align-items:baseline;gap:.32rem;line-height:1}
+.logo-sbc{font-size:1.12rem;font-weight:800;color:var(--ink);letter-spacing:.01em}
+.logo-con{font-size:.98rem;font-weight:600;color:var(--blue2)}
+.hero-logo{display:flex;align-items:center;gap:.55rem;margin-bottom:1.6rem}
+.hero-logo .logo-sbc{color:#fff}.hero-logo .logo-con{color:#7eb4ff}
 .nav-badge{background:var(--green-bg);color:var(--green);border:1.5px solid var(--green-border);padding:.28rem .9rem;border-radius:50px;font-size:.7rem;font-weight:700}
 .trust-bar{background:var(--bg2);border-bottom:1.5px solid var(--border);padding:0 2rem;display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap}
 .tb-item{padding:.85rem 1.5rem;display:flex;align-items:center;gap:.5rem;font-size:.76rem;font-weight:600;color:var(--ink2);border-right:1px solid var(--border)}
@@ -89,8 +96,12 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .tva-pill{background:var(--green-bg);border:1.5px solid var(--green-border);color:var(--green);padding:.28rem .9rem;border-radius:50px;font-size:.74rem;font-weight:700;display:none;align-items:center;gap:.35rem}
 .tva-pill.on{display:flex}
 .wrap{max-width:840px;margin:0 auto;padding:2.5rem 1.3rem 6rem}
- 
+
 /* ── STEPPER ── */
+.prog{display:flex;align-items:center;gap:.85rem;margin-bottom:1.3rem}
+.prog-bar{flex:1;height:7px;background:var(--surface3);border-radius:50px;overflow:hidden}
+.prog-fill{height:100%;width:20%;background:linear-gradient(90deg,var(--blue),var(--green));border-radius:50px;transition:width .45s cubic-bezier(.4,0,.2,1)}
+.prog-txt{font-size:.72rem;font-weight:800;color:var(--blue2);white-space:nowrap;min-width:78px;text-align:right}
 .stepper{display:flex;align-items:flex-start;margin-bottom:2.5rem;gap:0}
 .si{flex:1;min-width:60px;display:flex;flex-direction:column;align-items:center;gap:.38rem;position:relative}
 .si:not(:last-child)::after{content:'';position:absolute;top:13px;left:calc(50% + 13px);right:calc(-50% + 13px);height:2px;background:var(--border2);z-index:0}
@@ -107,7 +118,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .card-sub{font-size:.73rem;color:var(--muted)}
 .divider{height:1px;background:var(--border);margin:1.2rem 0}
 .sec-label{font-size:.62rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.6rem}
- 
+
 /* ── SEARCH WIDGET ── */
 .sw{position:relative;max-width:440px}
 .s-inp{width:100%;background:var(--bg3);border:1.5px solid var(--border2);color:var(--ink);border-radius:var(--r);padding:.72rem 1rem .72rem 2.7rem;font-family:inherit;font-size:.88rem;font-weight:500;outline:none;transition:all .2s}
@@ -128,13 +139,13 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .autre-wrap.show{display:flex}
 .autre-inp{flex:1;background:var(--bg3);border:1.5px solid var(--blue-border);color:var(--ink);border-radius:var(--r);padding:.55rem .85rem;font-family:inherit;font-size:.86rem;font-weight:500;outline:none}
 .autre-lbl{font-size:.74rem;font-weight:700;color:var(--blue2);white-space:nowrap}
- 
+
 /* ── CHIPS ── */
 .chips{display:flex;flex-wrap:wrap;gap:.4rem}
 .chip{background:var(--bg3);border:1.5px solid var(--border2);border-radius:50px;padding:.38rem .9rem;cursor:pointer;transition:all .18s;font-size:.77rem;font-weight:600;color:var(--ink2)}
 .chip:hover{border-color:var(--blue);color:var(--blue2)}
 .chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
- 
+
 /* ── NET GRID ── */
 .net-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:.5rem;margin-bottom:1.2rem}
 .nc{background:var(--bg3);border:1.5px solid var(--border2);border-radius:10px;padding:.7rem .6rem;cursor:pointer;transition:all .22s;text-align:center;position:relative}
@@ -150,7 +161,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .nc-warn{font-size:.6rem;background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-border);padding:.07rem .45rem;border-radius:50px;display:inline-block;margin-bottom:.1rem;font-weight:600}
 .nc-price{font-size:.82rem;font-weight:700;color:var(--ink);margin-top:.22rem;line-height:1}
 .nc-price span{font-size:.62rem;font-weight:400;color:var(--muted)}
- 
+
 /* ── OPTIONS ── */
 .opt-list{display:flex;flex-direction:column;gap:.45rem}
 .opt{display:flex;align-items:center;justify-content:space-between;background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--r);padding:.8rem 1rem;cursor:pointer;transition:all .18s}
@@ -168,7 +179,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .tog::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:var(--ink2);transition:transform .2s;box-shadow:0 1px 4px rgba(0,0,0,.4)}
 .opt.on .tog{background:var(--green)}
 .opt.on .tog::after{transform:translateX(18px);background:#fff}
- 
+
 /* ── PROMO CARDS ── */
 .promo-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.1rem}
 .pc{background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--r);padding:1.4rem 1.1rem;cursor:pointer;transition:all .22s;text-align:center;position:relative}
@@ -184,8 +195,8 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .pc-total{font-size:.8rem;color:var(--ink2);margin-bottom:.5rem;font-weight:600}
 .pc-engage{display:flex;align-items:center;justify-content:center;margin:.55rem 0 .28rem;background:var(--green-bg);border:1.5px solid var(--green-border);border-radius:8px;padding:.45rem .65rem}
 .pc-engage-txt{font-size:.74rem;font-weight:700;color:var(--green)}
-.pc-renew{font-size:.74rem;font-weight:600;color:var(--gold);background:var(--gold-bg);border:1.5px solid var(--gold-border);border-radius:8px;padding:.55rem .75rem;margin-top:.6rem;line-height:1.55;text-align:left}
- 
+.pc-renew{font-size:.74rem;font-weight:600;color:var(--green);background:var(--green-bg);border:1.5px solid var(--green-border);border-radius:8px;padding:.6rem .8rem;margin-top:.6rem;line-height:1.55;text-align:left}
+
 /* ── RECAP ── */
 .recap{background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--r);padding:1.5rem;margin-bottom:.9rem}
 .recap-empty{font-size:.82rem;color:var(--muted);text-align:center;padding:.4rem 0}
@@ -196,10 +207,10 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .recap-saving{display:inline-flex;align-items:center;gap:.4rem;background:var(--green-bg);border:1.5px solid var(--green-border);color:var(--green);font-size:.78rem;font-weight:700;padding:.3rem .8rem;border-radius:50px;margin-top:.5rem}
 .recap-row{display:flex;justify-content:space-between;align-items:center;padding:.3rem 0;border-bottom:1px solid var(--border);font-size:.8rem;color:var(--ink2)}
 .recap-row:last-child{border:none;font-weight:700;font-size:.88rem;color:var(--ink);padding-top:.5rem;margin-top:.3rem}
-.tva-recap{margin-top:.85rem;background:var(--gold-bg);border:1.5px solid var(--gold-border);border-radius:10px;padding:.55rem 1rem;font-size:.77rem;color:var(--gold);display:flex;justify-content:space-between;font-weight:700}
+.tva-recap{margin-top:.85rem;background:var(--blue-bg);border:1.5px solid var(--blue-border);border-radius:10px;padding:.55rem 1rem;font-size:.78rem;color:var(--blue2);font-weight:700}
 .promo-notice{background:var(--gold-bg);border:1.5px solid var(--gold-border);border-radius:10px;padding:.75rem 1rem;margin-bottom:1rem;font-size:.78rem;color:var(--gold);line-height:1.65;display:none}
 .promo-notice.show{display:block}
- 
+
 /* ── SUIVI BOX ── */
 .suivi-box{background:linear-gradient(135deg,rgba(61,127,255,.12) 0%,rgba(61,127,255,.06) 100%);border:1.5px solid var(--blue-border);border-radius:var(--r);padding:1.3rem 1.5rem;margin-bottom:1rem}
 .suivi-inner{display:flex;align-items:flex-start;gap:1rem}
@@ -209,12 +220,12 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .suivi-desc strong{color:var(--ink);font-weight:700}
 .suivi-pills{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.65rem}
 .suivi-pill{display:inline-flex;align-items:center;gap:.3rem;background:rgba(61,127,255,.12);border:1px solid var(--blue-border);color:var(--blue2);padding:.2rem .65rem;border-radius:50px;font-size:.66rem;font-weight:700}
- 
+
 /* ── ENG NOTICE ── */
 .eng-notice{background:var(--green-bg);border:1.5px solid var(--green-border);border-radius:var(--r);padding:.9rem 1.1rem;margin-top:.7rem;display:none}
 .eng-notice p{font-size:.78rem;color:var(--ink2);line-height:1.7}
 .eng-notice strong{color:var(--green);font-weight:700}
- 
+
 /* ── MOBILE SECTIONS ── */
 .mob-section{background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--r);padding:1.1rem;margin-bottom:.85rem}
 .mob-section-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.35rem;flex-wrap:wrap}
@@ -253,28 +264,40 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .fc-new.alone{color:var(--blue2)}
 .fc-free{font-size:.78rem;color:var(--green);font-weight:700}
 .fc-disc{font-size:.55rem;background:var(--green-bg);color:var(--green);border:1px solid var(--green-border);border-radius:50px;padding:.05rem .35rem;font-weight:700;margin-top:.04rem}
- 
+
 /* ── PORTABILITÉ ── */
+.alone-note{font-size:.78rem;font-weight:700;color:var(--blue2);background:var(--blue-bg);border:1.5px solid var(--blue-border);border-radius:9px;padding:.65rem .85rem;margin-bottom:.7rem;line-height:1.6}
+.pack-warn{background:var(--red-bg);border:1.5px solid var(--red-border);border-radius:9px;padding:.7rem .85rem;margin-bottom:.6rem;font-size:.75rem;font-weight:700;color:#ff6b6b;line-height:1.55;display:none;animation:packWarnPulse .4s ease}
+.pack-warn.show{display:block}
+@keyframes packWarnPulse{0%{transform:scale(.96);opacity:0}100%{transform:scale(1);opacity:1}}
+.fc.locked{opacity:.65}
+.fc.locked .fc-new,.fc.locked .fc-free{color:var(--muted)!important}
 .port-choice{margin-top:.85rem;padding:.85rem;background:rgba(61,127,255,.05);border:1px solid var(--blue-border);border-radius:10px}
 .port-label{font-size:.62rem;font-weight:800;color:var(--blue2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}
 .port-btns{display:flex;gap:.4rem}
 .port-btn{flex:1;padding:.55rem .6rem;border-radius:8px;border:1.5px solid var(--border2);background:var(--bg3);color:var(--ink2);font-family:inherit;font-size:.72rem;font-weight:700;cursor:pointer;transition:all .18s;text-align:center}
 .port-btn:hover{border-color:var(--blue);color:var(--blue)}
 .port-btn.on{background:var(--blue);border-color:var(--blue);color:#fff}
- 
+
 /* ── CUR MOB CARD ── */
-.cur-mob-card{background:var(--surface2);border:1.5px solid var(--border2);border-radius:9px;padding:.85rem;margin-bottom:.45rem}
-.cur-mob-title{font-weight:800;font-size:.78rem;margin-bottom:.6rem;color:var(--ink)}
-.cmg{display:grid;grid-template-columns:1fr 1fr;gap:.45rem}
-.cmf{display:flex;flex-direction:column;gap:.18rem}
+.cur-mob-bar{display:flex;align-items:center;gap:.7rem;background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--r);padding:.42rem .7rem;max-width:440px;transition:border-color .18s}
+.cur-mob-bar:focus-within,.cur-mob-bar:hover{border-color:var(--border3)}
+.cur-mob-card{background:var(--surface2);border:1.5px solid var(--border2);border-radius:11px;padding:1rem;margin-bottom:.55rem;transition:border-color .18s}
+.cur-mob-card:hover{border-color:var(--border3)}
+.cur-mob-title{font-weight:800;font-size:.74rem;margin-bottom:.75rem;color:var(--blue2);text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:center;gap:.4rem}
+.cmg{display:grid;grid-template-columns:1fr 1fr;gap:.55rem}
+.cmf{display:flex;flex-direction:column;gap:.28rem}
 .cmf label{font-size:.58rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.09em}
-.cmf select,.cmf input[type=number]{background:var(--bg3);border:1.5px solid var(--border2);color:var(--ink);border-radius:7px;padding:.4rem .7rem;font-family:inherit;font-size:.78rem;font-weight:600;outline:none;-webkit-appearance:none;width:100%}
-.cmf select:focus,.cmf input:focus{border-color:var(--blue)}
-.cm-sw{position:relative;margin-bottom:.25rem}
-.cm-sinp{width:100%;background:var(--bg3);border:1.5px solid var(--border2);color:var(--ink);border-radius:8px;padding:.45rem .75rem;font-family:inherit;font-size:.78rem;font-weight:500;outline:none}
-.cm-sinp:focus{border-color:var(--blue)}
+.cmf select,.cmf input[type=number]{background:var(--bg3);border:1.5px solid var(--border2);color:var(--ink);border-radius:9px;padding:.55rem .8rem;font-family:inherit;font-size:.82rem;font-weight:600;outline:none;-webkit-appearance:none;width:100%;transition:border-color .18s}
+.cmf select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237a88a8' stroke-width='3'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right .7rem center;padding-right:2rem;cursor:pointer}
+.cmf select:focus,.cmf input:focus{border-color:var(--blue);background-color:rgba(61,127,255,.06)}
+.cmf select option{background:var(--surface2);color:var(--ink);font-weight:600}
+select option{background:#252d40;color:#e8eaf0}
+.cm-sw{position:relative;margin-bottom:.28rem}
+.cm-sinp{width:100%;background:var(--bg3);border:1.5px solid var(--border2);color:var(--ink);border-radius:9px;padding:.55rem .85rem;font-family:inherit;font-size:.82rem;font-weight:500;outline:none;transition:border-color .18s}
+.cm-sinp:focus{border-color:var(--blue);background:rgba(61,127,255,.06)}
 .cm-sinp::placeholder{color:var(--muted);font-weight:400}
- 
+
 /* ── FORM ── */
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
 .field{display:flex;flex-direction:column;gap:.25rem}
@@ -288,10 +311,11 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .send-btn{width:100%;margin-top:1.2rem;background:linear-gradient(135deg,var(--blue) 0%,var(--blue3) 100%);color:#fff;border:none;border-radius:var(--r);padding:1.1rem;font-family:inherit;font-weight:800;font-size:.95rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.55rem}
 .send-btn:hover:not(:disabled){background:linear-gradient(135deg,var(--blue2) 0%,var(--blue) 100%);transform:translateY(-2px)}
 .send-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.rgpd-note{font-size:.7rem;color:var(--muted);text-align:center;margin-top:.7rem;line-height:1.55;display:flex;align-items:center;justify-content:center;gap:.35rem}
 .form-error{background:var(--red-bg);border:1.5px solid var(--red-border);border-radius:var(--r);padding:.9rem 1.1rem;margin-top:.8rem;display:none}
 .form-error p{font-size:.8rem;color:#ff7070;line-height:1.65}
 .form-error strong{color:#ff4040;font-weight:700}
- 
+
 /* ── CONFIRM SCREEN ── */
 .confirm-share-block{margin-top:2rem;padding:1.4rem 1.6rem;background:rgba(61,127,255,.07);border:1.5px solid var(--blue-border);border-radius:16px}
 .confirm-share-label{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:.3rem}
@@ -307,7 +331,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .confirm-msg{font-size:1.05rem;color:var(--ink);line-height:1.75;font-weight:500}
 .confirm-pills{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1.5rem}
 .confirm-pill{display:inline-flex;align-items:center;gap:.35rem;background:rgba(61,127,255,.12);border:1px solid var(--blue-border);color:var(--blue2);padding:.3rem .9rem;border-radius:50px;font-size:.74rem;font-weight:700}
- 
+
 /* ── STEP SECTIONS ── */
 .step-section{display:none}
 .step-section.visible{display:block}
@@ -319,8 +343,13 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .budget-hint{font-size:.72rem;color:var(--muted);line-height:1.55}
 .budget-wrap{display:flex;align-items:center;gap:.5rem;background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--r);padding:.6rem .9rem;margin-top:.3rem;max-width:180px;transition:border-color .18s}
 .budget-inp{background:transparent;border:none;outline:none;font-family:inherit;font-size:.95rem;font-weight:700;color:var(--ink);width:100%}
- 
+
 /* ── SHARE FAB ── */
+.wa-fab{position:fixed;bottom:1.5rem;right:1.5rem;z-index:998;width:58px;height:58px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.45);transition:transform .2s,box-shadow .2s;animation:waPop .5s ease-out both}
+.wa-fab:hover{transform:scale(1.08);box-shadow:0 10px 32px rgba(37,211,102,.6)}
+.wa-fab::after{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid #25d366;animation:waPing 2.2s ease-out infinite}
+@keyframes waPing{0%{transform:scale(1);opacity:.6}80%,100%{transform:scale(1.5);opacity:0}}
+@keyframes waPop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
 .share-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:999;display:none;backdrop-filter:blur(3px)}
 .share-overlay.open{display:block}
 .share-modal{position:fixed;bottom:6rem;right:1.5rem;z-index:1000;background:var(--surface);border:1.5px solid var(--border3);border-radius:18px;padding:1.6rem;width:min(300px,calc(100vw - 3rem));box-shadow:0 24px 64px rgba(0,0,0,.6);display:none;flex-direction:column;gap:.85rem}
@@ -337,10 +366,10 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg2);border-bottom:1.5px 
 .share-btn-email:hover{border-color:var(--blue);color:var(--blue)}
 .share-close{position:absolute;top:.9rem;right:.9rem;background:none;border:none;color:var(--muted);font-size:.95rem;cursor:pointer;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .18s}
 .share-close:hover{background:var(--surface3);color:var(--ink)}
- 
+
 footer{text-align:center;padding:2rem;border-top:1.5px solid var(--border);background:var(--bg2);color:var(--muted);font-size:.76rem}
 footer strong{color:var(--ink2);font-weight:800}
- 
+
 @media(max-width:580px){
   .net-grid{grid-template-columns:1fr 1fr}
   .promo-grid{grid-template-columns:1fr}
@@ -352,15 +381,32 @@ footer strong{color:var(--ink2);font-weight:800}
   .confirm-title{font-size:1.5rem}
   .share-modal{right:1rem;left:1rem;width:auto;bottom:5.5rem}
   .port-btns{flex-direction:column}
+  .hr-card{min-width:100%;max-width:100%}
+  .hero-stats-row{flex-direction:column}
+  .hsr-item+.hsr-item{border-left:none;border-top:1px solid rgba(255,255,255,.07)}
+  .trust-bar{padding:0 .5rem}
+  .tb-item{padding:.7rem .8rem;font-size:.7rem;border-right:none}
+  nav{padding:.85rem 1rem}
+  .profile-bar{padding:.6rem 1rem}
+  .lang-bar{top:.8rem;right:.8rem}
+  .stepper{margin-bottom:1.6rem}
+  .si-lbl{font-size:.5rem}
+  .hero-trust-bar{gap:.9rem;padding:.6rem 1rem}
+  .htb-item{font-size:.62rem}
+}
+@media(max-width:380px){
+  .net-grid{grid-template-columns:1fr}
+  .fg{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
- 
+
 <!-- HERO SCREEN -->
 <div id="heroScreen">
   <div class="lang-bar" id="langBar"></div>
   <div class="hero-inner">
+    <div class="hero-logo"><svg class="logo-mark" width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lgGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3d7fff"/><stop offset="1" stop-color="#22c070"/></linearGradient></defs><rect x="1" y="1" width="30" height="30" rx="8" fill="url(#lgGrad)"/><rect x="8" y="18" width="3.6" height="6" rx="1.8" fill="#fff"/><rect x="14.2" y="13.5" width="3.6" height="10.5" rx="1.8" fill="#fff"/><rect x="20.4" y="9" width="3.6" height="15" rx="1.8" fill="#fff" opacity=".92"/></svg><div class="logo-text"><span class="logo-sbc">SBC</span><span class="logo-con">Consulting</span></div></div>
     <div class="hero-kicker"><span class="kicker-dot"></span><span id="kicker"></span></div>
     <h1 class="hero-h1"><span class="line1" id="h1a"></span><span class="line2" id="h1b"></span></h1>
     <p class="hero-sub" id="heroSub"></p>
@@ -372,15 +418,12 @@ footer strong{color:var(--ink2);font-weight:800}
     <div class="hero-cta-row">
       <button class="hero-btn" id="heroBtn"></button>
       <div class="hero-btn-note" id="heroBtnNote"></div>
-      <div class="hero-share-row">
-        <button class="hero-share-link" id="heroShareBtn">📤 <span id="heroShareLbl"></span></button>
-      </div>
     </div>
     <div class="reviews-label"><span id="reviewsLabel"></span></div>
     <div class="hero-reviews">
-      <div class="hr-card"><div class="hr-stars">⭐⭐⭐⭐⭐</div><div class="hr-text" id="r1text"></div><div class="hr-name" id="r1name"></div><div class="hr-saving" id="r1saving"></div></div>
-      <div class="hr-card"><div class="hr-stars">⭐⭐⭐⭐⭐</div><div class="hr-text" id="r2text"></div><div class="hr-name" id="r2name"></div><div class="hr-saving" id="r2saving"></div></div>
-      <div class="hr-card"><div class="hr-stars">⭐⭐⭐⭐⭐</div><div class="hr-text" id="r3text"></div><div class="hr-name" id="r3name"></div><div class="hr-saving" id="r3saving"></div></div>
+      <div class="hr-card"><div class="hr-stars">★★★★★</div><div class="hr-text" id="r1text"></div><div class="hr-foot"><div class="hr-avatar" style="background:linear-gradient(135deg,#3d7fff,#2060e0)">N</div><div class="hr-name" id="r1name"></div></div><div class="hr-saving" id="r1saving"></div></div>
+      <div class="hr-card"><div class="hr-stars">★★★★★</div><div class="hr-text" id="r2text"></div><div class="hr-foot"><div class="hr-avatar" style="background:linear-gradient(135deg,#22c070,#138a4c)">Y</div><div class="hr-name" id="r2name"></div></div><div class="hr-saving" id="r2saving"></div></div>
+      <div class="hr-card"><div class="hr-stars">★★★★★</div><div class="hr-text" id="r3text"></div><div class="hr-foot"><div class="hr-avatar" style="background:linear-gradient(135deg,#e8a020,#c47e0a)">I</div><div class="hr-name" id="r3name"></div></div><div class="hr-saving" id="r3saving"></div></div>
     </div>
   </div>
   <div class="hero-trust-bar">
@@ -390,7 +433,7 @@ footer strong{color:var(--ink2);font-weight:800}
     <div class="htb-item">🔒 <span id="htb4"></span></div>
   </div>
 </div>
- 
+
 <!-- PROFILE SCREEN -->
 <div id="profileScreen">
   <div class="profile-wrap">
@@ -403,16 +446,16 @@ footer strong{color:var(--ink2);font-weight:800}
     </div>
   </div>
 </div>
- 
+
 <!-- APP SCREEN -->
 <div id="appScreen">
   <nav>
-    <div class="logo">SBC<span style="width:1px;height:14px;background:var(--border3);display:inline-block;margin:0 .35rem"></span><span>Consulting</span></div>
+    <div class="logo"><svg class="logo-mark" width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lgGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3d7fff"/><stop offset="1" stop-color="#22c070"/></linearGradient></defs><rect x="1" y="1" width="30" height="30" rx="8" fill="url(#lgGrad)"/><rect x="8" y="18" width="3.6" height="6" rx="1.8" fill="#fff"/><rect x="14.2" y="13.5" width="3.6" height="10.5" rx="1.8" fill="#fff"/><rect x="20.4" y="9" width="3.6" height="15" rx="1.8" fill="#fff" opacity=".92"/></svg><div class="logo-text"><span class="logo-sbc">SBC</span><span class="logo-con">Consulting</span></div></div>
     <div class="nav-badge">✅ <span id="navFree"></span></div>
   </nav>
   <div class="trust-bar">
     <div class="tb-item">👥 <strong>+230</strong>&nbsp;<span id="tb1"></span></div>
-    <div class="tb-item">💰 −<strong>47€/mois</strong>&nbsp;<span id="tb2"></span></div>
+    <div class="tb-item">💰 −<strong>30 à 130€/mois</strong>&nbsp;<span id="tb2"></span></div>
     <div class="tb-item">⏱️ <span id="tb3a"></span>&nbsp;<strong id="tb3b"></strong></div>
     <div class="tb-item">🔒 <span id="tb4"></span></div>
   </div>
@@ -422,8 +465,9 @@ footer strong{color:var(--ink2);font-weight:800}
     <div class="tva-pill" id="tvaPill">💼 <span id="tvaText"></span></div>
   </div>
   <div class="wrap">
+    <div class="prog"><div class="prog-bar"><div class="prog-fill" id="progFill"></div></div><div class="prog-txt" id="progTxt"></div></div>
     <div class="stepper" id="stepper"></div>
- 
+
     <!-- ÉTAPE 1 -->
     <div class="card" id="step1">
       <div class="card-head"><div class="card-num">1</div><div><div class="card-title" id="s1title"></div><div class="card-sub" id="s1sub"></div></div></div>
@@ -433,10 +477,14 @@ footer strong{color:var(--ink2);font-weight:800}
       <div class="autre-wrap" id="autreOpWrap"><span class="autre-lbl" id="autreOpLbl"></span><input class="autre-inp" id="autreOp" type="text"></div>
       <div style="margin-bottom:.9rem"></div>
       <div class="divider"></div>
-      <div class="sec-label" id="s1mobOpLabel"></div>
-      <div class="sw" style="margin-bottom:.3rem"><span class="s-icon">🔍</span><input class="s-inp" id="sMob" type="text" autocomplete="off"><button class="s-clr" id="clrMob" type="button">✕</button><div class="dropdown" id="dMob"></div></div>
-      <div id="bMob"></div>
-      <div class="autre-wrap" id="autreMobWrap"><span class="autre-lbl" id="autreMobLbl"></span><input class="autre-inp" id="autreMob" type="text"></div>
+      <div class="sec-label" id="curMobTitle"></div>
+      <div class="cur-mob-bar">
+        <button class="cnt-btn" type="button" id="curMobMinus">−</button>
+        <div class="cnt-val" id="curMobVal">0</div>
+        <button class="cnt-btn" type="button" id="curMobPlus">+</button>
+        <span class="cnt-lbl" id="curMobLbl"></span>
+      </div>
+      <div class="mob-lines" id="curMobLines" style="max-width:440px;margin-top:.55rem"></div>
       <div style="margin-bottom:.9rem"></div>
       <div class="divider"></div>
       <div class="sec-label" id="s1servLabel"></div>
@@ -451,7 +499,7 @@ footer strong{color:var(--ink2);font-weight:800}
       <div class="budget-wrap" id="budgetWrap"><input type="number" id="budgetActuel" class="budget-inp" placeholder="ex: 90" min="0"><span style="color:var(--muted);font-size:.8rem;white-space:nowrap;font-weight:600">€/mois</span></div>
       <div class="nav-row" style="justify-content:flex-end"><button class="next-btn" type="button" id="btn1next"></button></div>
     </div>
- 
+
     <!-- ÉTAPE 2 -->
     <div class="card step-section" id="step2">
       <div class="card-head"><div class="card-num">2</div><div><div class="card-title" id="s2title"></div><div class="card-sub" id="s2sub"></div></div></div>
@@ -462,16 +510,10 @@ footer strong{color:var(--ink2);font-weight:800}
       <div class="opt-list" id="optList"></div>
       <div class="nav-row"><button class="back-btn" type="button" id="btn2back"></button><button class="next-btn" type="button" id="btn2next"></button></div>
     </div>
- 
+
     <!-- ÉTAPE 3 -->
     <div class="card step-section" id="step3">
       <div class="card-head"><div class="card-num">3</div><div><div class="card-title" id="s3title"></div><div class="card-sub" id="s3sub"></div></div></div>
-      <div class="mob-section">
-        <div class="mob-section-head"><span class="mob-section-title">📋 <span id="curMobTitle"></span></span><span class="mob-badge now" id="todayBadge"></span></div>
-        <div class="mob-sub" id="curMobSub"></div>
-        <div class="counter-row"><button class="cnt-btn" type="button" id="curMobMinus">−</button><div class="cnt-val" id="curMobVal">0</div><button class="cnt-btn" type="button" id="curMobPlus">+</button><span class="cnt-lbl" id="curMobLbl"></span></div>
-        <div class="mob-lines" id="curMobLines"></div>
-      </div>
       <div class="mob-section">
         <div class="mob-section-head"><span class="mob-section-title">🆕 <span id="newMobTitle"></span></span><span class="mob-badge new" id="newOfferBadge"></span></div>
         <div class="mob-sub" id="mobPackSub"></div>
@@ -480,7 +522,7 @@ footer strong{color:var(--ink2);font-weight:800}
       </div>
       <div class="nav-row"><button class="back-btn" type="button" id="btn3back"></button><button class="next-btn" type="button" id="btn3next"></button></div>
     </div>
- 
+
     <!-- ÉTAPE 4 -->
     <div class="card step-section" id="step4">
       <div class="card-head"><div class="card-num">4</div><div><div class="card-title" id="s4title"></div><div class="card-sub" id="s4sub"></div></div></div>
@@ -498,7 +540,7 @@ footer strong{color:var(--ink2);font-weight:800}
       <div class="recap" id="promoRecap"></div>
       <div class="nav-row"><button class="back-btn" type="button" id="btn4back"></button><button class="next-btn" type="button" id="btn4next"></button></div>
     </div>
- 
+
     <!-- ÉTAPE 5 -->
     <div class="card step-section" id="step5">
       <div class="card-head"><div class="card-num">5</div><div><div class="card-title" id="s5title"></div><div class="card-sub" id="s5sub"></div></div></div>
@@ -514,14 +556,15 @@ footer strong{color:var(--ink2);font-weight:800}
         <div class="field full"><label id="lMsg"></label><textarea id="f_msg"></textarea></div>
         <div class="field full">
           <button type="button" class="send-btn" id="sendBtn"></button>
+          <div class="rgpd-note" id="rgpdNote"></div>
           <div class="form-error" id="formError"><p>⚠️ <strong id="formErrorTitle"></strong> <span id="formErrorText"></span></p></div>
         </div>
       </div>
     </div>
   </div>
-  <footer><strong>SBC Consulting</strong> — <span id="footerSub"></span><br><span style="margin-top:.25rem;display:block" id="footerNote"></span></footer>
+  <footer><strong>SBC Consulting</strong> — <span id="footerSub"></span><br><span style="margin-top:.25rem;display:block" id="footerNote"></span><span style="margin-top:.5rem;display:block;opacity:.7" id="footerRgpd"></span></footer>
 </div>
- 
+
 <!-- CONFIRM SCREEN -->
 <div id="confirmScreen">
   <div class="confirm-wrap">
@@ -534,10 +577,16 @@ footer strong{color:var(--ink2);font-weight:800}
       <span class="confirm-pill">⚡ Sous 24h</span>
       <span class="confirm-pill">🎁 100% gratuit</span>
     </div>
+    <div class="confirm-share-block">
+      <div class="confirm-share-label" id="confirmShareLabel">Vous avez aimé notre service ?</div>
+      <div class="confirm-share-sub" id="confirmShareSub">Partagez à vos proches — c'est 100% gratuit pour eux aussi, et vous leur faites économiser des centaines d'euros par an.</div>
+      <button class="confirm-share-btn" id="confirmShareBtn">📤 Partager à mes proches</button>
+    </div>
   </div>
 </div>
- 
+
 <!-- SHARE FAB -->
+<a class="wa-fab" id="waFab" href="https://wa.me/32470681297" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.738-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg></a>
 <div class="share-overlay" id="shareOverlay"></div>
 <div class="share-modal" id="shareModal">
   <button class="share-close" id="shareClose">✕</button>
@@ -549,7 +598,7 @@ footer strong{color:var(--ink2);font-weight:800}
     <button class="share-btn share-btn-email" id="shareEmail">📧 Email</button>
   </div>
 </div>
- 
+
 <script>
 (function(){
 const FORMSPREE_URL='https://formspree.io/f/mpqnkwgb';
@@ -558,30 +607,30 @@ const OPS_FIXE=[{n:'Proximus',e:'📡'},{n:'Orange Belgium',e:'🟡'},{n:'Telene
 const OPS_MOB=[{n:'Proximus',e:'📡'},{n:'Orange Belgium',e:'🟡'},{n:'BASE',e:'📶'},{n:'Telenet',e:'🟠'},{n:'VOO Mobile',e:'🔵'},{n:'Mobile Vikings',e:'⚔️'},{n:'hey! telecom',e:'👋'},{n:'Scarlet Mobile',e:'🔴'},{n:'Digi Belgium',e:'📶'},{n:'UNDO',e:'↩️'},{n:'Lycamobile',e:'🌍'},{n:'Lebara',e:'🌐'},{n:'United Mobile',e:'🌐'},{n:'Carrefour Mobile',e:'🛒'},{n:'Jim Mobile',e:'📱'},{n:'Ello Mobile',e:'💙'},{n:'Tchamba Telecom',e:'🌍'},{n:'Yoin',e:'🔷'},{n:'Neibo',e:'🛜'},{n:'Pas de mobile',e:'🚫'},{n:'Autre',e:'❓'}];
 const PACK=[{id:'easy',name:'Easy',data:'20 GB 5G',calls:'Appels illimités',europe:'🌍 Europe 20 GB',base:15},{id:'maxi',name:'Maxi',data:'85 GB 5G',calls:'Appels illimités',europe:'🌍 Europe 85 GB',base:26},{id:'unlim',name:'Unlimited',data:'Illimité 5G',calls:'Appels illimités',europe:'🌍 Europe illimité',base:33}];
 const ALONE=[{id:'easy',name:'Easy',data:'10 GB 5G',calls:'Appels illimités',final:16.99},{id:'smar',name:'Smart',data:'35 GB 5G',calls:'Appels illimités',final:19.99},{id:'maxi',name:'Maxi',data:'70 GB 5G',calls:'Appels illimités',final:21.99},{id:'unlim',name:'Unlimited',data:'Illimité 5G',calls:'Appels illimités',final:35}];
- 
+
 const T={
 fr:{
   kicker:"Courtier en charges domestiques · Belgique",h1a:"Comparez.",h1b:"Économisez.",
   heroSub:"Un consultant dédié. Une analyse chirurgicale de votre facture. Des économies concrètes, dès le premier mois.",
   heroBtn:"Commencer gratuitement →",heroBtnNote:"100% gratuit · Sans engagement · Aucune redirection",
   heroShareLbl:"Partager à mes proches",
-  stat1num:"+230",stat1lbl:"Clients satisfaits",stat2num:"−47€",stat2lbl:"Économies/mois",stat3num:"24h",stat3lbl:"Délai de réponse",
+  stat1num:"+230",stat1lbl:"Clients satisfaits",stat2num:"30–130€",stat2lbl:"Économisés/mois",stat3num:"24h",stat3lbl:"Délai de réponse",
   reviewsLabel:"Ce que nos clients racontent vraiment",
-  r1text:'"J\'avais peur que ça prenne des heures. En 18 minutes chrono, tout était bouclé. Mon consultant m\'a envoyé le récap directement sur WhatsApp, j\'ai juste confirmé. Trois semaines plus tard, 53€ de moins sur ma facture. C\'est devenu mon sujet de conversation préféré en famille."',
+  r1text:'"Je m\'attendais à un truc compliqué, plein de paperasse. En réalité ? Un seul appel, mon consultant a tout repris en main. Il m\'a renvoyé le récap sur WhatsApp, j\'ai dit oui, et c\'était réglé. Aujourd\'hui je paie 53€ de moins chaque mois pour exactement le même service. Honnêtement, j\'aurais dû le faire des années plus tôt."',
   r1name:"— Nathalie D., Bruxelles · Cliente depuis 7 ans chez son ancien opérateur",r1saving:"−53€/mois",
-  r2text:'"Je travaille dans la finance. Je pensais connaître mes contrats sur le bout des doigts. Mon consultant a ouvert ma facture ligne par ligne et m\'a montré trois options que je payais depuis 2019 sans jamais les avoir utilisées. 41€ récupérés, sans rien changer à ma vitesse, à ma TV, à rien. Je recommande les yeux fermés."',
-  r2name:"— Yves M., Liège · Analyste financier · 11 ans chez le même opérateur",r2saving:"−41€/mois",
-  r3text:'"Mon mari était sceptique. Il cherchait le piège, l\'engagement caché, la clause en petits caractères. Il n\'y avait rien. Notre consultant nous a rappelés le lendemain matin à 9h pile, comme promis. Aujourd\'hui on économise 116€ par mois à deux. On l\'a recommandé à nos enfants, nos voisins, nos collègues."',
-  r3name:"— Isabelle V., Gand · Avec son mari · 6 recommandations dans leur entourage",r3saving:"−58€/mois",
+  r2text:'"Je suis quelqu\'un de méfiant, je vérifie tout. Mon consultant a décortiqué ma facture poste par poste devant moi, sans rien me cacher. Il m\'a montré noir sur blanc plusieurs options que je payais depuis des années pour rien. 65€ récupérés par mois, et pas un seul service en moins. C\'est rare, des gens aussi droits. Je le recommande sans la moindre hésitation."',
+  r2name:"— Yves M., Liège · Analyste financier · 11 ans chez le même opérateur",r2saving:"−65€/mois",
+  r3text:'"Mon mari a passé deux jours à chercher l\'arnaque. Il n\'a rien trouvé, parce qu\'il n\'y a rien à trouver. Notre consultant a rappelé le lendemain à l\'heure dite, a tout géré, et on n\'a eu qu\'à profiter. À nous deux, on économise 108€ par mois. On en parle à tout le monde autour de nous — c\'est devenu un réflexe."',
+  r3name:"— Isabelle V., Gand · Avec son mari · 6 recommandations dans leur entourage",r3saving:"−108€/mois à deux",
   htb4:"Sans engagement",
   shareModalTitle:"Partager ce site à vos proches",shareModalSub:"Aidez ceux que vous aimez à économiser aussi !",
   shareWA:"💬 Partager sur WhatsApp",shareCopy:"📋 Copier le lien",shareCopied:"✅ Lien copié !",shareEmail:"📧 Envoyer par email",
-  shareText:"J'ai trouvé un service gratuit pour réduire ses factures télécom en Belgique. Je te conseille vivement ! ",
+  shareText:"J'ai trouvé un service gratuit pour réduire ses factures télécom en Belgique. Je te conseille vivement ! ",waText:"Bonjour, je souhaite réduire mes factures télécom.",
   portChoice:"Que souhaitez-vous faire avec cette nouvelle SIM ?",portKeep:"📲 Conserver mon numéro actuel",portNew:"✨ Obtenir un nouveau numéro",
   pmTitle:"Quel est votre profil ?",pmSub:"Choisissez votre profil pour recevoir les offres adaptées à votre situation.",
   pmPart:"Particulier",pmPartDesc:"Offres résidentielles · Prix TVAC",pmPro:"Professionnel",pmProDesc:"Offres business · TVA récupérable · Facturation",
   navFree:"100% gratuit",tb1:"clients satisfaits",tb2:"d'économies moyennes",tb3a:"Réponse sous",tb3b:"24h",tb4:"Sans engagement · Confidentiel",
-  tvaText:"TVA récupérable",pbChange:"Changer de profil",
+  tvaText:"TVA récupérable",vatIncluded:"Prix TVA comprise (TVAC)",totalTvac:"Total (TVA comprise)",tvaNote:"💡 En tant qu'indépendant ou société, vous récupérez cette TVA via votre déclaration TVA (trimestrielle pour la plupart des indépendants, mensuelle au-delà de 2,5 M€ de chiffre d'affaires).",pbChange:"Changer de profil",
   steps:["Situation","Internet","Mobiles","Promo","Contact"],
   s1title:"Votre situation actuelle",s1sub:"Dites-nous ce que vous avez aujourd'hui",
   s1opLabel:"Opérateur Internet / TV / Fixe actuel",s1mobOpLabel:"Opérateur mobile actuel",
@@ -594,9 +643,9 @@ fr:{
   s2title:"Votre offre internet & options",s2sub:"Choisissez votre connexion, puis ajoutez vos options",
   s2netLabel:"Connexion internet",ncWarn:"Si fibre indisponible",fiberLabel:"Fibre optique",s2optLabel:"Options",
   tvDesc:"+80 chaînes · 1ère TV-Box offerte · Replay",wifiDesc:"Couverture WiFi optimale dans toute la maison",
-  free1yr:"Gratuit 1 an",fixeLabel:"Ligne fixe",fixeDesc:"Appels nationaux illimités · sans frais cachés",
-  s3title:"Vos mobiles",s3sub:"Décrivez vos lignes actuelles, puis choisissez vos nouvelles offres",
-  curMobTitle:"Vos mobiles actuels",today:"Aujourd'hui",curMobSub:"Pour chaque mobile : opérateur, type de contrat, volume de données et prix mensuel.",curMobLbl:"ligne(s) actuellement (max 6)",
+  free1yr:"Gratuit 1 an",fixeLabel:"Ligne fixe",fixeDesc:"Appels nationaux illimités",
+  s3title:"Vos nouveaux mobiles",s3sub:"Choisissez les offres mobiles que vous souhaitez avec nous",
+  curMobTitle:"📱 Vos mobiles actuels",today:"Aujourd'hui",curMobSub:"Pour chaque mobile : opérateur, type de contrat, volume de données et prix mensuel.",curMobLbl:"ligne(s) actuellement (max 6)",
   newMobTitle:"Mobiles souhaités avec nous",newOffer:"Nouvelle offre",simLbl:"ligne(s) SIM souhaitée(s) (max 6)",
   deviceTitle:"Acquisition d'un nouveau terminal.",deviceText:"Achat comptant ou en mensualités, votre consultant vous guide.",
   s4title:"Votre promotion & récapitulatif",s4sub:"Choisissez votre durée — votre total se met à jour en temps réel",s4promoLabel:"Durée promotionnelle",
@@ -610,13 +659,13 @@ fr:{
   phPrenom:"Jean",phNom:"Dupont",phAdresse:"Rue de la Loi 16",phVille:"Bruxelles",phMsg:"Modèle de téléphone souhaité, questions…",
   sendBtn:"Recevoir mon offre personnalisée — Gratuit & sans engagement →",
   formErrorTitle:"Erreur.",formErrorText:"Vérifiez votre connexion et réessayez.",
-  footerSub:"Courtier en charges domestiques · Belgique",footerNote:"Service 100% gratuit pour le client · Prix TVAC",
-  searchOp:"Cherchez votre opérateur…",searchMob:"Cherchez votre opérateur mobile…",
+  footerSub:"Courtier en charges domestiques · Belgique",footerNote:"Service 100% gratuit pour le client · Prix TVAC",rgpd:"🔒 Vos données restent strictement confidentielles et ne sont jamais revendues. Conforme RGPD.",
+  searchOp:"Cherchez votre opérateur internet…",searchMob:"Cherchez votre opérateur mobile…",
   postpaid:"Abonnement mensuel",prepaid:"Prépayé",credit:"Tél. en remboursement",
   dataVol:"Volume données",calls:"Appels & SMS",monthlyPrice:"Prix mensuel actuel",notSpec:"Non précisé",
   lessThan5:"< 5 GB",from5to10:"5–10 GB",from10to20:"10–20 GB",from20to50:"20–50 GB",from50to100:"50–100 GB",unlimited:"Illimité",
-  packTab:"📦 Dans le Pack",aloneTab:"📋 Hors Pack",aloneNote:"Tarif autonome — sans réduction Pack",discLabel:"Pack",
-  contractType:"Type de contrat",curCardTitle:"📱 Ligne actuelle",opLabel:"Opérateur actuel",searchMobPh:"Cherchez…",free1yrShort:"Gratuit 1 an",
+  packTab:"📦 Dans le Pack",aloneTab:"📋 Hors Pack",aloneNote:"📱 Forfait mobile seul, sans internet — idéal si vous voulez juste une ligne (étudiant, 2e téléphone…). Tarif déjà avantageux, en promo, sans condition de Pack.",discLabel:"Pack",packNoNet:"⚠️ Pour bénéficier des réductions Pack, choisissez d'abord une connexion internet à l'étape 2.",
+  contractType:"Type de contrat",curCardTitle:"📱 Mobile que j'ai actuellement avec mon opérateur n°",opLabel:"Opérateur actuel",searchMobPh:"Cherchez…",free1yrShort:"Gratuit 1 an",
   mobPackSubHtml:'<strong style="color:var(--blue2)">Dans le Pack</strong> — 1er mobile <strong style="color:var(--green)">−10€/mois</strong>, à partir du 2ème <strong style="color:var(--green)">−5€/mois</strong>.'
 },
 nl:{
@@ -624,23 +673,23 @@ nl:{
   heroSub:"Een persoonlijke consultant. Een scherpe analyse van uw factuur. Echte besparingen, vanaf de eerste maand.",
   heroBtn:"Gratis starten →",heroBtnNote:"100% gratis · Zonder verbintenis",
   heroShareLbl:"Delen met vrienden",
-  stat1num:"+230",stat1lbl:"Tevreden klanten",stat2num:"−47€",stat2lbl:"Besparing/maand",stat3num:"24u",stat3lbl:"Reactietijd",
+  stat1num:"+230",stat1lbl:"Tevreden klanten",stat2num:"30–130€",stat2lbl:"Bespaard/maand",stat3num:"24u",stat3lbl:"Reactietijd",
   reviewsLabel:"Wat onze klanten écht zeggen",
-  r1text:'"Ik was bang dat het uren zou duren. In 18 minuten was alles geregeld. Mijn consultant stuurde me een samenvatting via WhatsApp, ik hoefde alleen maar te bevestigen. Drie weken later: 53€ minder op mijn factuur. Het is mijn favoriete gespreksonderwerp geworden bij familiefeestjes."',
+  r1text:'"Ik verwachtte gedoe en papierwerk. In werkelijkheid? Eén telefoontje en mijn consultant nam alles over. Hij stuurde de samenvatting via WhatsApp, ik zei ja, klaar. Nu betaal ik 53€ minder per maand voor exact dezelfde dienst. Eerlijk, ik had dit jaren eerder moeten doen."',
   r1name:"— Nathalie D., Brussel · 7 jaar klant bij haar vorige operator",r1saving:"−53€/maand",
-  r2text:'"Ik werk in de financiële sector. Ik dacht mijn contracten door en door te kennen. Mijn consultant ging mijn factuur lijn per lijn door en toonde me drie opties die ik al betaalde sinds 2019 zonder ze ooit te gebruiken. 41€ teruggewonnen, zonder iets te veranderen. Ik beveel het iedereen aan."',
-  r2name:"— Yves M., Luik · Financieel analist · 11 jaar bij dezelfde operator",r2saving:"−41€/maand",
-  r3text:'"Mijn man was sceptisch. Hij zocht de adder onder het gras, de verborgen verplichting. Er was niets. Onze consultant belde de volgende ochtend om 9 uur stipt terug, zoals beloofd. Nu besparen we samen 116€ per maand. We hebben het aan kinderen, buren en collega\'s aanbevolen."',
-  r3name:"— Isabelle V., Gent · Met haar man · 6 aanbevelingen in hun omgeving",r3saving:"−58€/maand",
+  r2text:'"Ik ben wantrouwig, ik controleer alles. Mijn consultant ontleedde mijn factuur post per post, voor mijn ogen, zonder iets te verbergen. Meerdere opties die ik al jaren voor niets betaalde. 65€ per maand teruggewonnen, en geen enkele dienst minder. Zulke eerlijke mensen zijn zeldzaam. Aanbevolen zonder enige twijfel."',
+  r2name:"— Yves M., Luik · Financieel analist · 11 jaar bij dezelfde operator",r2saving:"−65€/maand",
+  r3text:'"Mijn man zocht twee dagen naar de truc. Hij vond niets, want er is niets te vinden. Onze consultant belde de volgende dag op tijd, regelde alles, en wij hoefden alleen maar te profiteren. Samen besparen we 108€ per maand. We vertellen het aan iedereen — het is een reflex geworden."',
+  r3name:"— Isabelle V., Gent · Met haar man · 6 aanbevelingen in hun omgeving",r3saving:"−108€/maand samen",
   htb4:"Zonder verbintenis",
   shareModalTitle:"Deel met uw vrienden",shareModalSub:"Help uw naasten ook besparen!",
   shareWA:"💬 Delen via WhatsApp",shareCopy:"📋 Link kopiëren",shareCopied:"✅ Gekopieerd!",shareEmail:"📧 Versturen per e-mail",
-  shareText:"Ik heb een gratis dienst gevonden om te besparen op telecomfacturen in België. Sterk aanbevolen! ",
+  shareText:"Ik heb een gratis dienst gevonden om te besparen op telecomfacturen in België. Sterk aanbevolen! ",waText:"Hallo, ik wil mijn telecomfacturen verlagen.",
   portChoice:"Wat wilt u doen met deze nieuwe SIM?",portKeep:"📲 Mijn huidige nummer behouden",portNew:"✨ Een nieuw nummer aanvragen",
   pmTitle:"Wat is uw profiel?",pmSub:"Kies uw profiel voor aangepaste aanbiedingen.",
   pmPart:"Particulier",pmPartDesc:"Residentiële aanbiedingen · Prijs incl. btw",pmPro:"Professioneel",pmProDesc:"Zakelijke aanbiedingen · Btw terugvorderbaar",
   navFree:"100% gratis",tb1:"tevreden klanten",tb2:"gemiddelde besparing",tb3a:"Antwoord binnen",tb3b:"24u",tb4:"Zonder verbintenis · Vertrouwelijk",
-  tvaText:"Btw terugvorderbaar",pbChange:"Profiel wijzigen",
+  tvaText:"Btw terugvorderbaar",vatIncluded:"Prijs incl. btw",totalTvac:"Totaal (incl. btw)",tvaNote:"💡 Als zelfstandige of vennootschap recupereert u deze btw via uw btw-aangifte (per kwartaal voor de meeste zelfstandigen, maandelijks vanaf 2,5 M€ omzet).",pbChange:"Profiel wijzigen",
   steps:["Situatie","Internet","Mobiel","Promo","Contact"],
   s1title:"Uw huidige situatie",s1sub:"Vertel ons wat u vandaag heeft",
   s1opLabel:"Huidige internet / tv / vaste lijn operator",s1mobOpLabel:"Huidige mobiele operator",
@@ -654,8 +703,8 @@ nl:{
   s2netLabel:"Internetverbinding",ncWarn:"Als glasvezel niet beschikbaar",fiberLabel:"Glasvezel",s2optLabel:"Opties",
   tvDesc:"+80 zenders · 1e TV-Box gratis · Replay",wifiDesc:"Optimale wifi-dekking",
   free1yr:"1 jaar gratis",fixeLabel:"Vaste lijn",fixeDesc:"Onbeperkt nationale oproepen",
-  s3title:"Uw mobiele lijnen",s3sub:"Beschrijf uw huidige lijnen en kies uw nieuwe aanbiedingen",
-  curMobTitle:"Uw huidige mobiele lijnen",today:"Vandaag",curMobSub:"Per mobiel: operator, contracttype, datavolume en maandprijs.",curMobLbl:"huidige lijn(en) (max 6)",
+  s3title:"Uw nieuwe mobiele lijnen",s3sub:"Kies de mobiele aanbiedingen die u bij ons wenst",
+  curMobTitle:"📱 Uw huidige mobiele lijnen",today:"Vandaag",curMobSub:"Per mobiel: operator, contracttype, datavolume en maandprijs.",curMobLbl:"huidige lijn(en) (max 6)",
   newMobTitle:"Gewenste mobiele lijnen bij ons",newOffer:"Nieuw aanbod",simLbl:"gewenste SIM-lijn(en) (max 6)",
   deviceTitle:"Aankoop van een nieuw toestel.",deviceText:"Contante aankoop of op afbetaling, uw consultant begeleidt u.",
   s4title:"Uw promotie & samenvatting",s4sub:"Kies uw duur — uw totaal wordt real-time bijgewerkt",s4promoLabel:"Promotieduur",
@@ -669,13 +718,13 @@ nl:{
   phPrenom:"Jan",phNom:"Janssen",phAdresse:"Wetstraat 16",phVille:"Brussel",phMsg:"Gewenst toestelmodel, vragen…",
   sendBtn:"Mijn gepersonaliseerd aanbod ontvangen — Gratis & zonder verbintenis →",
   formErrorTitle:"Fout.",formErrorText:"Controleer uw verbinding en probeer opnieuw.",
-  footerSub:"Makelaar in huishoudelijke lasten · België",footerNote:"100% gratis service · Prijzen incl. btw",
-  searchOp:"Zoek uw operator…",searchMob:"Zoek uw mobiele operator…",
+  footerSub:"Makelaar in huishoudelijke lasten · België",footerNote:"100% gratis service · Prijzen incl. btw",rgpd:"🔒 Uw gegevens blijven strikt vertrouwelijk en worden nooit doorverkocht. AVG-conform.",
+  searchOp:"Zoek uw internetoperator…",searchMob:"Zoek uw mobiele operator…",
   postpaid:"Maandabonnement",prepaid:"Prepaid",credit:"Toestel op afbetaling",
   dataVol:"Datavolume",calls:"Bellen & sms",monthlyPrice:"Huidige maandprijs",notSpec:"Niet opgegeven",
   lessThan5:"< 5 GB",from5to10:"5–10 GB",from10to20:"10–20 GB",from20to50:"20–50 GB",from50to100:"50–100 GB",unlimited:"Onbeperkt",
-  packTab:"📦 In het Pack",aloneTab:"📋 Buiten Pack",aloneNote:"Zelfstandig tarief",discLabel:"Pack",
-  contractType:"Contracttype",curCardTitle:"📱 Huidige lijn",opLabel:"Huidige operator",searchMobPh:"Zoeken…",free1yrShort:"1 jaar gratis",
+  packTab:"📦 In het Pack",aloneTab:"📋 Buiten Pack",aloneNote:"📱 Mobiel abonnement alleen, zonder internet — ideaal als u enkel een lijn wilt (student, 2e gsm…). Al voordelig promotietarief, zonder Pack-voorwaarde.",discLabel:"Pack",packNoNet:"⚠️ Kies eerst een internetverbinding in stap 2 om de Pack-kortingen te krijgen.",
+  contractType:"Contracttype",curCardTitle:"📱 Mobiel dat ik nu heb bij mijn operator nr.",opLabel:"Huidige operator",searchMobPh:"Zoeken…",free1yrShort:"1 jaar gratis",
   mobPackSubHtml:'<strong style="color:var(--blue2)">In het Pack</strong> — 1e mobiel <strong style="color:var(--green)">−10€/mnd</strong>, vanaf het 2e <strong style="color:var(--green)">−5€/mnd</strong>.'
 },
 en:{
@@ -683,23 +732,23 @@ en:{
   heroSub:"A dedicated consultant. A line-by-line bill analysis. Real savings, from the very first month.",
   heroBtn:"Start for free →",heroBtnNote:"100% free · No commitment · No redirect",
   heroShareLbl:"Share with friends",
-  stat1num:"+230",stat1lbl:"Satisfied clients",stat2num:"−€47",stat2lbl:"Savings/month",stat3num:"24h",stat3lbl:"Response time",
+  stat1num:"+230",stat1lbl:"Satisfied clients",stat2num:"€30–130",stat2lbl:"Saved/month",stat3num:"24h",stat3lbl:"Response time",
   reviewsLabel:"What our clients truly say",
-  r1text:'"I was worried it would take hours. In 18 minutes flat, everything was done. My consultant sent me the summary on WhatsApp, I just confirmed. Three weeks later, €53 less on my bill. It\'s become my favourite topic at family dinners."',
+  r1text:'"I expected something complicated, full of paperwork. Reality? One call, my consultant handled everything. He sent the summary on WhatsApp, I said yes, done. Now I pay €53 less every month for the exact same service. Honestly, I should have done this years ago."',
   r1name:"— Nathalie D., Brussels · 7-year customer with her previous operator",r1saving:"−€53/month",
-  r2text:'"I work in finance. I thought I knew my contracts inside out. My consultant went through my bill line by line and showed me three options I\'d been paying for since 2019 without ever using them. €41 recovered, without changing my speed, my TV, anything. I recommend it without hesitation."',
-  r2name:"— Yves M., Liège · Financial analyst · 11 years with the same operator",r2saving:"−€41/month",
-  r3text:'"My husband was sceptical. He was looking for the catch, the hidden clause. There wasn\'t one. Our consultant called back the next morning at 9am sharp, as promised. We now save €116 a month between us. We\'ve recommended it to our kids, neighbours and colleagues."',
-  r3name:"— Isabelle V., Ghent · With her husband · 6 referrals in their circle",r3saving:"−€58/month",
+  r2text:'"I\'m a distrustful person, I check everything. My consultant broke down my bill line by line in front of me, hiding nothing. He showed me in black and white several options I\'d been paying for years for nothing. €65 recovered per month, and not a single service lost. People that straight are rare. I recommend without the slightest hesitation."',
+  r2name:"— Yves M., Liège · Financial analyst · 11 years with the same operator",r2saving:"−€65/month",
+  r3text:'"My husband spent two days looking for the scam. He found nothing, because there\'s nothing to find. Our consultant called back the next day on time, handled everything, and all we had to do was enjoy it. Between us we save €108 a month. We tell everyone around us — it\'s become a reflex."',
+  r3name:"— Isabelle V., Ghent · With her husband · 6 referrals in their circle",r3saving:"−€108/month together",
   htb4:"No commitment",
   shareModalTitle:"Share this with your friends",shareModalSub:"Help the people you care about save too!",
   shareWA:"💬 Share on WhatsApp",shareCopy:"📋 Copy link",shareCopied:"✅ Link copied!",shareEmail:"📧 Send by email",
-  shareText:"I found a free service to reduce telecom bills in Belgium. Highly recommend! ",
+  shareText:"I found a free service to reduce telecom bills in Belgium. Highly recommend! ",waText:"Hello, I'd like to reduce my telecom bills.",
   portChoice:"What would you like to do with this new SIM?",portKeep:"📲 Keep my current number",portNew:"✨ Get a new number",
   pmTitle:"What is your profile?",pmSub:"Choose your profile to receive tailored offers.",
   pmPart:"Individual",pmPartDesc:"Residential offers · Prices incl. VAT",pmPro:"Professional",pmProDesc:"Business offers · VAT reclaimable",
   navFree:"100% free",tb1:"satisfied clients",tb2:"average savings",tb3a:"Reply within",tb3b:"24h",tb4:"No commitment · Confidential",
-  tvaText:"VAT reclaimable",pbChange:"Change profile",
+  tvaText:"VAT reclaimable",vatIncluded:"Prices incl. VAT",totalTvac:"Total (VAT incl.)",tvaNote:"💡 As a self-employed person or company, you reclaim this VAT via your VAT return (quarterly for most self-employed, monthly above €2.5M turnover).",pbChange:"Change profile",
   steps:["Situation","Internet","Mobile","Promo","Contact"],
   s1title:"Your current situation",s1sub:"Tell us what you have today",
   s1opLabel:"Current Internet / TV / Landline operator",s1mobOpLabel:"Current mobile operator",
@@ -712,9 +761,9 @@ en:{
   s2title:"Your internet offer & options",s2sub:"Choose your connection, then add your options",
   s2netLabel:"Internet connection",ncWarn:"If fibre unavailable",fiberLabel:"Fibre optic",s2optLabel:"Options",
   tvDesc:"+80 channels · 1st TV-Box free · Replay",wifiDesc:"Optimal WiFi coverage throughout",
-  free1yr:"Free 1 year",fixeLabel:"Landline",fixeDesc:"Unlimited national calls · No hidden fees",
-  s3title:"Your mobile lines",s3sub:"Describe your current lines, then choose your new offers",
-  curMobTitle:"Your current mobile lines",today:"Today",curMobSub:"For each mobile: operator, contract type, data and monthly price.",curMobLbl:"current line(s) (max 6)",
+  free1yr:"Free 1 year",fixeLabel:"Landline",fixeDesc:"Unlimited national calls",
+  s3title:"Your new mobile lines",s3sub:"Choose the mobile offers you want with us",
+  curMobTitle:"📱 Your current mobiles",today:"Today",curMobSub:"For each mobile: operator, contract type, data and monthly price.",curMobLbl:"current line(s) (max 6)",
   newMobTitle:"Desired mobile lines with us",newOffer:"New offer",simLbl:"desired SIM line(s) (max 6)",
   deviceTitle:"Acquiring a new device.",deviceText:"Cash purchase or instalments, your consultant guides you.",
   s4title:"Your promotion & summary",s4sub:"Choose your duration — your total updates in real time",s4promoLabel:"Promotional duration",
@@ -728,13 +777,13 @@ en:{
   phPrenom:"John",phNom:"Smith",phAdresse:"16 Law Street",phVille:"Brussels",phMsg:"Desired phone model, questions…",
   sendBtn:"Receive my personalised offer — Free & no commitment →",
   formErrorTitle:"Error.",formErrorText:"Check your connection and try again.",
-  footerSub:"Domestic charges broker · Belgium",footerNote:"100% free service · Prices incl. VAT",
-  searchOp:"Search your operator…",searchMob:"Search your mobile operator…",
+  footerSub:"Domestic charges broker · Belgium",footerNote:"100% free service · Prices incl. VAT",rgpd:"🔒 Your data stays strictly confidential and is never resold. GDPR-compliant.",
+  searchOp:"Search your internet operator…",searchMob:"Search your mobile operator…",
   postpaid:"Monthly subscription",prepaid:"Prepaid",credit:"Device on instalments",
   dataVol:"Data volume",calls:"Calls & SMS",monthlyPrice:"Current monthly price",notSpec:"Not specified",
   lessThan5:"< 5 GB",from5to10:"5–10 GB",from10to20:"10–20 GB",from20to50:"20–50 GB",from50to100:"50–100 GB",unlimited:"Unlimited",
-  packTab:"📦 In the Pack",aloneTab:"📋 Without Pack",aloneNote:"Standalone rate — no Pack discount",discLabel:"Pack",
-  contractType:"Contract type",curCardTitle:"📱 Current line",opLabel:"Current operator",searchMobPh:"Search…",free1yrShort:"Free 1 year",
+  packTab:"📦 In the Pack",aloneTab:"📋 Without Pack",aloneNote:"📱 Mobile-only plan, no internet — perfect if you just want a line (student, 2nd phone…). Already discounted promo rate, no Pack required.",discLabel:"Pack",packNoNet:"⚠️ To get the Pack discounts, first choose an internet connection in step 2.",
+  contractType:"Contract type",curCardTitle:"📱 Mobile I currently have with my operator #",opLabel:"Current operator",searchMobPh:"Search…",free1yrShort:"Free 1 year",
   mobPackSubHtml:'<strong style="color:var(--blue2)">In the Pack</strong> — 1st mobile <strong style="color:var(--green)">−€10/mo</strong>, from 2nd onwards <strong style="color:var(--green)">−€5/mo</strong>.'
 },
 de:{
@@ -742,23 +791,23 @@ de:{
   heroSub:"Ein persönlicher Berater. Eine präzise Rechnungsanalyse. Echte Ersparnisse, ab dem ersten Monat.",
   heroBtn:"Kostenlos starten →",heroBtnNote:"100% kostenlos · Ohne Verpflichtung",
   heroShareLbl:"Mit Freunden teilen",
-  stat1num:"+230",stat1lbl:"Zufriedene Kunden",stat2num:"−47€",stat2lbl:"Ersparnis/Monat",stat3num:"24h",stat3lbl:"Antwortzeit",
+  stat1num:"+230",stat1lbl:"Zufriedene Kunden",stat2num:"30–130€",stat2lbl:"Gespart/Monat",stat3num:"24h",stat3lbl:"Antwortzeit",
   reviewsLabel:"Was unsere Kunden wirklich sagen",
-  r1text:'"Ich hatte Angst, es würde Stunden dauern. In 18 Minuten war alles erledigt. Mein Berater schickte mir die Zusammenfassung per WhatsApp, ich musste nur bestätigen. Drei Wochen später: 53€ weniger auf meiner Rechnung. Es ist mein Lieblingsgesprächsthema bei Familientreffen geworden."',
+  r1text:'"Ich erwartete etwas Kompliziertes, voller Papierkram. Die Realität? Ein Anruf, und mein Berater regelte alles. Er schickte die Zusammenfassung per WhatsApp, ich sagte ja, fertig. Jetzt zahle ich 53€ weniger pro Monat für genau denselben Service. Ehrlich, ich hätte das Jahre früher tun sollen."',
   r1name:"— Nathalie D., Brüssel · 7 Jahre Kundin bei ihrem früheren Anbieter",r1saving:"−53€/Monat",
-  r2text:'"Ich arbeite im Finanzbereich. Ich dachte, ich kenne meine Verträge in- und auswendig. Mein Berater ging meine Rechnung Zeile für Zeile durch und zeigte mir drei Optionen, die ich seit 2019 zahlte, ohne sie je genutzt zu haben. 41€ zurückgewonnen, ohne etwas zu ändern. Uneingeschränkte Empfehlung."',
-  r2name:"— Yves M., Lüttich · Finanzanalyst · 11 Jahre beim selben Anbieter",r2saving:"−41€/Monat",
-  r3text:'"Mein Mann war skeptisch. Er suchte den Haken, die versteckte Klausel. Es gab keine. Unser Berater rief am nächsten Morgen um Punkt 9 Uhr zurück, wie versprochen. Wir sparen jetzt zusammen 116€ pro Monat. Wir haben es unseren Kindern, Nachbarn und Kollegen empfohlen."',
-  r3name:"— Isabelle V., Gent · Mit ihrem Mann · 6 Empfehlungen im Bekanntenkreis",r3saving:"−58€/Monat",
+  r2text:'"Ich bin misstrauisch, ich überprüfe alles. Mein Berater zerlegte meine Rechnung Posten für Posten vor meinen Augen, ohne etwas zu verbergen. Mehrere Optionen, die ich jahrelang umsonst zahlte. 65€ pro Monat zurückgewonnen, und kein einziger Dienst weniger. Solch ehrliche Menschen sind selten. Empfehlung ohne das geringste Zögern."',
+  r2name:"— Yves M., Lüttich · Finanzanalyst · 11 Jahre beim selben Anbieter",r2saving:"−65€/Monat",
+  r3text:'"Mein Mann suchte zwei Tage nach dem Betrug. Er fand nichts, weil es nichts zu finden gibt. Unser Berater rief am nächsten Tag pünktlich zurück, regelte alles, und wir mussten nur profitieren. Zusammen sparen wir 108€ pro Monat. Wir erzählen es allen — es ist ein Reflex geworden."',
+  r3name:"— Isabelle V., Gent · Mit ihrem Mann · 6 Empfehlungen im Bekanntenkreis",r3saving:"−108€/Monat zu zweit",
   htb4:"Ohne Verpflichtung",
   shareModalTitle:"Mit Ihren Freunden teilen",shareModalSub:"Helfen Sie Ihren Lieben, auch zu sparen!",
   shareWA:"💬 Per WhatsApp teilen",shareCopy:"📋 Link kopieren",shareCopied:"✅ Link kopiert!",shareEmail:"📧 Per E-Mail senden",
-  shareText:"Ich habe einen kostenlosen Service gefunden, um Telecomrechnungen in Belgien zu senken. Sehr empfehlenswert! ",
+  shareText:"Ich habe einen kostenlosen Service gefunden, um Telecomrechnungen in Belgien zu senken. Sehr empfehlenswert! ",waText:"Hallo, ich möchte meine Telecomrechnungen senken.",
   portChoice:"Was möchten Sie mit dieser neuen SIM tun?",portKeep:"📲 Meine aktuelle Nummer behalten",portNew:"✨ Eine neue Nummer erhalten",
   pmTitle:"Was ist Ihr Profil?",pmSub:"Wählen Sie Ihr Profil für maßgeschneiderte Angebote.",
   pmPart:"Privatperson",pmPartDesc:"Privathaushalte · Preise inkl. MwSt.",pmPro:"Unternehmen",pmProDesc:"Geschäftsangebote · MwSt. erstattbar",
   navFree:"100% kostenlos",tb1:"zufriedene Kunden",tb2:"durchschnittliche Ersparnis",tb3a:"Antwort innerhalb",tb3b:"24h",tb4:"Ohne Verpflichtung · Vertraulich",
-  tvaText:"MwSt. erstattbar",pbChange:"Profil ändern",
+  tvaText:"MwSt. erstattbar",vatIncluded:"Preise inkl. MwSt.",totalTvac:"Gesamt (inkl. MwSt.)",tvaNote:"💡 Als Selbstständiger oder Unternehmen erstatten Sie diese MwSt. über Ihre MwSt.-Erklärung (vierteljährlich für die meisten Selbstständigen, monatlich ab 2,5 Mio. € Umsatz).",pbChange:"Profil ändern",
   steps:["Situation","Internet","Mobil","Promo","Kontakt"],
   s1title:"Ihre aktuelle Situation",s1sub:"Sagen Sie uns, was Sie heute haben",
   s1opLabel:"Aktueller Internet / TV / Festnetz-Anbieter",s1mobOpLabel:"Aktueller Mobilanbieter",
@@ -772,8 +821,8 @@ de:{
   s2netLabel:"Internetverbindung",ncWarn:"Falls Glasfaser nicht verfügbar",fiberLabel:"Glasfaser",s2optLabel:"Optionen",
   tvDesc:"+80 Sender · 1. TV-Box kostenlos · Replay",wifiDesc:"Optimale WLAN-Abdeckung",
   free1yr:"1 Jahr kostenlos",fixeLabel:"Festnetz",fixeDesc:"Unbegrenzte Inlandsgespräche",
-  s3title:"Ihre Mobillinien",s3sub:"Beschreiben Sie Ihre aktuellen Leitungen",
-  curMobTitle:"Ihre aktuellen Mobillinien",today:"Heute",curMobSub:"Pro Gerät: Anbieter, Vertragstyp, Datenvolumen und Monatspreis.",curMobLbl:"aktuelle Linie(n) (max. 6)",
+  s3title:"Ihre neuen Mobillinien",s3sub:"Wählen Sie die gewünschten Mobilangebote bei uns",
+  curMobTitle:"📱 Ihre aktuellen Handys",today:"Heute",curMobSub:"Pro Gerät: Anbieter, Vertragstyp, Datenvolumen und Monatspreis.",curMobLbl:"aktuelle Linie(n) (max. 6)",
   newMobTitle:"Gewünschte Mobillinien bei uns",newOffer:"Neues Angebot",simLbl:"gewünschte SIM-Linie(n) (max. 6)",
   deviceTitle:"Erwerb eines neuen Geräts.",deviceText:"Barkauf oder Ratenzahlung, Ihr Berater führt Sie.",
   s4title:"Ihre Aktion & Zusammenfassung",s4sub:"Wählen Sie Ihre Dauer — Ihr Gesamtbetrag wird in Echtzeit aktualisiert",s4promoLabel:"Aktionsdauer",
@@ -787,42 +836,42 @@ de:{
   phPrenom:"Hans",phNom:"Müller",phAdresse:"Gesetzstraße 16",phVille:"Brüssel",phMsg:"Gewünschtes Telefonmodell, Fragen…",
   sendBtn:"Mein personalisiertes Angebot erhalten — Kostenlos & ohne Verpflichtung →",
   formErrorTitle:"Fehler.",formErrorText:"Überprüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
-  footerSub:"Makler für Haushaltskosten · Belgien",footerNote:"100% kostenloser Service · Preise inkl. MwSt.",
-  searchOp:"Suchen Sie Ihren Anbieter…",searchMob:"Suchen Sie Ihren Mobilanbieter…",
+  footerSub:"Makler für Haushaltskosten · Belgien",footerNote:"100% kostenloser Service · Preise inkl. MwSt.",rgpd:"🔒 Ihre Daten bleiben streng vertraulich und werden nie weiterverkauft. DSGVO-konform.",
+  searchOp:"Suchen Sie Ihren Internetanbieter…",searchMob:"Suchen Sie Ihren Mobilanbieter…",
   postpaid:"Monatsabonnement",prepaid:"Prepaid",credit:"Gerät auf Raten",
   dataVol:"Datenvolumen",calls:"Anrufe & SMS",monthlyPrice:"Aktueller Monatspreis",notSpec:"Nicht angegeben",
   lessThan5:"< 5 GB",from5to10:"5–10 GB",from10to20:"10–20 GB",from20to50:"20–50 GB",from50to100:"50–100 GB",unlimited:"Unbegrenzt",
-  packTab:"📦 Im Pack",aloneTab:"📋 Ohne Pack",aloneNote:"Einzeltarif — ohne Pack-Rabatt",discLabel:"Pack",
-  contractType:"Vertragstyp",curCardTitle:"📱 Aktuelle Linie",opLabel:"Aktueller Anbieter",searchMobPh:"Suchen…",free1yrShort:"1 Jahr kostenlos",
+  packTab:"📦 Im Pack",aloneTab:"📋 Ohne Pack",aloneNote:"📱 Reiner Mobiltarif, ohne Internet — ideal, wenn Sie nur eine Leitung möchten (Student, 2. Handy…). Bereits günstiger Aktionspreis, ohne Pack-Bedingung.",discLabel:"Pack",packNoNet:"⚠️ Um die Pack-Rabatte zu erhalten, wählen Sie zuerst eine Internetverbindung in Schritt 2.",
+  contractType:"Vertragstyp",curCardTitle:"📱 Handy das ich aktuell bei meinem Anbieter habe Nr.",opLabel:"Aktueller Anbieter",searchMobPh:"Suchen…",free1yrShort:"1 Jahr kostenlos",
   mobPackSubHtml:'<strong style="color:var(--blue2)">Im Pack</strong> — 1. Mobil <strong style="color:var(--green)">−10€/Monat</strong>, ab dem 2. <strong style="color:var(--green)">−5€/Monat</strong>.'
 }
 };
- 
+
 let lang='fr';
 function tr(k){return(T[lang]&&T[lang][k])||T.fr[k]||k;}
 const S={profile:'part',promo:6,operateur:'',operateurMobile:'',operateurAutre:'',operateurMobileAutre:'',engagement:'',hasServices:{},budgetActuel:0,internet:null,netPrice:0,netName:'',opts:{},curMobCount:0,curMobs:[],simCount:0,sims:[],currentStep:1};
- 
+
 function set(id,v){const el=document.getElementById(id);if(el)el.innerHTML=v;}
 function ph(id,v){const el=document.getElementById(id);if(el)el.placeholder=v;}
 function gv(id){const el=document.getElementById(id);return el?el.value.trim():'';}
- 
+
 function buildLangBar(){
   const bar=document.getElementById('langBar');bar.innerHTML='';
   LANGS.forEach(l=>{const b=document.createElement('button');b.className='lang-btn'+(l===lang?' active':'');b.textContent=l.toUpperCase();b.type='button';b.addEventListener('click',()=>setLang(l));bar.appendChild(b);});
 }
 function setLang(l){lang=l;buildLangBar();renderAll();}
- 
+
 function renderAll(){
   set('kicker',tr('kicker'));set('h1a',tr('h1a'));set('h1b',tr('h1b'));set('heroSub',tr('heroSub'));
   set('stat1num',tr('stat1num'));set('stat1lbl',tr('stat1lbl'));set('stat2num',tr('stat2num'));set('stat2lbl',tr('stat2lbl'));set('stat3num',tr('stat3num'));set('stat3lbl',tr('stat3lbl'));
-  set('heroBtn',tr('heroBtn'));set('heroBtnNote',tr('heroBtnNote'));set('heroShareLbl',tr('heroShareLbl'));set('reviewsLabel',tr('reviewsLabel'));
+  set('heroBtn',tr('heroBtn'));set('heroBtnNote',tr('heroBtnNote'));set('reviewsLabel',tr('reviewsLabel'));
   set('r1text',tr('r1text'));set('r1name',tr('r1name'));set('r1saving',tr('r1saving'));
   set('r2text',tr('r2text'));set('r2name',tr('r2name'));set('r2saving',tr('r2saving'));
   set('r3text',tr('r3text'));set('r3name',tr('r3name'));set('r3saving',tr('r3saving'));
   set('htb1',tr('tb1'));set('htb3a',tr('tb3a'));set('htb3b',tr('tb3b'));set('htbFree',tr('navFree'));set('htb4',tr('htb4'));
   set('pmTitle',tr('pmTitle'));set('pmSub',tr('pmSub'));set('pmPartLbl',tr('pmPart'));set('pmPartDesc',tr('pmPartDesc'));set('pmProLbl',tr('pmPro'));set('pmProDesc',tr('pmProDesc'));
   set('navFree',tr('navFree'));set('tb1',tr('tb1'));set('tb2',tr('tb2'));set('tb3a',tr('tb3a'));set('tb3b',tr('tb3b'));set('tb4',tr('tb4'));set('tvaText',tr('tvaText'));set('pbChange',tr('pbChange'));
-  set('s1title',tr('s1title'));set('s1sub',tr('s1sub'));set('s1opLabel',tr('s1opLabel'));set('s1mobOpLabel',tr('s1mobOpLabel'));
+  set('s1title',tr('s1title'));set('s1sub',tr('s1sub'));set('s1opLabel',tr('s1opLabel'));set('curMobTitle',tr('curMobTitle'));set('curMobLbl',tr('curMobLbl'));
   set('autreOpLbl',tr('specify'));set('autreMobLbl',tr('specify'));
   ph('sOp',tr('searchOp'));ph('sMob',tr('searchMob'));ph('autreOp',tr('autreOpPh'));ph('autreMob',tr('autreMobPh'));
   set('s1servLabel',tr('s1servLabel'));buildServChips();
@@ -831,7 +880,7 @@ function renderAll(){
   set('s1budgetLabel',tr('s1budgetLabel'));set('budgetHint',tr('budgetHint'));set('btn1next',tr('btnContinue'));
   set('s2title',tr('s2title'));set('s2sub',tr('s2sub'));set('s2netLabel',tr('s2netLabel'));buildNetGrid();set('s2optLabel',tr('s2optLabel'));buildOptList();
   set('btn2back',tr('btnBack'));set('btn2next',tr('btnContinue'));
-  set('s3title',tr('s3title'));set('s3sub',tr('s3sub'));set('curMobTitle',tr('curMobTitle'));set('todayBadge',tr('today'));set('curMobSub',tr('curMobSub'));set('curMobLbl',tr('curMobLbl'));
+  set('s3title',tr('s3title'));set('s3sub',tr('s3sub'));
   set('newMobTitle',tr('newMobTitle'));set('newOfferBadge',tr('newOffer'));
   document.getElementById('mobPackSub').innerHTML=tr('mobPackSubHtml');
   set('simLbl',tr('simLbl'));
@@ -842,22 +891,26 @@ function renderAll(){
   set('s5title',tr('s5title'));set('s5sub',tr('s5sub'));
   set('lPrenom',tr('fPrenom'));set('lNom',tr('fNom'));set('lAdresse',tr('fAdresse'));set('lCP',tr('fCP'));set('lVille',tr('fVille'));set('lTel',tr('fTel'));set('lEmail',tr('fEmail'));set('lTVA',tr('fTVA'));set('lMsg',tr('fMsg'));
   ph('f_prenom',tr('phPrenom'));ph('f_nom',tr('phNom'));ph('f_adresse',tr('phAdresse'));ph('f_ville',tr('phVille'));ph('f_msg',tr('phMsg'));
-  set('sendBtn',tr('sendBtn'));set('formErrorTitle',tr('formErrorTitle'));set('formErrorText',tr('formErrorText'));
-  set('footerSub',tr('footerSub'));set('footerNote',tr('footerNote'));
+  set('sendBtn',tr('sendBtn'));set('rgpdNote',tr('rgpd'));set('formErrorTitle',tr('formErrorTitle'));set('formErrorText',tr('formErrorText'));
+  set('footerSub',tr('footerSub'));set('footerNote',tr('footerNote'));set('footerRgpd',tr('rgpd'));
   set('shareModalTitle',tr('shareModalTitle'));set('shareModalSub',tr('shareModalSub'));
-  set('shareWA',tr('shareWA'));set('shareEmail',tr('shareEmail'));
+  set('shareWA',tr('shareWA'));set('shareEmail',tr('shareEmail'));{const wf=document.getElementById('waFab');if(wf)wf.href='https://wa.me/32470681297?text='+encodeURIComponent(tr('waText'));}
   const cl=document.getElementById('shareCopyLbl');if(cl)cl.textContent=tr('shareCopy');
   buildStepper();
   if(S.curMobCount>0)renderCurMobLines();
   if(S.simCount>0)renderSimLines();
   buildPromoCards();updateRecap();
 }
- 
+
 function buildStepper(){
   const steps=tr('steps');const el=document.getElementById('stepper');el.innerHTML='';
   steps.forEach((s,i)=>{const n=i+1;const div=document.createElement('div');div.className='si'+(n<S.currentStep?' done':n===S.currentStep?' active':'');div.id='si'+n;div.innerHTML=`<div class="si-dot">${n<S.currentStep?'✓':n}</div><div class="si-lbl">${s}</div>`;el.appendChild(div);});
+  const total=steps.length;const pct=Math.round(S.currentStep/total*100);
+  const pf=document.getElementById('progFill');const pt=document.getElementById('progTxt');
+  if(pf)pf.style.width=pct+'%';
+  if(pt)pt.textContent=S.currentStep+'/'+total+' · '+pct+'%';
 }
- 
+
 function buildServChips(){
   const c=document.getElementById('servChips');
   [['a_internet','📡 Internet'],['a_tv',tr('chipTV')],['a_fixe',tr('chipFixe')],['a_mobile',tr('chipMobile')]].forEach(([key,label])=>{
@@ -865,7 +918,7 @@ function buildServChips(){
     d.addEventListener('click',()=>{d.classList.toggle('on');S.hasServices[key]=d.classList.contains('on');});c.appendChild(d);
   });
 }
- 
+
 function buildEngChips(){
   const c=document.getElementById('engChips');c.innerHTML='';
   [{v:'Non',l:tr('engNo')},{v:'Oui',l:tr('engYes')}].forEach(({v,l})=>{
@@ -874,17 +927,17 @@ function buildEngChips(){
     c.appendChild(d);
   });
 }
- 
+
 function buildNetGrid(){
   const g=document.getElementById('netGrid');
   [{id:'go',price:52.99,name:'Go Cuivre',speed:'100/130 Mbps',tech:'Cuivre · BBox 3V+',icon:'🌐',warn:true},{id:'mega',price:59.99,name:'Mega Fiber',speed:'500/500 Mbps',tech:'Fibre · WiFi 6',icon:'🚀',warn:false},{id:'giga',price:64.99,name:'Giga Fiber',speed:'2/2 Gbps',tech:'Fibre · WiFi 6E',icon:'⚡',warn:false},{id:'ultra',price:94.99,name:'Ultra Fiber',speed:'8,5/8,5 Gbps',tech:'Fibre · WiFi 6E',icon:'🏆',warn:false}].forEach(n=>{
     const d=document.createElement('div');d.className='nc'+(S.internet===n.id?' on':'');
     d.innerHTML=`<div class="nc-chk">✓</div><div class="nc-icon">${n.icon}</div><div class="nc-name">${n.name}</div>${n.warn?`<div class="nc-warn">${tr('ncWarn')}</div>`:`<div class="nc-badge">✅ ${tr('fiberLabel')}</div>`}<div class="nc-speed">⬇️ ${n.speed}</div><div class="nc-tech">${n.tech}</div><div class="nc-price">${n.price.toFixed(2).replace('.',',')}€<span>/mois</span></div>`;
-    d.addEventListener('click',()=>{const on=d.classList.contains('on');document.querySelectorAll('.nc').forEach(c=>c.classList.remove('on'));if(on){S.internet=null;S.netPrice=0;S.netName='';}else{d.classList.add('on');S.internet=n.id;S.netPrice=n.price;S.netName=n.name+' — '+n.speed;}});
+    d.addEventListener('click',()=>{const on=d.classList.contains('on');document.querySelectorAll('.nc').forEach(c=>c.classList.remove('on'));if(on){S.internet=null;S.netPrice=0;S.netName='';}else{d.classList.add('on');S.internet=n.id;S.netPrice=n.price;S.netName=n.name+' — '+n.speed;}if(S.simCount>0)renderSimLines();});
     g.appendChild(d);
   });
 }
- 
+
 function buildOptList(){
   const ol=document.getElementById('optList');ol.innerHTML='';
   [{key:'tv',ico:'📺',name:'Télévision Pickx',desc:tr('tvDesc'),price:8,priceClass:'paid',priceLabel:'+ 8€/mois'},{key:'wifi',ico:'📶',name:'WiFi Booster',desc:tr('wifiDesc'),price:0,priceClass:'free',priceLabel:'🎁 '+tr('free1yr')},{key:'fixe',ico:'☎️',name:tr('fixeLabel'),desc:tr('fixeDesc'),price:4,priceClass:'paid',priceLabel:'+ 4€/mois'}].forEach(o=>{
@@ -894,12 +947,12 @@ function buildOptList(){
     ol.appendChild(d);
   });
 }
- 
+
 function buildSuiviPills(){
   const p=document.getElementById('suiviPills');if(!p)return;
   p.innerHTML=[tr('spDirect'),tr('spPrivate'),tr('sp24h'),tr('spFree')].map(s=>`<span class="suivi-pill">${s}</span>`).join('');
 }
- 
+
 function buildDD(ddId,list,key){
   const dd=document.getElementById(ddId);dd.innerHTML='';
   list.forEach(op=>{const d=document.createElement('div');d.className='di'+(S[key]===op.n?' sel':'');d.innerHTML=`<span>${op.e}</span><span>${op.n}</span><span class="ck">✓</span>`;d.addEventListener('mousedown',()=>selectOp(op,key));dd.appendChild(d);});
@@ -923,7 +976,7 @@ function clearOp(key){
   S[key]='';S[key+'Autre']='';const isF=key==='operateur';
   document.getElementById(isF?'bOp':'bMob').innerHTML='';document.getElementById(isF?'autreOpWrap':'autreMobWrap').classList.remove('show');document.getElementById(isF?'autreOp':'autreMob').value='';
 }
- 
+
 function changeCurMob(d){
   const n=Math.max(0,Math.min(6,S.curMobCount+d));S.curMobCount=n;
   while(S.curMobs.length<n)S.curMobs.push({type:'postpaid',data:'',price:'',operateur:''});
@@ -954,42 +1007,53 @@ function renderCurMobLines(){
 }
 function buildCmDD(i){const dd=document.getElementById('cmDD_'+i);dd.innerHTML='';OPS_MOB.forEach(op=>{const d=document.createElement('div');d.className='di'+(S.curMobs[i]?.operateur===op.n?' sel':'');d.innerHTML=`<span>${op.e}</span><span>${op.n}</span><span class="ck">✓</span>`;d.addEventListener('mousedown',()=>{S.curMobs[i].operateur=op.n;document.getElementById('cmsOp_'+i).value='';renderCurMobLines();});dd.appendChild(d);});}
 function filterCmDD(i,q){const dd=document.getElementById('cmDD_'+i);if(!dd)return;dd.innerHTML='';OPS_MOB.filter(o=>!q||o.n.toLowerCase().includes(q.toLowerCase())).forEach(op=>{const d=document.createElement('div');d.className='di'+(S.curMobs[i]?.operateur===op.n?' sel':'');d.innerHTML=`<span>${op.e}</span><span>${op.n}</span><span class="ck">✓</span>`;d.addEventListener('mousedown',()=>{S.curMobs[i].operateur=op.n;document.getElementById('cmsOp_'+i).value='';renderCurMobLines();});dd.appendChild(d);});dd.classList.add('open');}
- 
+
 function changeMob(d){
   const n=Math.max(0,Math.min(6,S.simCount+d));S.simCount=n;
-  while(S.sims.length<n)S.sims.push({type:S.internet?'pack':'alone',forfait:null,fname:'',price:0,portabilite:'garder'});
+  while(S.sims.length<n)S.sims.push({type:'pack',forfait:null,fname:'',price:0,portabilite:'garder'});
   S.sims=S.sims.slice(0,n);document.getElementById('mobSimVal').textContent=n;renderSimLines();
 }
 function renderSimLines(){
-  const c=document.getElementById('mobSimLines');c.innerHTML='';const hasPack=S.internet!==null;
+  const c=document.getElementById('mobSimLines');c.innerHTML='';const hasNet=S.internet!==null;
   for(let i=0;i<S.simCount;i++){
-    const m=S.sims[i];if(!hasPack&&m.type==='pack'){m.type='alone';m.forfait=null;m.fname='';m.price=0;}
+    const m=S.sims[i];
     const div=document.createElement('div');div.className='mob-line';
-    const disc=i===0?10:5;const badge=hasPack?`<span class="ptag-green">−${disc}€/mois Pack</span>`:'';
-    div.innerHTML=`<div class="mob-line-head">📱 Mobile ${i+1} ${badge}</div><div class="type-tabs" id="ttabs_${i}">${hasPack?`<button type="button" class="ttab${m.type==='pack'?' on':''}" id="ttab_pack_${i}">${tr('packTab')}</button>`:''}<button type="button" class="ttab${m.type==='alone'?' on':''}" id="ttab_alone_${i}">${tr('aloneTab')}</button></div><div id="sfz_${i}"></div>`;
+    const disc=i===0?10:5;const badge=hasNet?`<span class="ptag-green">−${disc}€/mois Pack</span>`:'';
+    div.innerHTML=`<div class="mob-line-head">📱 Mobile ${i+1} ${badge}</div><div class="type-tabs" id="ttabs_${i}"><button type="button" class="ttab${m.type==='pack'?' on':''}" id="ttab_pack_${i}">${tr('packTab')}</button><button type="button" class="ttab${m.type==='alone'?' on':''}" id="ttab_alone_${i}">${tr('aloneTab')}</button></div><div id="sfz_${i}"></div>`;
     c.appendChild(div);
-    if(hasPack)document.getElementById('ttab_pack_'+i)?.addEventListener('click',function(){setSimType(i,'pack',this);});
+    document.getElementById('ttab_pack_'+i)?.addEventListener('click',function(){setSimType(i,'pack',this);});
     document.getElementById('ttab_alone_'+i)?.addEventListener('click',function(){setSimType(i,'alone',this);});
     renderSimForfait(i);
   }
 }
 function setSimType(i,type,btn){S.sims[i]={type,forfait:null,fname:'',price:0,portabilite:S.sims[i].portabilite||'garder'};btn.closest('.type-tabs').querySelectorAll('.ttab').forEach(b=>b.classList.remove('on'));btn.classList.add('on');renderSimForfait(i);}
 function renderSimForfait(i){
-  const z=document.getElementById('sfz_'+i);if(!z)return;const m=S.sims[i];
+  const z=document.getElementById('sfz_'+i);if(!z)return;const m=S.sims[i];const hasNet=S.internet!==null;
   const portVal=m.portabilite||'garder';
   let html=`<div class="port-choice"><div class="port-label">${tr('portChoice')}</div><div class="port-btns"><button class="port-btn${portVal==='garder'?' on':''}" id="pb_garder_${i}">${tr('portKeep')}</button><button class="port-btn${portVal==='nouveau'?' on':''}" id="pb_nouveau_${i}">${tr('portNew')}</button></div></div>`;
   if(m.type==='pack'){
-    const disc=i===0?10:5;html+='<div class="fg">';
-    PACK.forEach(f=>{const fp=Math.max(0,f.base-disc);const isFree=fp===0;html+=`<div class="fc${m.forfait===f.id?' on':''}" id="fc_${i}_${f.id}"><div class="fc-name">${f.name}</div><div class="fc-data">${f.data}</div><div class="fc-calls">${f.calls}</div><div class="fc-eu">${f.europe}</div><div class="fc-prices"><div class="fc-old">${f.base.toFixed(2)}€</div>${isFree?`<div class="fc-free">🎁 ${tr('free1yrShort')}</div>`:`<div class="fc-new">${fp.toFixed(2)}€<span style="font-size:.52rem">/mois</span></div>`}<div class="fc-disc">−${disc}€ ${tr('discLabel')}</div></div></div>`;});
+    const disc=i===0?10:5;
+    html+=`<div class="pack-warn${(!hasNet)?' show':''}" id="packWarn_${i}">${tr('packNoNet')}</div>`;
+    html+='<div class="fg">';
+    PACK.forEach(f=>{const fp=Math.max(0,f.base-disc);const isFree=fp===0;html+=`<div class="fc${m.forfait===f.id?' on':''}${!hasNet?' locked':''}" id="fc_${i}_${f.id}"><div class="fc-name">${f.name}</div><div class="fc-data">${f.data}</div><div class="fc-calls">${f.calls}</div><div class="fc-eu">${f.europe}</div><div class="fc-prices"><div class="fc-old">${f.base.toFixed(2)}€</div>${isFree?`<div class="fc-free">🎁 ${tr('free1yrShort')}</div>`:`<div class="fc-new">${fp.toFixed(2)}€<span style="font-size:.52rem">/mois</span></div>`}<div class="fc-disc">−${disc}€ ${tr('discLabel')}</div></div></div>`;});
     html+='</div>';
   } else {
-    html+=`<div style="font-size:.68rem;color:var(--muted);margin-bottom:.5rem">${tr('aloneNote')}</div><div class="fg">`;
+    html+=`<div class="alone-note">${tr('aloneNote')}</div><div class="fg">`;
     ALONE.forEach(f=>{html+=`<div class="fc${m.forfait===f.id?' on':''}" id="fca_${i}_${f.id}"><div class="fc-name">${f.name}</div><div class="fc-data">${f.data}</div><div class="fc-calls">${f.calls}</div><div class="fc-prices"><div class="fc-new alone">${f.final.toFixed(2)}€<span style="font-size:.52rem">/mois</span></div></div></div>`;});
     html+='</div>';
   }
   z.innerHTML=html;
-  if(m.type==='pack'){PACK.forEach(f=>{const fp=Math.max(0,f.base-(i===0?10:5));document.getElementById('fc_'+i+'_'+f.id)?.addEventListener('click',function(){S.sims[i].forfait=f.id;S.sims[i].fname=f.name;S.sims[i].price=fp;this.closest('.fg').querySelectorAll('.fc').forEach(x=>x.classList.remove('on'));this.classList.add('on');});});}
-  else{ALONE.forEach(f=>{document.getElementById('fca_'+i+'_'+f.id)?.addEventListener('click',function(){S.sims[i].forfait=f.id;S.sims[i].fname=f.name;S.sims[i].price=f.final;this.closest('.fg').querySelectorAll('.fc').forEach(x=>x.classList.remove('on'));this.classList.add('on');});});}
+  if(m.type==='pack'){
+    PACK.forEach(f=>{const fp=Math.max(0,f.base-(i===0?10:5));document.getElementById('fc_'+i+'_'+f.id)?.addEventListener('click',function(){
+      if(S.internet===null){
+        const w=document.getElementById('packWarn_'+i);if(w){w.classList.add('show');w.style.animation='none';void w.offsetWidth;w.style.animation='packWarnPulse .4s ease';}
+        return;
+      }
+      S.sims[i].forfait=f.id;S.sims[i].fname=f.name;S.sims[i].price=fp;this.closest('.fg').querySelectorAll('.fc').forEach(x=>x.classList.remove('on'));this.classList.add('on');
+    });});
+  } else {
+    ALONE.forEach(f=>{document.getElementById('fca_'+i+'_'+f.id)?.addEventListener('click',function(){S.sims[i].forfait=f.id;S.sims[i].fname=f.name;S.sims[i].price=f.final;this.closest('.fg').querySelectorAll('.fc').forEach(x=>x.classList.remove('on'));this.classList.add('on');});});
+  }
   ['garder','nouveau'].forEach(val=>{
     document.getElementById('pb_'+val+'_'+i)?.addEventListener('click',function(){
       S.sims[i].portabilite=val;
@@ -997,7 +1061,7 @@ function renderSimForfait(i){
     });
   });
 }
- 
+
 function hasExtra(){return(S.simCount>0&&S.sims.some(m=>m.forfait))||!!S.opts['tv']||!!S.opts['fixe'];}
 function calcLines(pm){
   const extra=hasExtra();const disc=(pm===6&&extra&&S.internet)?-10:0;const lines=[];
@@ -1010,12 +1074,12 @@ function updateRecap(){
   const box=document.getElementById('promoRecap');if(!box)return;
   const{lines,total}=calcLines(S.promo);
   if(!lines.length){box.innerHTML=`<div class="recap-empty">${tr('recapEmpty')}</div>`;return;}
-  const dp=S.profile==='pro'?total/1.21:total;const bud=S.budgetActuel;
+  const bud=S.budgetActuel;
   const saving=bud>0&&total<bud?`<div style="margin-top:.5rem"><span class="recap-saving">🎉 Économie estimée : ${(bud-total).toFixed(2)}€/mois !</span></div>`:'';
-  let html=`<div class="recap-big"><div class="recap-lbl">${tr('s4recapLabel')}${S.profile==='pro'?' (HTVA)':''}</div><div class="recap-price">${dp.toFixed(2)}<span>€/mois</span></div>${saving}</div><div>`;
+  let html=`<div class="recap-big"><div class="recap-lbl">${tr('s4recapLabel')}</div><div class="recap-price">${total.toFixed(2)}<span>€/mois</span></div><div style="font-size:.62rem;color:var(--muted);margin-top:.3rem">${tr('vatIncluded')}</div>${saving}</div><div>`;
   lines.forEach(l=>{const pt=l.p===0?`<span style="color:var(--green);font-weight:700">${tr('free1yr')}</span>`:l.p.toFixed(2)+'€';html+=`<div class="recap-row"><span>${l.l}</span><span>${pt}</span></div>`;});
-  html+=`<div class="recap-row"><span>Total TVAC</span><span>${total.toFixed(2)}€/mois</span></div></div>`;
-  if(S.profile==='pro')html+=`<div class="tva-recap"><span>💼 ${tr('tvaText')} (21%)</span><span>${(total*0.21).toFixed(2)}€/mois</span></div>`;
+  html+=`<div class="recap-row"><span>${tr('totalTvac')}</span><span>${total.toFixed(2)}€/mois</span></div></div>`;
+  if(S.profile==='pro'){const vat=total-total/1.21;html+=`<div class="tva-recap"><span>💼 ${tr('tvaText')} (21%) : ${vat.toFixed(2)}€/mois</span></div>`;}
   box.innerHTML=html;
 }
 function buildPromoCards(){
@@ -1030,19 +1094,19 @@ function buildPromoCards(){
   if(S.promo===0)S.promo=6;
   const t6=calcLines(6).total,t12=calcLines(12).total;const iNet=S.netPrice.toFixed(2);const iNet6=extra?(S.netPrice-10).toFixed(2):iNet;
   const p6d=extra?`Internet <strong>${iNet}€</strong> → <strong style="color:var(--green)">${iNet6}€/mois</strong><br><span style="font-size:.7rem;color:var(--muted)">−10€/mois pendant 6 mois</span>`:`Internet à <strong style="color:var(--blue2)">${iNet}€/mois</strong>`;
-  bar.innerHTML=`<div class="pc${S.promo===6?' on':''}" id="pc6"><div class="pc-chk">✓</div><div class="pc-dur">Promo 6 mois</div><span class="pc-pill green">🎁 Meilleur prix immédiat</span><div class="pc-price">${p6d}</div><div class="pc-total">Total estimé : <strong>${t6.toFixed(2)}€/mois</strong></div><div class="pc-engage"><span class="pc-engage-txt">✅ ${tr('tb4')}</span></div><div class="pc-renew">🔄 <strong>Promo renouvelable après 6 mois</strong> — votre consultant vous recontacte à l'issue de la période si vous êtes satisfait(e). Aucun engagement.</div></div><div class="pc${S.promo===12?' on':''}" id="pc12"><div class="pc-chk">✓</div><div class="pc-dur">Promo 12 mois</div><span class="pc-pill gold">📅 Stabilité sur 1 an</span><div class="pc-price">Internet à <strong style="color:var(--blue2)">${iNet}€/mois</strong><br><span style="font-size:.7rem;color:var(--muted)">Tarif garanti 12 mois</span></div><div class="pc-total">Total estimé : <strong>${t12.toFixed(2)}€/mois</strong></div><div class="pc-engage"><span class="pc-engage-txt">✅ ${tr('tb4')}</span></div><div class="pc-renew">🔄 <strong>Promo renouvelable après 12 mois</strong> — votre consultant vous recontacte à l'issue de la période si vous êtes satisfait(e). Aucun engagement.</div></div>`;
+  bar.innerHTML=`<div class="pc${S.promo===6?' on':''}" id="pc6"><div class="pc-chk">✓</div><div class="pc-dur">Promo 6 mois</div><span class="pc-pill green">🎁 Meilleur prix immédiat</span><div class="pc-price">${p6d}</div><div class="pc-total">Total estimé : <strong>${t6.toFixed(2)}€/mois</strong></div><div class="pc-engage"><span class="pc-engage-txt">✅ ${tr('tb4')}</span></div><div class="pc-renew">✅ À la fin des 6 mois, votre consultant vous recontacte pour vous reproposer un contrat. Satisfait ? On continue. Sinon, vous partez librement, sans aucun frais.</div></div><div class="pc${S.promo===12?' on':''}" id="pc12"><div class="pc-chk">✓</div><div class="pc-dur">Promo 12 mois</div><span class="pc-pill gold">📅 Stabilité sur 1 an</span><div class="pc-price">Internet à <strong style="color:var(--blue2)">${iNet}€/mois</strong><br><span style="font-size:.7rem;color:var(--muted)">Tarif garanti 12 mois</span></div><div class="pc-total">Total estimé : <strong>${t12.toFixed(2)}€/mois</strong></div><div class="pc-engage"><span class="pc-engage-txt">✅ ${tr('tb4')}</span></div><div class="pc-renew">✅ À la fin des 12 mois, votre consultant vous recontacte pour vous reproposer un contrat. Satisfait ? On continue. Sinon, vous partez librement, sans aucun frais.</div></div>`;
   document.getElementById('pc6').addEventListener('click',()=>{S.promo=6;buildPromoCards();});
   document.getElementById('pc12').addEventListener('click',()=>{S.promo=12;buildPromoCards();});
   updateRecap();
 }
- 
+
 function showStep(n){
   S.currentStep=n;buildStepper();
   for(let i=1;i<=5;i++){const el=document.getElementById('step'+i);if(!el)continue;if(i<=n)el.classList.add('visible');else el.classList.remove('visible');}
   const tgt=document.getElementById('step'+n);if(tgt)setTimeout(()=>tgt.scrollIntoView({behavior:'smooth',block:'start'}),80);
   if(n===4)buildPromoCards();
 }
- 
+
 function collectFormData(){
   const{lines,total}=calcLines(S.promo);
   const recap=lines.length?lines.map(l=>l.l.replace(/<[^>]+>/g,'')+': '+(l.p===0?'Gratuit 1 an':l.p.toFixed(2)+'€/mois')).join(' | ')+' | TOTAL: '+total.toFixed(2)+'€/mois':'Aucune offre';
@@ -1053,7 +1117,6 @@ function collectFormData(){
     Telephone:gv('f_tel'),email:gv('f_email'),Numero_TVA:gv('f_tva')||'N/A',Message:gv('f_msg')||'',
     Profil:S.profile==='pro'?'Professionnel':'Particulier',Langue:lang.toUpperCase(),
     Operateur_fixe:(S.operateur||'N/A')+(S.operateurAutre?' — '+S.operateurAutre:''),
-    Operateur_mobile:(S.operateurMobile||'N/A')+(S.operateurMobileAutre?' — '+S.operateurMobileAutre:''),
     Services:Object.keys(S.hasServices).filter(k=>S.hasServices[k]).join(', ')||'Aucun',
     Engagement:S.engagement||'N/A',Budget:S.budgetActuel?S.budgetActuel+'€/mois':'N/A',
     Internet:S.netName||'Aucun',Options:Object.values(S.opts).map(o=>o.label).join(', ')||'Aucune',
@@ -1061,7 +1124,7 @@ function collectFormData(){
     Nouvelles_SIM:sims,Promotion:S.promo?S.promo+' mois':'Sans internet',Recapitulatif:recap
   };
 }
- 
+
 function validateForm(){
   let ok=true;
   ['f_prenom','f_nom','f_adresse','f_cp','f_ville','f_tel','f_email'].forEach(id=>{
@@ -1072,33 +1135,33 @@ function validateForm(){
   if(em&&em.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim())){em.style.borderColor='var(--red)';ok=false;}
   return ok;
 }
- 
+
 async function submitToFormspree(payload){
   const fd=new FormData();
   Object.keys(payload).forEach(k=>fd.append(k,payload[k]==null?'':String(payload[k])));
   return await fetch(FORMSPREE_URL,{method:'POST',headers:{'Accept':'application/json'},body:fd,mode:'cors'});
 }
- 
+
 /* ── SHARE ── */
 function initShare(){
   const fab=document.getElementById('shareFab');
   const modal=document.getElementById('shareModal');
   const overlay=document.getElementById('shareOverlay');
   const url=window.location.href;
- 
+
   function openShare(){
     if(navigator.share){
       navigator.share({title:'SBC Consulting',text:tr('shareText'),url}).catch(()=>{});
     } else {modal.classList.add('open');overlay.classList.add('open');}
   }
   function closeShare(){modal.classList.remove('open');overlay.classList.remove('open');}
- 
+
   if(fab)fab.addEventListener('click',openShare);
   document.getElementById('heroShareBtn')?.addEventListener('click',openShare);
   document.getElementById('confirmShareBtn')?.addEventListener('click',openShare);
   document.getElementById('shareClose').addEventListener('click',closeShare);
   overlay.addEventListener('click',closeShare);
- 
+
   document.getElementById('shareWA').addEventListener('click',()=>{
     window.open('https://wa.me/?text='+encodeURIComponent(tr('shareText')+url),'_blank');
   });
@@ -1113,16 +1176,46 @@ function initShare(){
     else{const ta=document.createElement('textarea');ta.value=url;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);copy();}
   });
 }
- 
+
 /* ── INIT ── */
+/* ── COMPTEUR ANIMÉ ── */
+let heroAnimated=false;
+function animateHeroStats(){
+  if(heroAnimated)return;heroAnimated=true;
+  ['stat1num','stat3num'].forEach(id=>{
+    const el=document.getElementById(id);if(!el)return;
+    const raw=el.textContent;const m=raw.match(/^(\D*)(\d+)(\D*)$/);
+    if(!m)return;
+    const pre=m[1],target=parseInt(m[2],10),suf=m[3];
+    const dur=1100;const t0=performance.now();
+    function step(now){
+      const p=Math.min(1,(now-t0)/dur);
+      const eased=1-Math.pow(1-p,3);
+      el.textContent=pre+Math.round(target*eased)+suf;
+      if(p<1)requestAnimationFrame(step);else el.textContent=raw;
+    }
+    requestAnimationFrame(step);
+  });
+}
+
+/* ── SAUVEGARDE AUTO (survit au rafraîchissement, une fois hébergé) ── */
+const SAVE_KEY='sbc_save_v1';
+const FIELD_IDS=['f_prenom','f_nom','f_adresse','f_cp','f_ville','f_tel','f_email','f_tva','f_msg'];
+function saveState(){try{const fields={};FIELD_IDS.forEach(id=>{const el=document.getElementById(id);if(el)fields[id]=el.value;});localStorage.setItem(SAVE_KEY,JSON.stringify({S,fields,lang}));}catch(e){}}
+function restoreState(){try{const raw=localStorage.getItem(SAVE_KEY);if(!raw)return;const d=JSON.parse(raw);if(d&&d.S)Object.assign(S,d.S);if(d&&d.lang)lang=d.lang;window.__savedFields=(d&&d.fields)||{};}catch(e){}}
+function applySavedFields(){try{const f=window.__savedFields||{};FIELD_IDS.forEach(id=>{const el=document.getElementById(id);if(el&&f[id])el.value=f[id];});const b=document.getElementById('budgetActuel');if(b&&S.budgetActuel)b.value=S.budgetActuel;const cv=document.getElementById('curMobVal');if(cv)cv.textContent=S.curMobCount||0;const mv=document.getElementById('mobSimVal');if(mv)mv.textContent=S.simCount||0;}catch(e){}}
+function clearSave(){try{localStorage.removeItem(SAVE_KEY);}catch(e){}}
+
 function init(){
-  buildLangBar();renderAll();initShare();
- 
+  restoreState();buildLangBar();renderAll();initShare();applySavedFields();setTimeout(animateHeroStats,250);
+  document.addEventListener('input',saveState);
+  document.addEventListener('click',()=>setTimeout(saveState,60));
+
   document.getElementById('heroBtn').addEventListener('click',()=>{
     const h=document.getElementById('heroScreen');h.style.transition='opacity .3s';h.style.opacity='0';
     setTimeout(()=>{h.style.display='none';document.getElementById('profileScreen').classList.add('show');window.scrollTo({top:0,behavior:'smooth'});},320);
   });
- 
+
   function chooseProfile(p){
     S.profile=p;document.getElementById('profileScreen').classList.remove('show');document.getElementById('appScreen').style.display='block';
     document.getElementById('pbBadge').textContent=p==='pro'?'🏢 '+tr('pmPro'):'👤 '+tr('pmPart');
@@ -1132,7 +1225,7 @@ function init(){
   document.getElementById('btnPart').addEventListener('click',()=>chooseProfile('part'));
   document.getElementById('btnPro').addEventListener('click',()=>chooseProfile('pro'));
   document.getElementById('pbChange').addEventListener('click',()=>{document.getElementById('appScreen').style.display='none';document.getElementById('profileScreen').classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
- 
+
   document.getElementById('btn1next').addEventListener('click',()=>showStep(2));
   document.getElementById('btn2back').addEventListener('click',()=>showStep(1));
   document.getElementById('btn2next').addEventListener('click',()=>showStep(3));
@@ -1140,17 +1233,12 @@ function init(){
   document.getElementById('btn3next').addEventListener('click',()=>showStep(4));
   document.getElementById('btn4back').addEventListener('click',()=>showStep(3));
   document.getElementById('btn4next').addEventListener('click',()=>showStep(5));
- 
+
   document.getElementById('sOp').addEventListener('focus',()=>openDD('dOp','operateur'));
   document.getElementById('sOp').addEventListener('blur',()=>setTimeout(()=>document.getElementById('dOp').classList.remove('open'),180));
   document.getElementById('sOp').addEventListener('input',()=>filterDD('sOp','dOp','operateur'));
   document.getElementById('clrOp').addEventListener('click',()=>clearOp('operateur'));
-  document.getElementById('sMob').addEventListener('focus',()=>openDD('dMob','operateurMobile'));
-  document.getElementById('sMob').addEventListener('blur',()=>setTimeout(()=>document.getElementById('dMob').classList.remove('open'),180));
-  document.getElementById('sMob').addEventListener('input',()=>filterDD('sMob','dMob','operateurMobile'));
-  document.getElementById('clrMob').addEventListener('click',()=>clearOp('operateurMobile'));
   document.getElementById('autreOp').addEventListener('input',e=>S.operateurAutre=e.target.value);
-  document.getElementById('autreMob').addEventListener('input',e=>S.operateurMobileAutre=e.target.value);
   document.getElementById('budgetActuel').addEventListener('input',e=>{S.budgetActuel=parseFloat(e.target.value)||0;});
   document.getElementById('budgetWrap').addEventListener('focusin',()=>document.getElementById('budgetWrap').style.borderColor='var(--blue)');
   document.getElementById('budgetWrap').addEventListener('focusout',()=>document.getElementById('budgetWrap').style.borderColor='var(--border2)');
@@ -1159,25 +1247,24 @@ function init(){
   document.getElementById('simMinus').addEventListener('click',()=>changeMob(-1));
   document.getElementById('simPlus').addEventListener('click',()=>changeMob(1));
   ['f_prenom','f_nom','f_adresse','f_cp','f_ville','f_tel','f_email'].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener('focus',()=>el.style.borderColor='');});
- 
+
   const sendBtn=document.getElementById('sendBtn');const formError=document.getElementById('formError');
   function showErr(t,m){formError.style.display='block';document.getElementById('formErrorTitle').textContent=t;document.getElementById('formErrorText').textContent=m;document.getElementById('step5').scrollIntoView({behavior:'smooth',block:'nearest'});}
   function resetBtn(){sendBtn.disabled=false;sendBtn.innerHTML=tr('sendBtn');}
- 
+
   sendBtn.addEventListener('click',async function(){
     if(!validateForm()){showErr('Champs obligatoires manquants.','Les champs en rouge sont requis.');return;}
     sendBtn.disabled=true;sendBtn.innerHTML='<span style="display:inline-block;animation:spin .8s linear infinite">⏳</span>&nbsp;&nbsp;Envoi en cours…';formError.style.display='none';
     try{
       const res=await submitToFormspree(collectFormData());
-      if(res.ok){document.getElementById('appScreen').style.display='none';document.getElementById('confirmScreen').style.display='flex';window.scrollTo({top:0,behavior:'smooth'});}
+      if(res.ok){clearSave();document.getElementById('appScreen').style.display='none';document.getElementById('confirmScreen').style.display='flex';window.scrollTo({top:0,behavior:'smooth'});}
       else{let msg='Erreur ('+res.status+').';try{const j=await res.json();if(j?.errors?.length)msg=j.errors.map(e=>e.message).join(' ');}catch(_){}showErr('Échec de l\'envoi.',msg);resetBtn();}
     }catch(e){console.error('[Formspree]',e);showErr('Connexion impossible.',tr('formErrorText'));resetBtn();}
   });
 }
- 
+
 init();
 })();
 </script>
 </body>
 </html>
- 
